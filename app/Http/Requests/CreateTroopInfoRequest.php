@@ -27,4 +27,9 @@ class CreateTroopInfoRequest extends FormRequest
     {
         return TroopInfo::$rules;
     }
+
+    public function messages()
+    {
+        return TroopInfo::$messages;
+    }
 }
