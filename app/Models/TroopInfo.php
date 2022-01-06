@@ -73,14 +73,22 @@ class TroopInfo extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required',
-        'troop_number' => 'required',
         'person_in_charge_name' => 'required',
         'person_in_charge_position' => 'required',
         'person_in_charge_bsid' => 'required',
         'person_in_charge_phone' => 'required',
         'person_in_charge_cellphone' => 'required',
-        'person_in_charge_email' => 'required'
+        'person_in_charge_email' => 'required|email'
+    ];
+
+    public static $messages = [
+        'person_in_charge_name.required' => '氏名は必須です',
+        'person_in_charge_position.required' => '役務は必須です',
+        'person_in_charge_bsid.required' => '登録番号は必須です',
+        'person_in_charge_phone.required' => '電話番号は必須です',
+        'person_in_charge_cellphone.required' => 'ケータイは必須です',
+        'person_in_charge_email.required' => 'emailは必須です',
+        'person_in_charge_email.email' => '有効なemailの形式で入力して下さい',
     ];
 
     public function user() {

@@ -19,7 +19,7 @@ class CreateTroopInfosTable extends Migration
             $table->foreignId('user_id')->nullable()->constrained();
             $table->string('pref');
             $table->string('district');
-            $table->string('troop_number');
+            $table->string('troop_number')->nullable();
             $table->string('person_in_charge_name');
             $table->string('person_in_charge_position');
             $table->string('person_in_charge_bsid');
