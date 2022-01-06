@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Models;
+
+use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+/**
+ * Class TroopInfo
+ * @package App\Models
+ * @version January 5, 2022, 10:37 pm JST
+ *
+ * @property string $user_id
+ * @property string $pref
+ * @property string $district
+ * @property string $troop_number
+ * @property string $person_in_charge_name
+ * @property string $person_in_charge_position
+ * @property string $person_in_charge_bsid
+ * @property string $person_in_charge_phone
+ * @property string $person_in_charge_cellphone
+ * @property string $person_in_charge_email
+ */
+class TroopInfo extends Model
+{
+    use SoftDeletes;
+
+    use HasFactory;
+
+    public $table = 'troop_infos';
+
+
+    protected $dates = ['deleted_at'];
+
+
+
+    public $fillable = [
+        'user_id',
+        'pref',
+        'district',
+        'troop_number',
+        'person_in_charge_name',
+        'person_in_charge_position',
+        'person_in_charge_bsid',
+        'person_in_charge_phone',
+        'person_in_charge_cellphone',
+        'person_in_charge_email'
+    ];
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'user_id' => 'string',
+        'pref' => 'string',
+        'district' => 'string',
+        'troop_number' => 'string',
+        'person_in_charge_name' => 'string',
+        'person_in_charge_position' => 'string',
+        'person_in_charge_bsid' => 'string',
+        'person_in_charge_phone' => 'string',
+        'person_in_charge_cellphone' => 'string',
+        'person_in_charge_email' => 'string'
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'user_id' => 'required',
+        'troop_number' => 'required',
+        'person_in_charge_name' => 'required',
+        'person_in_charge_position' => 'required',
+        'person_in_charge_bsid' => 'required',
+        'person_in_charge_phone' => 'required',
+        'person_in_charge_cellphone' => 'required',
+        'person_in_charge_email' => 'required'
+    ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+
+}
