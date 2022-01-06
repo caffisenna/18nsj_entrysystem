@@ -49,6 +49,9 @@ class TroopInfoController extends AppBaseController
     {
         $input = $request->all();
 
+        // relation用にuser_idを認証idから取得
+        $input['user_id'] = auth()->id();
+
         /** @var TroopInfo $troopInfo */
         $troopInfo = TroopInfo::create($input);
 
