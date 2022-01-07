@@ -22,10 +22,11 @@ class TroopInfoController extends AppBaseController
     public function index(Request $request)
     {
         /** @var TroopInfo $troopInfos */
-        $troopInfos = TroopInfo::all();
+        // $troopInfos = TroopInfo::all();
+        $troopInfo = TroopInfo::where('id', Auth()->id())->first();
 
         return view('troop_infos.index')
-            ->with('troopInfos', $troopInfos);
+            ->with('troopInfo', $troopInfo);
     }
 
     /**
@@ -48,6 +49,9 @@ class TroopInfoController extends AppBaseController
     public function store(CreateTroopInfoRequest $request)
     {
         $input = $request->all();
+
+        // relation用にuser_idを認証idから取得
+        $input['user_id'] = auth()->id();
 
         /** @var TroopInfo $troopInfo */
         $troopInfo = TroopInfo::create($input);

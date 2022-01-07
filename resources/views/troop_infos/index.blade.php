@@ -8,8 +8,8 @@
                     <h1>隊基本情報</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right" href="{{ route('troopInfos.create') }}">
-                        新規入力
+                    <a href="{{ route('troopInfos.edit', [$troopInfo->id]) }}" class='btn btn-primary float-right'>
+                        <i class="far fa-edit"></i>編集
                     </a>
                 </div>
             </div>
@@ -24,11 +24,6 @@
             <div class="card-body p-0">
                 @include('troop_infos.table')
 
-                <div class="card-footer clearfix float-right">
-                    <div class="float-right">
-
-                    </div>
-                </div>
             </div>
 
         </div>
