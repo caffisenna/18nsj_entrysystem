@@ -22,10 +22,11 @@ class TroopInfoController extends AppBaseController
     public function index(Request $request)
     {
         /** @var TroopInfo $troopInfos */
-        $troopInfos = TroopInfo::all();
+        // $troopInfos = TroopInfo::all();
+        $troopInfo = TroopInfo::where('id', Auth()->id())->first();
 
         return view('troop_infos.index')
-            ->with('troopInfos', $troopInfos);
+            ->with('troopInfo', $troopInfo);
     }
 
     /**
