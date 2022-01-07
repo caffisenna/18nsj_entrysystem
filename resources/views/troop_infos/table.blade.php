@@ -44,28 +44,32 @@
     <h3>班情報</h3>
     <table class="table" id="troopInfos-table">
         <tr>
-            <th>1班目</th>
-            <td>{{ $troopInfo->patrol1 }} 班</td>
+            <th>班ID</th>
+            <th>班名</th>
         </tr>
         <tr>
-            <th>2班目</th>
-            <td>{{ $troopInfo->patrol2 }} 班</td>
+            <td>1</td>
+            <td>{{ $troopInfo->patrol1 }}班</td>
         </tr>
         <tr>
-            <th>3班目</th>
-            <td>{{ $troopInfo->patrol3 }} 班</td>
+            <td>2</td>
+            <td>{{ $troopInfo->patrol2 }}班</td>
         </tr>
         <tr>
-            <th>4班目</th>
-            <td>{{ $troopInfo->patrol4 }} 班</td>
+            <td>3</td>
+            <td>{{ $troopInfo->patrol3 }}班</td>
         </tr>
         <tr>
-            <th>5班目</th>
-            <td>{{ $troopInfo->patrol5 }} 班</td>
+            <td>4</td>
+            <td>{{ $troopInfo->patrol4 }}班</td>
         </tr>
         <tr>
-            <th>6班目</th>
-            <td>{{ $troopInfo->patrol6 }} 班</td>
+            <td>5</td>
+            <td>{{ $troopInfo->patrol5 }}班</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>{{ $troopInfo->patrol6 }}班</td>
         </tr>
     </table>
 
