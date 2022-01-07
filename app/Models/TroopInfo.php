@@ -78,7 +78,7 @@ class TroopInfo extends Model
         'person_in_charge_bsid' => 'required',
         'person_in_charge_phone' => 'required',
         'person_in_charge_cellphone' => 'required',
-        'person_in_charge_email' => 'required|email'
+        'person_in_charge_email' => 'required|email:strict'
     ];
 
     public static $messages = [
