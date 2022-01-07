@@ -5,15 +5,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit Troop Info</h1>
+                    <h1>隊基本情報 編集</h1>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="content px-3">
-
-        @include('adminlte-templates::common.errors')
 
         <div class="card">
 
@@ -26,11 +24,11 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('troopInfos.index') }}" class="btn btn-default">Cancel</a>
+                {!! Form::submit('保存', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('troopInfos.index') }}" class="btn btn-default">キャンセル</a>
             </div>
 
-           {!! Form::close() !!}
+            {!! Form::close() !!}
 
         </div>
     </div>
