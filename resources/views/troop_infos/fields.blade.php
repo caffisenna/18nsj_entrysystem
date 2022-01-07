@@ -79,3 +79,57 @@
     </div>
 
 </div>
+
+<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    <h3 class="uk-card-title">班情報</h3>
+    <p class="uk-text-warning">"班"は不要です。 例: "コブラ班" => "コブラ"と入力</p>
+    <!-- 班情報 Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('patrol1', '1班目:') !!}
+        {!! Form::text('patrol1', null, ['class' => 'form-control']) !!}
+        @error('patrol1')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="form-group col-sm-6">
+        {!! Form::label('patrol2', '2班目:') !!}
+        {!! Form::text('patrol2', null, ['class' => 'form-control']) !!}
+        @error('patrol2')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="form-group col-sm-6">
+        {!! Form::label('patrol3', '3班目:') !!}
+        {!! Form::text('patrol3', null, ['class' => 'form-control']) !!}
+        @error('patrol3')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="form-group col-sm-6">
+        {!! Form::label('patrol4', '4班目:') !!}
+        {!! Form::text('patrol4', null, ['class' => 'form-control']) !!}
+        @error('patrol4')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="form-group col-sm-6">
+        {!! Form::label('patrol5', '5班目:') !!}
+        {!! Form::text('patrol5', null, ['class' => 'form-control']) !!}
+        @error('patrol5')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="form-group col-sm-6">
+        {!! Form::label('patrol6', '6班目:') !!}
+        {!! Form::text('patrol6', null, ['class' => 'form-control']) !!}
+        @error('patrol6')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+</div>
