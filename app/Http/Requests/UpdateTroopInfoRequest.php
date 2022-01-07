@@ -26,7 +26,12 @@ class UpdateTroopInfoRequest extends FormRequest
     public function rules()
     {
         $rules = TroopInfo::$rules;
-        
+
         return $rules;
+    }
+
+    public function messages()
+    {
+        return TroopInfo::$messages;
     }
 }
