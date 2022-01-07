@@ -125,7 +125,7 @@ class TroopInfoController extends AppBaseController
         $troopInfo->fill($request->all());
         $troopInfo->save();
 
-        Flash::success('Troop Info updated successfully.');
+        Flash::success('更新しました');
 
         return redirect(route('troopInfos.index'));
     }
