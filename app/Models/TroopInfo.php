@@ -45,7 +45,13 @@ class TroopInfo extends Model
         'person_in_charge_bsid',
         'person_in_charge_phone',
         'person_in_charge_cellphone',
-        'person_in_charge_email'
+        'person_in_charge_email',
+        'patrol1',
+        'patrol2',
+        'patrol3',
+        'patrol4',
+        'patrol5',
+        'patrol6'
     ];
 
     /**
@@ -64,7 +70,13 @@ class TroopInfo extends Model
         'person_in_charge_bsid' => 'string',
         'person_in_charge_phone' => 'string',
         'person_in_charge_cellphone' => 'string',
-        'person_in_charge_email' => 'string'
+        'person_in_charge_email' => 'string',
+        'patrol1' => 'string',
+        'patrol2' => 'string',
+        'patrol3' => 'string',
+        'patrol4' => 'string',
+        'patrol5' => 'string',
+        'patrol6' => 'string'
     ];
 
     /**

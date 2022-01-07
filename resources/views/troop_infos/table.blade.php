@@ -39,9 +39,35 @@
                     href="mailto:{{ $troopInfo->person_in_charge_email }}">{{ $troopInfo->person_in_charge_email }}</a>
             </td>
         </tr>
-
     </table>
 
+    <h3>班情報</h3>
+    <table class="table" id="troopInfos-table">
+        <tr>
+            <th>1班目</th>
+            <td>{{ $troopInfo->patrol1 }} 班</td>
+        </tr>
+        <tr>
+            <th>2班目</th>
+            <td>{{ $troopInfo->patrol2 }} 班</td>
+        </tr>
+        <tr>
+            <th>3班目</th>
+            <td>{{ $troopInfo->patrol3 }} 班</td>
+        </tr>
+        <tr>
+            <th>4班目</th>
+            <td>{{ $troopInfo->patrol4 }} 班</td>
+        </tr>
+        <tr>
+            <th>5班目</th>
+            <td>{{ $troopInfo->patrol5 }} 班</td>
+        </tr>
+        <tr>
+            <th>6班目</th>
+            <td>{{ $troopInfo->patrol6 }} 班</td>
+        </tr>
+    </table>
 
 
 
