@@ -1,25 +1,25 @@
 <!-- User Id Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('user_id', 'User Id:') !!}
     {!! Form::text('user_id', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Role Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('role', 'Role:') !!}
-    {!! Form::text('role', null, ['class' => 'form-control']) !!}
+    {!! Form::label('role', '参加隊役務:') !!}
+    {!! Form::select('role', ['' => '', '隊長' => '隊長', '副長' => '副長', '副長補' => '副長補', 'インストラクター' => 'インストラクター', '介助者' => '介助者', '上班' => '上班', '隊付き' => '隊付き', 'スカウト' => 'スカウト'], null, ['class' => 'form-control custom-select']) !!}
 </div>
 
 <!-- Patrol Code Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('patrol_code', 'Patrol Code:') !!}
+    {!! Form::label('patrol_code', '班コード:') !!}
     {!! Form::text('patrol_code', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Patrol Role Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('patrol_role', 'Patrol Role:') !!}
-    {!! Form::text('patrol_role', null, ['class' => 'form-control']) !!}
+    {!! Form::label('patrol_role', '班役務:') !!}
+    {!! Form::select('patrol_role', ['' => '', '班長' => '班長', '次長' => '次長', '班員' => '班員', '上班' => '上班', '隊付き' => '隊付き', '指導者' => '指導者'], null, ['class' => 'form-control custom-select']) !!}
 </div>
 
 <!-- Bs Id Field -->
@@ -30,44 +30,32 @@
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', '氏名:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Furigana Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('furigana', 'Furigana:') !!}
+    {!! Form::label('furigana', 'ふりがな:') !!}
     {!! Form::text('furigana', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Grade Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('grade', 'Grade:') !!}
-    {!! Form::text('grade', null, ['class' => 'form-control']) !!}
+    {!! Form::label('grade', '進級:') !!}
+    {!! Form::select('grade', ['' => '', '初級' => '初級', '2級' => '2級', '1級' => '1級', '菊' => '菊', '隼' => '隼', '富士' => '富士'], null, ['class' => 'form-control custom-select']) !!}
 </div>
 
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('gender', 'Gender:') !!}
-    {!! Form::text('gender', null, ['class' => 'form-control']) !!}
+    {!! Form::label('gender', '性別:') !!}
+    {!! Form::select('gender', ['' => '', '男' => '男', '女' => '女'], null, ['class' => 'form-control custom-select']) !!}
 </div>
 
 <!-- Birthday Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('birthday', 'Birthday:') !!}
+    {!! Form::label('birthday', '生年月日:') !!}
     {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Religion Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('religion', 'Religion:') !!}
-    {!! Form::text('religion', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Religion Sect Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('religion_sect', 'Religion Sect:') !!}
-    {!! Form::text('religion_sect', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Email Field -->
@@ -78,66 +66,66 @@
 
 <!-- Phone Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('phone', 'Phone:') !!}
+    {!! Form::label('phone', '自宅電話:') !!}
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Cell Phone Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('cell_phone', 'Cell Phone:') !!}
+    {!! Form::label('cell_phone', 'ケータイ電話:') !!}
     {!! Form::text('cell_phone', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Org Dan Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('org_dan_name', 'Org Dan Name:') !!}
-    {!! Form::text('org_dan_name', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Org Dan Number Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('org_dan_number', 'Org Dan Number:') !!}
-    {!! Form::text('org_dan_number', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Org Group Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('org_group', 'Org Group:') !!}
-    {!! Form::text('org_group', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Org Patrol Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('org_patrol', 'Org Patrol:') !!}
-    {!! Form::text('org_patrol', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Org Role Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('org_role', 'Org Role:') !!}
-    {!! Form::text('org_role', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Training Record Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('training_record', 'Training Record:') !!}
-    {!! Form::text('training_record', null, ['class' => 'form-control']) !!}
+    {!! Form::label('training_record', '研修歴:') !!}
+    {!! Form::select('training_record', ['' => '', 'BS講習会' => 'BS講習会', 'BVS研修所' => 'BVS研修所', 'BVS実修所' => 'BVS実修所', 'CS研修所' => 'CS研修所', 'CS実修所' => 'CS実修所', 'BS研修所' => 'BS研修所', 'BS実修所' => 'BS実修所', 'VS研修所' => 'VS研修所', 'VS実修所' => 'VS実修所', 'RS研修所' => 'RS研修所', '団研修所' => '団研修所', '団実修所' => '団実修所', '他' => '他'], null, ['class' => 'form-control custom-select']) !!}
 </div>
 
-<!-- Uuid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('uuid', 'Uuid:') !!}
-    {!! Form::text('uuid', null, ['class' => 'form-control']) !!}
+<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    <h3 class="uk-card-title">宗教</h3>
+    <!-- Religion Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('religion', '宗教:') !!}
+        {!! Form::select('religion', ['' => '', '神道' => '神道', '仏教' => '仏教', 'キリスト教' => 'キリスト教', '金光教' => '金光教', '世界救世教' => '世界救世教', '天理教' => '天理教', 'その他' => 'その他'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
+
+    <!-- Religion Sect Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('religion_sect', '宗派:') !!}
+        {!! Form::text('religion_sect', null, ['class' => 'form-control']) !!}
+    </div>
 </div>
 
-<!-- Sfh Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('sfh', 'Sfh:') !!}
-    {!! Form::text('sfh', null, ['class' => 'form-control']) !!}
-</div>
+<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    <h3 class="uk-card-title">所属団情報</h3>
+    <!-- Org Dan Name Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('org_dan_name', '団名:') !!}
+        {!! Form::text('org_dan_name', null, ['class' => 'form-control']) !!}
+    </div>
 
-<!-- Health Check Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('health_check', 'Health Check:') !!}
-    {!! Form::text('health_check', null, ['class' => 'form-control']) !!}
+    <!-- Org Dan Number Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('org_dan_number', '団番号:') !!}
+        {!! Form::text('org_dan_number', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <!-- Org Group Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('org_group', '隊:') !!}
+        {!! Form::select('org_group', ['' => '', 'ビーバー' => 'ビーバー', 'カブ' => 'カブ', 'ボーイ' => 'ボーイ', 'ベンチャー' => 'ベンチャー', 'ローバー' => 'ローバー', '団' => '団'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
+
+    <!-- Org Patrol Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('org_patrol', '班:') !!}
+        {!! Form::text('org_patrol', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <!-- Org Role Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('org_role', '役務:') !!}
+        {!! Form::select('org_role', ['' => '', '隊長' => '隊長', '副長' => '副長', '副長補' => '副長補', 'インストラクター' => 'インストラクター', '補助者' => '補助者', '団委員長' => '団委員長', '副団委員長' => '副団委員長', '団委員' => '団委員', 'スカウト' => 'スカウト', 'その他' => 'その他'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
 </div>
