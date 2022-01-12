@@ -10,7 +10,7 @@
             <td>{{ $member->gender }}</td>
         </tr>
         <tr>
-            <td>役務</td>
+            <td>参加隊役務</td>
             <td>{{ $member->role }}</td>
         </tr>
         @if ($member->grade)
@@ -66,7 +66,7 @@
     <table class="table uk-table-striped uk-table-hover uk-table-small" id="troopInfos-table">
         <tr>
             <td>所属</td>
-            <td>{{ $member->org_dan_name }} {{ $member->org_dan_number }}団 {{ $member->org_group }}隊</td>
+            <td>{{ $member->org_dan_name }}{{ $member->org_dan_number }}団 {{ $member->org_group }}隊</td>
         </tr>
         <tr>
             <td>役務</td>
