@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('user')->group(function () {
         // Route::get('/', 'User\HomeController@index');
         Route::resource('troopInfos', App\Http\Controllers\TroopInfoController::class);
+        Route::resource('members', App\Http\Controllers\MemberController::class);
         // Route::resource('planUploads', App\Http\Controllers\planUploadController::class, ['except' => ['edit', 'show', 'update']]);
         // Route::resource('temps', App\Http\Controllers\tempsController::class);
         // Route::get('/status_update', [
