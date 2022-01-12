@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" id="troopInfos-table">
+    <table class="table uk-table-striped uk-table-hover uk-table-small" id="troopInfos-table">
         <tr>
             <th>User Id</th>
             <td>{{ $troopInfo->user_id }}</td>
@@ -13,10 +13,12 @@
             <td>@if (isset($troopInfo->troop_number)){{ $troopInfo->troop_number }}@else 未定 @endif</td>
         </tr>
     </table>
+</div>
 
 
-    <h3>地区責任者情報</h3>
-    <table class="table" id="troopInfos-table">
+<h3>地区責任者情報</h3>
+<div class="table-responsive">
+    <table class="table uk-table-striped uk-table-hover uk-table-small" id="troopInfos-table">
         <tr>
             <th>氏名</th>
             <td>{{ $troopInfo->person_in_charge_name }} ({{ $troopInfo->person_in_charge_position }})</td>
@@ -40,9 +42,11 @@
             </td>
         </tr>
     </table>
+</div>
 
-    <h3>班情報</h3>
-    <table class="table" id="troopInfos-table">
+<h3>班情報</h3>
+<div class="table-responsive">
+    <table class="table uk-table-striped uk-table-hover uk-table-small" id="troopInfos-table">
         <tr>
             <th>班ID</th>
             <th>班名</th>
