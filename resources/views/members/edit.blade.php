@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit Member</h1>
+                    <h1>メンバー編集</h1>
                 </div>
             </div>
         </div>
@@ -26,8 +26,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('members.index') }}" class="btn btn-default">Cancel</a>
+                {!! Form::submit('保存', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('members.index') }}" class="btn btn-default">キャンセル</a>
             </div>
 
             {!! Form::close() !!}
