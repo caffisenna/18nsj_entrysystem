@@ -22,7 +22,8 @@ class MemberController extends AppBaseController
     public function index(Request $request)
     {
         /** @var Member $members */
-        $members = Member::all();
+        // $members = Member::all();
+        $members = Member::where('user_id', auth()->id())->get();
 
         return view('members.index')
             ->with('members', $members);
