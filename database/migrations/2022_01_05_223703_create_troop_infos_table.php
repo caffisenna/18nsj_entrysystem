@@ -31,7 +31,7 @@ class CreateTroopInfosTable extends Migration
             $table->string('patrol3')->nullable();
             $table->string('patrol4')->nullable();
             $table->string('patrol5')->nullable();
-            $table->string('patrol6')->nullable();
+            $table->string('patrol6');
             $table->timestamps();
             $table->softDeletes();
         });
