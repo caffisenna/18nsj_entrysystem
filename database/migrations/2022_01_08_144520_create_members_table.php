@@ -19,11 +19,11 @@ class CreateMembersTable extends Migration
             $table->foreignId('user_id')->nullable()->constrained();
             $table->string('role');
             $table->integer('patrol_code')->nullable();
-            $table->string('patrol_role');
+            $table->string('patrol_role')->nullable();
             $table->string('bs_id');
             $table->string('name');
             $table->string('furigana');
-            $table->string('grade');
+            $table->string('grade')->nullable();
             $table->string('gender');
             $table->date('birthday');
             $table->string('religion');
@@ -34,8 +34,8 @@ class CreateMembersTable extends Migration
             $table->string('org_dan_name');
             $table->integer('org_dan_number');
             $table->string('org_group');
-            $table->string('org_patrol');
-            $table->string('org_role');
+            $table->string('org_patrol')->nullable();
+            $table->string('org_role')->nullable();
             $table->string('training_record')->nullable();
             $table->string('uuid')->nullable();
             $table->string('sfh')->nullable();

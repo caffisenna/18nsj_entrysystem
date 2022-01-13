@@ -1,3 +1,4 @@
+{{-- {{ dd($members) }} --}}
 <h3>隊指導者</h3>
 <div class="table-responsive">
     <table class="table uk-table uk-table-striped uk-table-hover uk-table-small" id="members-table">
@@ -33,7 +34,7 @@
                                 <a href="{{ route('members.edit', [$member->id]) }}" class='btn btn-default btn-xs'>
                                     <i class="far fa-edit"></i>
                                 </a>
-                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                             </div>
                             {!! Form::close() !!}
                         </td>
@@ -116,7 +117,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $member->patrol_code }}</td>
-                        <td>@if($member->patrol_role <> "班員"){{ $member->patrol_role }}@endif</td>
+                        <td>@if ($member->patrol_role != '班員'){{ $member->patrol_role }}@endif</td>
                         <td><a href="{{ route('members.show', [$member->id]) }}">{{ $member->name }}</a></td>
                         <td>{{ $member->grade }}</td>
                         <td>{{ $member->gender }}</td>

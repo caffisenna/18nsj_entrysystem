@@ -26,6 +26,32 @@ class MemberController extends AppBaseController
         // $members = Member::all();
         $members = Member::where('user_id', auth()->id())->get();
 
+        // 班名処理
+        foreach ($members as $member) {
+            if (isset($member->patrol_code)) {
+                switch ($member->patrol_code) {
+                    case '1':
+                        $member->patrol_code = TroopInfo::where('id', auth()->id())->value('patrol1');
+                        break;
+                    case '2':
+                        $member->patrol_code = TroopInfo::where('id', auth()->id())->value('patrol2');
+                        break;
+                    case '3':
+                        $member->patrol_code = TroopInfo::where('id', auth()->id())->value('patrol3');
+                        break;
+                    case '4':
+                        $member->patrol_code = TroopInfo::where('id', auth()->id())->value('patrol4');
+                        break;
+                    case '5':
+                        $member->patrol_code = TroopInfo::where('id', auth()->id())->value('patrol5');
+                        break;
+                    case '6':
+                        $member->patrol_code = TroopInfo::where('id', auth()->id())->value('patrol6');
+                        break;
+                }
+            }
+        }
+
         return view('members.index')
             ->with('members', $members);
     }
@@ -93,12 +119,12 @@ class MemberController extends AppBaseController
         $member = Member::find($id);
 
         // 班名取得
-        $member->p1 = TroopInfo::where('id',auth()->id())->value('patrol1');
-        $member->p2 = TroopInfo::where('id',auth()->id())->value('patrol2');
-        $member->p3 = TroopInfo::where('id',auth()->id())->value('patrol3');
-        $member->p4 = TroopInfo::where('id',auth()->id())->value('patrol4');
-        $member->p5 = TroopInfo::where('id',auth()->id())->value('patrol5');
-        $member->p6 = TroopInfo::where('id',auth()->id())->value('patrol6');
+        $member->p1 = TroopInfo::where('id', auth()->id())->value('patrol1');
+        $member->p2 = TroopInfo::where('id', auth()->id())->value('patrol2');
+        $member->p3 = TroopInfo::where('id', auth()->id())->value('patrol3');
+        $member->p4 = TroopInfo::where('id', auth()->id())->value('patrol4');
+        $member->p5 = TroopInfo::where('id', auth()->id())->value('patrol5');
+        $member->p6 = TroopInfo::where('id', auth()->id())->value('patrol6');
 
 
         if (empty($member)) {

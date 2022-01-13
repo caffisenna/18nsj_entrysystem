@@ -85,7 +85,7 @@ class Member extends Model
         'id' => 'integer',
         'user_id' => 'string',
         'role' => 'string',
-        'patrol_code' => 'integer',
+        'patrol_code' => 'string',
         'patrol_role' => 'string',
         'bs_id' => 'string',
         'name' => 'string',
