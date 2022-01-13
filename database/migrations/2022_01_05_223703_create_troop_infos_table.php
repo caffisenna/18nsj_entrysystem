@@ -23,9 +23,9 @@ class CreateTroopInfosTable extends Migration
             $table->string('person_in_charge_name');
             $table->string('person_in_charge_position');
             $table->string('person_in_charge_bsid');
-            $table->string('person_in_charge_phone');
-            $table->string('person_in_charge_cellphone');
-            $table->string('person_in_charge_email');
+            $table->string('person_in_charge_phone')->nullable();
+            $table->string('person_in_charge_cellphone')->nullable();
+            $table->string('person_in_charge_email')->nullable();
             $table->string('patrol1')->nullable();
             $table->string('patrol2')->nullable();
             $table->string('patrol3')->nullable();
