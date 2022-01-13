@@ -12,9 +12,6 @@
     </section>
 
     <div class="content px-3">
-
-        @include('adminlte-templates::common.errors')
-
         <div class="card">
 
             {!! Form::model($member, ['route' => ['members.update', $member->id], 'method' => 'patch']) !!}

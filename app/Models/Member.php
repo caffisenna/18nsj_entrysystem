@@ -115,7 +115,6 @@ class Member extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required',
         'role' => 'required',
         'bs_id' => 'required',
         'name' => 'required',
@@ -128,8 +127,21 @@ class Member extends Model
         'org_role' => 'required'
     ];
 
-    public function user() {
+    public static $messages = [
+        'role.required' => '役務は必須です',
+        'bs_id.required' => '登録番号は必須です',
+        'name.required' => '氏名は必須です',
+        'furigana.required' => 'ふりがなは必須です',
+        'gender.required' => '性別は必須です',
+        'birthday.required' => '生年月日は必須です',
+        'org_dan_name.required' => '所属団名は必須です',
+        'org_dan_number.required' => '所属団番号は必須です',
+        'org_group.required' => '所属隊は必須です',
+        'org_role.required' => '所属隊役務は必須です',
+    ];
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-
 }

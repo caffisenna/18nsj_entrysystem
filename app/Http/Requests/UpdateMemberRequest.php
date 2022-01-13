@@ -26,7 +26,12 @@ class UpdateMemberRequest extends FormRequest
     public function rules()
     {
         $rules = Member::$rules;
-        
+
         return $rules;
+    }
+
+    public function messages()
+    {
+        return Member::$messages;
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\CreateMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Member;
+use App\Models\TroopInfo;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -91,6 +92,15 @@ class MemberController extends AppBaseController
         /** @var Member $member */
         $member = Member::find($id);
 
+        // 班名取得
+        $member->p1 = TroopInfo::where('id',auth()->id())->value('patrol1');
+        $member->p2 = TroopInfo::where('id',auth()->id())->value('patrol2');
+        $member->p3 = TroopInfo::where('id',auth()->id())->value('patrol3');
+        $member->p4 = TroopInfo::where('id',auth()->id())->value('patrol4');
+        $member->p5 = TroopInfo::where('id',auth()->id())->value('patrol5');
+        $member->p6 = TroopInfo::where('id',auth()->id())->value('patrol6');
+
+
         if (empty($member)) {
             Flash::error('Member not found');
 
@@ -122,7 +132,7 @@ class MemberController extends AppBaseController
         $member->fill($request->all());
         $member->save();
 
-        Flash::success('Member updated successfully.');
+        Flash::success("$request->name の情報を更新しました");
 
         return redirect(route('members.index'));
     }

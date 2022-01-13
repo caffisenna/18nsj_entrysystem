@@ -36,7 +36,7 @@ class CreateMembersTable extends Migration
             $table->string('org_group');
             $table->string('org_patrol');
             $table->string('org_role');
-            $table->string('training_record');
+            $table->string('training_record')->nullable();
             $table->string('uuid')->nullable();
             $table->string('sfh')->nullable();
             $table->string('health_check')->nullable();

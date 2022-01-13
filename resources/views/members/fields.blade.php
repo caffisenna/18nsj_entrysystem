@@ -13,7 +13,17 @@
 <!-- Patrol Code Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('patrol_code', '班コード:') !!}
-    {!! Form::text('patrol_code', null, ['class' => 'form-control']) !!}
+    {{-- {!! Form::text('patrol_code', null, ['class' => 'form-control']) !!} --}}
+    <select name="patrol_code" id="" class="form-control">
+        <option value=""></option>
+        <option value=1 @if ($member->patrol_code == 1) selected @endif> {{ $member->p1 }} </option>
+        <option value=2 @if ($member->patrol_code == 2) selected @endif> {{ $member->p2 }} </option>
+        <option value=3 @if ($member->patrol_code == 3) selected @endif> {{ $member->p3 }} </option>
+        <option value=4 @if ($member->patrol_code == 4) selected @endif> {{ $member->p4 }} </option>
+        <option value=5 @if ($member->patrol_code == 5) selected @endif> {{ $member->p5 }} </option>
+        <option value=6 @if ($member->patrol_code == 6) selected @endif> {{ $member->p6 }} </option>
+    </select>
+
 </div>
 
 <!-- Patrol Role Field -->
@@ -26,6 +36,9 @@
 <div class="form-group col-sm-6">
     {!! Form::label('bs_id', 'Bs Id:') !!}
     {!! Form::text('bs_id', null, ['class' => 'form-control']) !!}
+    @error('bs_id')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
 </div>
 
 <!-- Name Field -->
