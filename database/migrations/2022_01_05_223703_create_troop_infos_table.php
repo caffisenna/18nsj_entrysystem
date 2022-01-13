@@ -26,12 +26,12 @@ class CreateTroopInfosTable extends Migration
             $table->string('person_in_charge_phone');
             $table->string('person_in_charge_cellphone');
             $table->string('person_in_charge_email');
-            $table->string('patrol1');
-            $table->string('patrol2');
-            $table->string('patrol3');
-            $table->string('patrol4');
-            $table->string('patrol5');
-            $table->string('patrol6');
+            $table->string('patrol1')->nullable();
+            $table->string('patrol2')->nullable();
+            $table->string('patrol3')->nullable();
+            $table->string('patrol4')->nullable();
+            $table->string('patrol5')->nullable();
+            $table->string('patrol6')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
