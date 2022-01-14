@@ -24,9 +24,13 @@ class TroopInfoController extends AppBaseController
         /** @var TroopInfo $troopInfos */
         // $troopInfos = TroopInfo::all();
         $troopInfo = TroopInfo::where('id', Auth()->id())->first();
-
-        return view('troop_infos.index')
+        if(!$troopInfo){
+            Flash::warning('隊の基本情報を登録してください');
+            return view('troop_infos.create');
+        }else{
+            return view('troop_infos.index')
             ->with('troopInfo', $troopInfo);
+        }
     }
 
     /**

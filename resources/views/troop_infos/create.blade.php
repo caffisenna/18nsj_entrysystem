@@ -12,7 +12,7 @@
     </section>
 
     <div class="content px-3">
-
+        @include('flash::message')
         <div class="card">
 
             {!! Form::open(['route' => 'troopInfos.store']) !!}
