@@ -52,6 +52,7 @@ class Member extends Model
     public $fillable = [
         'user_id',
         'role',
+        'how_to_join',
         'patrol_code',
         'patrol_role',
         'bs_id',
@@ -85,6 +86,7 @@ class Member extends Model
         'id' => 'integer',
         'user_id' => 'string',
         'role' => 'string',
+        'how_to_join' => 'string',
         'patrol_code' => 'string',
         'patrol_role' => 'string',
         'bs_id' => 'string',

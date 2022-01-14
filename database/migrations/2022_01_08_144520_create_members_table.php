@@ -40,6 +40,7 @@ class CreateMembersTable extends Migration
             $table->string('uuid')->nullable();
             $table->string('sfh')->nullable();
             $table->string('health_check')->nullable();
+            $table->string('how_to_join')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
