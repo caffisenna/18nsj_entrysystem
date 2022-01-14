@@ -5,6 +5,7 @@
         <thead>
             <tr>
                 <th>役務</th>
+                <th>参加形態</th>
                 <th>氏名</th>
                 <th>性別</th>
                 <th>所属団</th>
@@ -20,6 +21,7 @@
                 @if ($member->role == '隊長' || $member->role == '副長')
                     <tr>
                         <td>{{ $member->role }}</td>
+                        <td>{{ $member->how_to_join }}</td>
                         <td><a href="{{ route('members.show', [$member->id]) }}">{{ $member->name }}</a></td>
                         <td>{{ $member->gender }}</td>
                         <td>{{ $member->org_dan_name }}{{ $member->org_dan_number }}団 {{ $member->org_group }}隊

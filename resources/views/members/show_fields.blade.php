@@ -13,6 +13,11 @@
             <td>参加隊役務</td>
             <td>{{ $member->role }}</td>
         </tr>
+        <tr>
+            <td>参加隊形態</td>
+            <td>{{ $member->how_to_join }}</td>
+        </tr>
+
         @if ($member->grade)
             <tr>
                 <td>進級</td>
