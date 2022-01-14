@@ -20,7 +20,7 @@ class CreateTroopInfosTable extends Migration
             $table->string('pref');
             $table->string('district');
             $table->string('troop_number')->nullable();
-            $table->string('person_in_charge_name')->nullable();
+            $table->string('person_in_charge_name');
             $table->string('person_in_charge_position');
             $table->string('person_in_charge_bsid');
             $table->string('person_in_charge_phone')->nullable();
