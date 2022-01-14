@@ -9,6 +9,9 @@
     {!! Form::label('role', '参加隊役務:') !!}
     {!! Form::select('role', ['' => '', '隊長' => '隊長', '副長' => '副長', '副長補' => '副長補', 'インストラクター' => 'インストラクター', '介助者' => '介助者', '上班' => '上班', '隊付き' => '隊付き', 'スカウト' => 'スカウト'], null, ['class' => 'form-control custom-select']) !!}
 </div>
+@error('role')
+    <div class="error text-danger">{{ $message }}</div>
+@enderror
 
 <!-- Patrol Code Field -->
 <div class="form-group col-sm-6">
@@ -37,20 +40,26 @@
     {!! Form::label('bs_id', 'Bs Id:') !!}
     {!! Form::text('bs_id', null, ['class' => 'form-control']) !!}
     @error('bs_id')
-            <div class="error text-danger">{{ $message }}</div>
-        @enderror
+        <div class="error text-danger">{{ $message }}</div>
+    @enderror
 </div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('name', '氏名:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    @error('name')
+        <div class="error text-danger">{{ $message }}</div>
+    @enderror
 </div>
 
 <!-- Furigana Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('furigana', 'ふりがな:') !!}
     {!! Form::text('furigana', null, ['class' => 'form-control']) !!}
+    @error('furigana')
+        <div class="error text-danger">{{ $message }}</div>
+    @enderror
 </div>
 
 <!-- Grade Field -->
@@ -63,12 +72,18 @@
 <div class="form-group col-sm-6">
     {!! Form::label('gender', '性別:') !!}
     {!! Form::select('gender', ['' => '', '男' => '男', '女' => '女'], null, ['class' => 'form-control custom-select']) !!}
+    @error('gender')
+        <div class="error text-danger">{{ $message }}</div>
+    @enderror
 </div>
 
 <!-- Birthday Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('birthday', '生年月日:') !!}
     {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
+    @error('birthday')
+        <div class="error text-danger">{{ $message }}</div>
+    @enderror
 </div>
 
 <!-- Email Field -->
@@ -116,18 +131,27 @@
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_name', '団名:') !!}
         {!! Form::text('org_dan_name', null, ['class' => 'form-control']) !!}
+        @error('org_dan_name')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <!-- Org Dan Number Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_number', '団番号:') !!}
         {!! Form::text('org_dan_number', null, ['class' => 'form-control']) !!}
+        @error('org_dan_number')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <!-- Org Group Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_group', '隊:') !!}
         {!! Form::select('org_group', ['' => '', 'ビーバー' => 'ビーバー', 'カブ' => 'カブ', 'ボーイ' => 'ボーイ', 'ベンチャー' => 'ベンチャー', 'ローバー' => 'ローバー', '団' => '団'], null, ['class' => 'form-control custom-select']) !!}
+        @error('org_group')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <!-- Org Patrol Field -->
@@ -140,5 +164,8 @@
     <div class="form-group col-sm-6">
         {!! Form::label('org_role', '役務:') !!}
         {!! Form::select('org_role', ['' => '', '隊長' => '隊長', '副長' => '副長', '副長補' => '副長補', 'インストラクター' => 'インストラクター', '補助者' => '補助者', '団委員長' => '団委員長', '副団委員長' => '副団委員長', '団委員' => '団委員', 'スカウト' => 'スカウト', 'その他' => 'その他'], null, ['class' => 'form-control custom-select']) !!}
+        @error('org_role')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 </div>
