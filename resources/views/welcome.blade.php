@@ -471,7 +471,7 @@
                                 </svg>
                                 <div class="ml-4 text-lg leading-7 font-semibold">
                                     <a href="" class="underline text-gray-900 dark:text-white">
-                                        Tutorials
+                                        使い方
                                     </a>
                                 </div>
                             </div>
@@ -487,7 +487,7 @@
                                 </svg>
                                 <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
                                     <a href="" class="underline text-gray-900 dark:text-white">
-                                        Blogs
+                                        コンタクト
                                     </a>
                                 </div>
                             </div>
