@@ -95,7 +95,12 @@ class MemberController extends AppBaseController
     public function show($id)
     {
         /** @var Member $member */
-        $member = Member::find($id);
+        $member = Member::findorfail($id);
+
+        if($member->user_id <> auth()->id()){
+            Flash::error('閲覧権限がありません');
+            return redirect(route('members.index'));
+        }
 
         if (empty($member)) {
             Flash::error('Member not found');
