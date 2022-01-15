@@ -46,7 +46,7 @@
 
 <!-- Bs Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('bs_id', 'Bs Id:') !!}
+    {!! Form::label('bs_id', '登録番号:') !!}
     {!! Form::text('bs_id', null, ['class' => 'form-control']) !!}
     @error('bs_id')
         <div class="error text-danger">{{ $message }}</div>
@@ -89,7 +89,8 @@
 <!-- Birthday Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('birthday', '生年月日:') !!}
-    {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
+    {{-- {!! Form::text('birthday', null, ['class' => 'form-control']) !!} --}}
+    <input type="text" name="birthday" value="{{ old('birthday') ?? $member->birthday->format('Y-m-d')}}" class="form-control">
     @error('birthday')
         <div class="error text-danger">{{ $message }}</div>
     @enderror

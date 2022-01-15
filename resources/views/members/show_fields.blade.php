@@ -26,7 +26,7 @@
         @endif
         <tr>
             <td>生年月日</td>
-            <td>{{ $member->birthday }}</td>
+            <td>{{ $member->birthday->format('Y-m-d') }}</td>
         </tr>
         @if ($member->patrol_code)
             <tr>

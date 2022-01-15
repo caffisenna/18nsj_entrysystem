@@ -63,7 +63,16 @@ class MemberController extends AppBaseController
      */
     public function create()
     {
-        return view('members.create');
+        $member = new Member();
+        // 班名取得
+        $member->p1 = TroopInfo::where('id', auth()->id())->value('patrol1');
+        $member->p2 = TroopInfo::where('id', auth()->id())->value('patrol2');
+        $member->p3 = TroopInfo::where('id', auth()->id())->value('patrol3');
+        $member->p4 = TroopInfo::where('id', auth()->id())->value('patrol4');
+        $member->p5 = TroopInfo::where('id', auth()->id())->value('patrol5');
+        $member->p6 = TroopInfo::where('id', auth()->id())->value('patrol6');
+
+        return view('members.create')->with('member',$member);
     }
 
     /**
