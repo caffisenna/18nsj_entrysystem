@@ -90,7 +90,8 @@
 <div class="form-group col-sm-6">
     {!! Form::label('birthday', '生年月日:') !!}
     {{-- {!! Form::text('birthday', null, ['class' => 'form-control']) !!} --}}
-    <input type="text" name="birthday" value="{{ old('birthday') ?? $member->birthday->format('Y-m-d')}}" class="form-control">
+    <input type="text" name="birthday" value="{{ old('birthday') ?? $member->birthday->format('Y-m-d') }}"
+        class="form-control">
     @error('birthday')
         <div class="error text-danger">{{ $message }}</div>
     @enderror
@@ -118,6 +119,9 @@
 <div class="form-group col-sm-6">
     {!! Form::label('training_record', '研修歴:') !!}
     {!! Form::select('training_record', ['' => '', 'BS講習会' => 'BS講習会', 'BVS研修所' => 'BVS研修所', 'BVS実修所' => 'BVS実修所', 'CS研修所' => 'CS研修所', 'CS実修所' => 'CS実修所', 'BS研修所' => 'BS研修所', 'BS実修所' => 'BS実修所', 'VS研修所' => 'VS研修所', 'VS実修所' => 'VS実修所', 'RS研修所' => 'RS研修所', '団研修所' => '団研修所', '団実修所' => '団実修所', '他' => '他'], null, ['class' => 'form-control custom-select']) !!}
+    @error('training_record')
+        <div class="error text-danger">{{ $message }}</div>
+    @enderror
 </div>
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">

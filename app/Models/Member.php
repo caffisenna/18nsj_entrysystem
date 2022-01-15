@@ -128,6 +128,7 @@ class Member extends Model
         'org_group' => 'required',
         'org_role' => 'required',
         'how_to_join' => 'required_if:role,隊長,副長,副長補',
+        'training_record' => 'required_if:role,隊長,副長,副長補',
     ];
 
     public static $messages = [
@@ -143,6 +144,7 @@ class Member extends Model
         'org_dan_number.required' => '所属団番号は必須です',
         'org_group.required' => '所属隊は必須です',
         'org_role.required' => '所属隊役務は必須です',
+        'training_record.required_if' => '指導者の場合は研修歴を選択してください',
     ];
 
     public function user()
