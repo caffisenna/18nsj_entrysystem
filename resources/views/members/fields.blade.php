@@ -17,6 +17,9 @@
 <div class="form-group col-sm-6">
     {!! Form::label('how_to_join', '参加形態(指導者のみ入力):') !!}
     {!! Form::select('how_to_join', ['' => '', '全期間' => '全期間', '前半' => '前半', '後半' => '後半'], null, ['class' => 'form-control custom-select']) !!}
+    @error('how_to_join')
+        <div class="error text-danger">{{ $message }}</div>
+    @enderror
 </div>
 
 <!-- Patrol Code Field -->

@@ -126,11 +126,13 @@ class Member extends Model
         'org_dan_name' => 'required',
         'org_dan_number' => 'required',
         'org_group' => 'required',
-        'org_role' => 'required'
+        'org_role' => 'required',
+        'how_to_join' => 'required_if:role,隊長,副長,副長補',
     ];
 
     public static $messages = [
         'role.required' => '役務は必須です',
+        'how_to_join.required_if' => '指導者の場合は参加期間を選択してください',
         'bs_id.required' => '登録番号は必須です',
         'name.required' => '氏名は必須です',
         'furigana.required' => 'ふりがなは必須です',
