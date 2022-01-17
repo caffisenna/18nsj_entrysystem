@@ -123,7 +123,7 @@
 
     <!-- Memo Field -->
     <div class="col-sm-12">
-        {!! Form::label('memo', 'メモ:') !!}
+        {!! Form::label('memo', '特記事項:') !!}
         {{ $volstaff->memo }}
     </div>
 </div>

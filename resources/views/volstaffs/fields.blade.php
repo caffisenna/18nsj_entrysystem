@@ -169,10 +169,10 @@
 </div>
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
-    <h3 class="uk-card-title">メモ</h3>
+    <h3 class="uk-card-title">特記事項</h3>
     <!-- Memo Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('memo', 'メモ:') !!}
+        {!! Form::label('memo', '特記事項:') !!}
         {!! Form::textarea('memo', null, ['class' => 'form-control']) !!}
     </div>
 </div>
