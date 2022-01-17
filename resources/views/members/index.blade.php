@@ -26,11 +26,6 @@
             <div class="card-body p-0">
                 @include('members.table')
 
-                <div class="card-footer clearfix float-right">
-                    <div class="float-right">
-
-                    </div>
-                </div>
             </div>
 
         </div>
