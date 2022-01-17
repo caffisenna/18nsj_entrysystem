@@ -59,6 +59,7 @@ class Volstaff extends Model
         'email',
         'phone',
         'cell_phone',
+        'org_district',
         'org_dan_name',
         'org_dan_number',
         'org_group',

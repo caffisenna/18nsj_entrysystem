@@ -60,7 +60,7 @@ class VolstaffController extends AppBaseController
         /** @var Volstaff $volstaff */
         $volstaff = Volstaff::create($input);
 
-        Flash::success('Volstaff saved successfully.');
+        Flash::success('スタッフ情報を登録しました');
 
         return redirect(route('volstaffs.index'));
     }
@@ -129,7 +129,7 @@ class VolstaffController extends AppBaseController
         $volstaff->fill($request->all());
         $volstaff->save();
 
-        Flash::success('Volstaff updated successfully.');
+        Flash::success('スタッフ情報を更新しました');
 
         return redirect(route('volstaffs.index'));
     }

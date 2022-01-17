@@ -7,12 +7,9 @@
                 <div class="col-sm-6">
                     <h1>{{ Auth::user()->name }}さんの情報</h1>
                 </div>
-                <div class="col-sm-6 btn-group">
-                    <a href="{{ route('volstaffs.edit', [$volstaff->id]) }}" class='btn btn-default btn-xs'>
-                        <i class="far fa-edit"></i>
-                    </a>
-                    <a class="btn btn-default float-right" href="{{ route('volstaffs.index') }}">
-                        戻る
+                <div class="col-sm-6">
+                    <a href="{{ route('volstaffs.edit', [$volstaff->id]) }}" class='btn btn-default float-right'>
+                        <i class="far fa-edit"></i>編集
                     </a>
                 </div>
             </div>
@@ -21,6 +18,7 @@
 
     <div class="content px-3">
         <div class="card">
+            @include('flash::message')
 
             <div class="card-body">
                 <div class="row">
