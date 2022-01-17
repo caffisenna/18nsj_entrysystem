@@ -8,6 +8,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Models\Volstaff;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 use Flash;
 use Response;
 
@@ -56,6 +57,7 @@ class VolstaffController extends AppBaseController
     {
         $input = $request->all();
         $input['user_id'] = auth()->id();
+        $input['uuid'] = Uuid::uuid4();
 
         /** @var Volstaff $volstaff */
         $volstaff = Volstaff::create($input);
