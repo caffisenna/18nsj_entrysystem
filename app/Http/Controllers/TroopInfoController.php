@@ -6,6 +6,7 @@ use App\Http\Requests\CreateTroopInfoRequest;
 use App\Http\Requests\UpdateTroopInfoRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\TroopInfo;
+use App\Models\DistrictExec;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -24,12 +25,14 @@ class TroopInfoController extends AppBaseController
         /** @var TroopInfo $troopInfos */
         // $troopInfos = TroopInfo::all();
         $troopInfo = TroopInfo::where('id', Auth()->id())->first();
-        if(!$troopInfo){
+        if (!$troopInfo) {
             Flash::warning('隊の基本情報を登録してください');
             return view('troop_infos.create');
-        }else{
+        } else {
+            // 地区委員長とか
+            $troopInfo->district_exec = DistrictExec::where('district_name', $troopInfo->district)->first();
             return view('troop_infos.index')
-            ->with('troopInfo', $troopInfo);
+                ->with('troopInfo', $troopInfo);
         }
     }
 

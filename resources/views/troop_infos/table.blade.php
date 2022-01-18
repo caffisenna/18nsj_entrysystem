@@ -44,6 +44,30 @@
     </table>
 </div>
 
+<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    <h3 class="uk-card-title">地区役員情報</h3>
+    <table class="table uk-table-striped uk-table-hover uk-table-small" id="troopInfos-table">
+        <tr>
+            <th>役務</th>
+            <th>氏名</th>
+            <th>TEL</th>
+            <th>email</th>
+        </tr>
+        <tr>
+            <td>地区委員長</td>
+            <td>{{ $troopInfo->district_exec->chairman_name }}</td>
+            <td>{{ $troopInfo->district_exec->chairman_phone }}</td>
+            <td>{{ $troopInfo->district_exec->chairman_email }}</td>
+        </tr>
+        <tr>
+            <td>地区コミッショナー</td>
+            <td>{{ $troopInfo->district_exec->commi_name }}</td>
+            <td>{{ $troopInfo->district_exec->commi_phone }}</td>
+            <td>{{ $troopInfo->district_exec->commi_email }}</td>
+        </tr>
+    </table>
+</div>
+
 <h3>班情報</h3>
 <div class="table-responsive">
     <table class="table uk-table-striped uk-table-hover uk-table-small" id="troopInfos-table">
