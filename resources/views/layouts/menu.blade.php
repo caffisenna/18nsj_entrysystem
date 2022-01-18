@@ -1,3 +1,4 @@
+@if(Auth::user()->is_troopstaff)
 <li class="nav-item">
     <a href="{{ route('troopInfos.index') }}"
        class="nav-link {{ Request::is('user/troopInfos*') ? 'active' : '' }}">
@@ -12,15 +13,16 @@
         <p>メンバー一覧</p>
     </a>
 </li>
+@endif
 
-
+@if(!Auth::user()->is_troopstaff)
 <li class="nav-item">
     <a href="{{ route('volstaffs.index') }}"
        class="nav-link {{ Request::is('user/volstaffs*') ? 'active' : '' }}">
         <p>奉仕者</p>
     </a>
 </li>
-
+@endif
 
 <li class="nav-item">
     <a href="{{ route('districtExecs.index') }}"
