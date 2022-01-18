@@ -22,3 +22,11 @@
 </li>
 
 
+<li class="nav-item">
+    <a href="{{ route('districtExecs.index') }}"
+       class="nav-link {{ Request::is('districtExecs*') ? 'active' : '' }}">
+        <p>地区役員DB</p>
+    </a>
+</li>
+
+

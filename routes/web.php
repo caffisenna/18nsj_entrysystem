@@ -63,3 +63,6 @@ Route::middleware('auth')->group(function () {
         // Route::resource('entries', App\Http\Controllers\commiEntryFormController::class, ['only' => ['index', 'show']]);
     });
 });
+
+
+Route::resource('districtExecs', App\Http\Controllers\DistrictExecController::class);
