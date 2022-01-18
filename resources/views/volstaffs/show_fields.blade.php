@@ -21,8 +21,12 @@
 
     <!-- How To Join Field -->
     <div class="col-sm-12">
-        {!! Form::label('how_to_join', '参加期間:') !!}
-        {{ $volstaff->how_to_join }}
+        {!! Form::label('how_to_join', '参加日:') !!}
+        @if ($volstaff->how_to_join != '全期間')
+            合計: {{ substr_count($volstaff->join_days, ',') + 1 }}日間 / 内訳: {{ $volstaff->join_days }}
+        @else
+            {{ $volstaff->how_to_join }}
+        @endif
     </div>
 
     <!-- Bs Id Field -->
@@ -73,7 +77,8 @@
     <!-- Org Dan Name Field -->
     <div class="col-sm-12">
         {!! Form::label('org_dan_name', '所属団:') !!}
-        {{ $volstaff->org_district }}地区 {{ $volstaff->org_dan_name }}{{ $volstaff->org_dan_number }}団 {{ $volstaff->org_group }}隊
+        {{ $volstaff->org_district }}地区 {{ $volstaff->org_dan_name }}{{ $volstaff->org_dan_number }}団
+        {{ $volstaff->org_group }}隊
     </div>
 
     <!-- Org Role Field -->
@@ -121,11 +126,54 @@
         {{ $volstaff->health_check }}
     </div>
 
+    <!-- 大集会参加希望 Field -->
+    <div class="col-sm-12">
+        {!! Form::label('event_0807', '大集会参加希望:') !!}
+        {{ $volstaff->event_0807 }}
+    </div>
+
     <!-- Memo Field -->
     <div class="col-sm-12">
         {!! Form::label('memo', '特記事項:') !!}
         {{ $volstaff->memo }}
     </div>
+</div>
+
+<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    <h3 class="uk-card-title">参加費見積</h3>
+    <h4>明細</h4>
+    <ul>
+        <li>参加区分: {{ $volstaff->how_to_join }}</li>
+        <li>大集会参加希望: {{ $volstaff->event_0807 }}</li>
+        </ul>
+
+        <table class="uk-table uk-table-striped uk-table-justify">
+            <tr>
+                <th>参加費</th>
+                <td>{{ substr_count($volstaff->join_days, ',') + 1 }}日間 x 4,000円</td>
+            </tr>
+            @unless ($volstaff->how_to_join == '全期間')
+            <tr>
+                <th>日本連盟分担金</th>
+                <td>2,000円</td>
+            </tr>
+            <tr>
+                <th>東京連盟分担金</th>
+                <td>3,000円</td>
+            </tr>
+            @endunless
+            @if ($volstaff->event_0807 == 'あり')
+            <tr>
+                <th>大集会参加費</th>
+                <td>2,000円</td>
+            </tr>
+            @endif
+            <tr>
+                <th>合計</th>
+                <td><h4>{{ number_format($volstaff->total_fee) }} 円</h4></td>
+            </tr>
+        </table>
+
 </div>
 
 

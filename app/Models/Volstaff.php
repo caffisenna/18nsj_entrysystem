@@ -72,9 +72,12 @@ class Volstaff extends Model
         'car_number',
         'car_type',
         'how_to_join',
+        'join_days',
         'camp_area',
         'job_department',
-        'memo'
+        'memo',
+        'event_0807',
+        'commi_ok'
     ];
 
     /**
@@ -104,9 +107,11 @@ class Volstaff extends Model
         'car_number' => 'string',
         'car_type' => 'string',
         'how_to_join' => 'string',
+        'join_days' => 'string',
         'camp_area' => 'string',
         'job_department' => 'string',
-        'memo' => 'string'
+        'memo' => 'string',
+        'event_0807' => 'string'
     ];
 
     /**
@@ -115,21 +120,40 @@ class Volstaff extends Model
      * @var array
      */
     public static $rules = [
-        'bs_id' => 'required',
+        'bs_id' => 'required|digits:10',
         'furigana' => 'required',
         'gender' => 'required',
-        'birthday' => 'required',
+        'birthday' => 'required|date',
         'org_district' => 'required',
         'org_dan_name' => 'required',
-        'org_dan_number' => 'required',
+        'org_dan_number' => 'required|numeric',
         'org_group' => 'required',
         'org_role' => 'required',
         'how_to_join' => 'required',
+        'join_days' => 'required_if:how_to_join,部分参加',
         'camp_area' => 'required',
-        'job_department' => 'required'
+        'job_department' => 'required',
+        'event_0807' => 'required'
     ];
 
     public static $messages = [
+        'bs_id.required' => '登録番号を入力してください',
+        'bs_id.digits' => '登録番号を10桁の半角整数で入力してください',
+        'furigana.required' => 'ふりがなを入力してください',
+        'gender.required' => '性別を選択してください',
+        'birthday.required' => '生年月日を入力してください(YYYY-mm-dd)',
+        'birthday.date' => '生年月日は YYYY-mm-dd の形式で入力してください',
+        'org_district.required' => '所属地区を選択してください',
+        'org_dan_name.required' => '所属団名を入力してください',
+        'org_dan_number.required' => '所属団番号を入力してください',
+        'org_dan_number.numeric' => '所属団番号を半角整数で入力してください',
+        'org_group.required' => '所属隊を選択してください',
+        'org_role.required' => '所属隊での役務を選択してください',
+        'how_to_join.required' => '参加日程を選択してください',
+        'join_days.required_if' => '部分参加の場合は参加日程を選択してください',
+        'camp_area.required' => '奉仕するキャンプ場を選択してください',
+        'job_department.required' => '奉仕部署を選択してください',
+        'event_0807.required' => '大集会の参加希望を選択してください',
     ];
 
     public function user()
