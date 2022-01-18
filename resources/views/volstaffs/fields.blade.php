@@ -14,12 +14,18 @@
     <div class="form-group col-sm-6">
         {!! Form::label('bs_id', '登録番号:') !!}
         {!! Form::text('bs_id', null, ['class' => 'form-control']) !!}
+        @error('bs_id')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <!-- Furigana Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('furigana', 'ふりがな:') !!}
         {!! Form::text('furigana', null, ['class' => 'form-control']) !!}
+        @error('furigana')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <!-- Gender Field -->
@@ -34,11 +40,11 @@
     <!-- Birthday Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('birthday', '生年月日:') !!}
-        @if(isset($volstaff->birthday))
-        <input type="text" name="birthday" value="{{ old('birthday') ?? $volstaff->birthday->format('Y-m-d') }}"
-            class="form-control">
+        @if (isset($volstaff->birthday))
+            <input type="text" name="birthday" value="{{ old('birthday') ?? $volstaff->birthday->format('Y-m-d') }}"
+                class="form-control">
         @else
-        <input type="text" name="birthday" value="" class="form-control">
+            <input type="text" name="birthday" value="" class="form-control">
         @endif
         @error('birthday')
             <div class="error text-danger">{{ $message }}</div>
@@ -73,32 +79,28 @@
     <!-- Org District Name Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_district', '所属地区:') !!}
-        {!! Form::select('org_district', ['' => '', '大都心' => '大都心',
-        'さくら' => 'さくら',
-        '城東' => '城東',
-        '山手' => '山手',
-        'つばさ' => 'つばさ',
-        '世田谷' => '世田谷',
-        'あすなろ' => 'あすなろ',
-        '城北' => '城北',
-        '練馬' => '練馬',
-        '多摩西' => '多摩西',
-        '新多磨' => '新多磨',
-        '南武蔵野' => '南武蔵野',
-        '町田' => '町田',
-        '北多摩' => '北多摩'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('org_district', ['' => '', '大都心' => '大都心', 'さくら' => 'さくら', '城東' => '城東', '山手' => '山手', 'つばさ' => 'つばさ', '世田谷' => '世田谷', 'あすなろ' => 'あすなろ', '城北' => '城北', '練馬' => '練馬', '多摩西' => '多摩西', '新多磨' => '新多磨', '南武蔵野' => '南武蔵野', '町田' => '町田', '北多摩' => '北多摩'], null, ['class' => 'form-control custom-select']) !!}
+        @error('org_district')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <!-- Org District Name Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_name', '団名:') !!}
         {!! Form::text('org_dan_name', null, ['class' => 'form-control']) !!}
+        @error('org_dan_name')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <!-- Org Dan Number Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_number', '団番号:') !!}
         {!! Form::text('org_dan_number', null, ['class' => 'form-control']) !!}
+        @error('org_dan_number')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <!-- Org Group Field -->
@@ -130,9 +132,32 @@
     <h3 class="uk-card-title">奉仕情報</h3>
     <!-- How To Join Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('how_to_join', '参加期間:') !!}
-        {!! Form::select('how_to_join', ['' => '', '全期間' => '全期間', '前半' => '前半', '後半' => '後半'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::label('how_to_join', '参加日程:') !!}<br>
+        {!! Form::select('how_to_join', ['' => '', '全期間' => '全期間', '部分参加' => '部分参加'], null, ['class' => 'form-control custom-select']) !!}
         @error('how_to_join')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+        <h4>参加日程をチェックしてください(部分参加の場合)</h4>
+        @if (!empty($volstaff->join_days))
+            @for ($i = 29; $i <= 31; $i++)
+                <label><input type="checkbox" name="join_days[]" value="7月{{ $i }}日"
+                        {{ preg_match('/7月' . $i . '日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                    7月{{ $i }}日</label><br>
+            @endfor
+            @for ($i = 1; $i <= 9; $i++)
+                <label><input type="checkbox" name="join_days[]" value="8月{{ $i }}日"
+                        {{ preg_match('/8月' . $i . '日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                    8月{{ $i }}日</label><br>
+            @endfor
+        @else
+            @for ($i = 29; $i <= 31; $i++)
+                <label><input type="checkbox" name="join_days[]" value="7月{{ $i }}日"> 7月{{ $i }}日</label><br>
+            @endfor
+            @for ($i = 1; $i <= 9; $i++)
+                <label><input type="checkbox" name="join_days[]" value="8月{{ $i }}日"> 8月{{ $i }}日</label><br>
+            @endfor
+        @endif
+        @error('join_days')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
     </div>
@@ -150,6 +175,15 @@
     <div class="form-group col-sm-6">
         {!! Form::label('job_department', '奉仕部署:') !!}
         {!! Form::select('job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
+
+    <!-- 大集会参加希望 Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('event_0807', '大集会の参加希望(8/7 大田区立総合体育館):') !!}
+        {!! Form::select('event_0807', ['' => '', 'あり' => 'あり', 'なし' => 'なし'], null, ['class' => 'form-control custom-select']) !!}
+        @error('event_0807')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
     </div>
 </div>
 

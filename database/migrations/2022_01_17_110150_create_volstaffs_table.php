@@ -36,9 +36,12 @@ class CreateVolstaffsTable extends Migration
             $table->string('car_number')->nullable();
             $table->string('car_type')->nullable();
             $table->string('how_to_join')->nullable();
+            $table->string('join_days')->nullable();
             $table->string('camp_area');
             $table->string('job_department')->nullable();
             $table->text('memo')->nullable();
+            $table->date('commi_ok')->nullable();
+            $table->string('event_0807')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
