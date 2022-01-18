@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     });
     // 管理ユーザ用
     Route::prefix('admin')->middleware('can:admin')->group(function () {
+        Route::resource('districtExecs', App\Http\Controllers\DistrictExecController::class);
         // Route::get('/', 'Admin\HomeController@index');
         // Route::resource('adminConfigs', App\Http\Controllers\AdminConfigController::class);
         // Route::resource('adminentries', App\Http\Controllers\adminentryFormController::class, ['except' => 'create']);
@@ -64,5 +65,3 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-
-Route::resource('districtExecs', App\Http\Controllers\DistrictExecController::class);

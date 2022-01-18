@@ -15,7 +15,7 @@
 </li>
 @endif
 
-@if(!Auth::user()->is_troopstaff)
+@if(!Auth::user()->is_troopstaff && !Auth::user()->is_admin)
 <li class="nav-item">
     <a href="{{ route('volstaffs.index') }}"
        class="nav-link {{ Request::is('user/volstaffs*') ? 'active' : '' }}">
@@ -24,11 +24,11 @@
 </li>
 @endif
 
+@if(Auth::user()->is_admin)
 <li class="nav-item">
     <a href="{{ route('districtExecs.index') }}"
        class="nav-link {{ Request::is('districtExecs*') ? 'active' : '' }}">
         <p>地区役員DB</p>
     </a>
 </li>
-
-
+@endif
