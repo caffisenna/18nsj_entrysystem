@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateVolstaffRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Volstaff;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 use Flash;
@@ -24,6 +25,11 @@ class VolstaffController extends AppBaseController
     public function index(Request $request)
     {
         /** @var Volstaff $volstaffs */
+
+        // 隊スタッフが見ようとしたらHOMEにへリダイレクト
+        if(Auth::user()->is_troopstaff){
+            return view('home');
+        }
         $volstaff = Volstaff::where('user_id', auth()->id())->first();
         if (empty($volstaff)) {
             $user = User::where('id', auth()->id())->first();
