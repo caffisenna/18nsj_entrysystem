@@ -139,14 +139,14 @@
     </div>
 </div>
 
-<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+<div class="uk-card uk-card-primary uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">参加費見積</h3>
     <ul>
         <li>参加区分: {{ $volstaff->how_to_join }}</li>
         <li>大集会参加希望: {{ $volstaff->event_0807 }}</li>
     </ul>
-    <h4>明細</h4>
-    <table class="uk-table uk-table-striped uk-table-justify">
+    <h4>内訳明細</h4>
+    <table class="uk-table uk-table-small uk-table-justify uk-table-divider">
         <tr>
             <th>参加費</th>
             <td>{{ substr_count($volstaff->join_days, ',') + 1 }}日間 x 4,000円</td>
@@ -168,7 +168,7 @@
             </tr>
         @endif
         <tr>
-            <th>合計</th>
+            <th><h4>合計</h4></th>
             <td>
                 <h4>{{ number_format($volstaff->total_fee) }} 円</h4>
             </td>
