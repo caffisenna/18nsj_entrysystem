@@ -35,7 +35,7 @@ class VolstaffController extends AppBaseController
             $user = User::where('id', auth()->id())->first();
             return view('volstaffs.create')->with('user', $user);
         } else {
-            if (isset($volstaff->join_days)) {
+            if (isset($volstaff->join_days) && $volstaff->join_days <> "N;") {
                 $volstaff->join_days = implode(",", unserialize($volstaff->join_days));
             }
             // 参加費計算
@@ -191,7 +191,11 @@ class VolstaffController extends AppBaseController
 
         $volstaff->fill($request->all());
         // 参加日程をシリアライズ
+        if ($volstaff->how_to_join <> "全期間") {
         $volstaff['join_days'] = serialize($request['join_days']);
+        }else{
+            $volstaff['join_days'] = null;
+        }
         $volstaff->save();
 
         Flash::success('スタッフ情報を更新しました');
