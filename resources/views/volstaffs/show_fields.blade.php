@@ -149,18 +149,21 @@
     <table class="uk-table uk-table-small uk-table-justify uk-table-divider">
         <tr>
             <th>参加費</th>
-            <td>{{ substr_count($volstaff->join_days, ',') + 1 }}日間 x 4,000円</td>
+            @if ($volstaff->how_to_join == '全期間')
+                <td>30,000円</td>
+            @else
+                <td>4,000円 x {{ substr_count($volstaff->join_days, ',') + 1 }}日間</td>
+            @endif
         </tr>
-        @unless($volstaff->how_to_join == '全期間')
-            <tr>
-                <th>日本連盟分担金</th>
-                <td>2,000円</td>
-            </tr>
-            <tr>
-                <th>東京連盟分担金</th>
-                <td>3,000円</td>
-            </tr>
-        @endunless
+        <tr>
+            <th>日本連盟分担金</th>
+            <td>2,000円</td>
+        </tr>
+        <tr>
+            <th>東京連盟分担金</th>
+            <td>3,000円</td>
+        </tr>
+
         @if ($volstaff->event_0807 == 'あり')
             <tr>
                 <th>大集会参加費</th>
@@ -168,7 +171,9 @@
             </tr>
         @endif
         <tr>
-            <th><h4>合計</h4></th>
+            <th>
+                <h4>合計</h4>
+            </th>
             <td>
                 <h4>{{ number_format($volstaff->total_fee) }} 円</h4>
             </td>
