@@ -27,6 +27,7 @@
                     <tr>
                         <th>隊id</th>
                         <th>地区</th>
+                        <th>メンバー構成</th>
                         <th>操作担当者</th>
                         <th>操作</th>
                     </tr>
@@ -34,8 +35,9 @@
                 <tbody>
                     @foreach ($troops as $troop)
                         <tr>
-                            <td><a href="{{ url("/admin/members/?troop_id=$troop->id") }}">{{ $troop->id }}</a></td>
+                            <td>{{ $troop->id }}</td>
                             <td>@if (isset($troop->troopinfo->district)){{ $troop->troopinfo->district }}@endif</td>
+                            <td><a href="{{ url("/admin/members/?troop_id=$troop->id") }}">メンバー</a></td>
                             <td>{{ $troop->name }}</td>
                             <td width="120">
                                 {!! Form::open(['route' => ['members.destroy', $troop->id], 'method' => 'delete']) !!}
