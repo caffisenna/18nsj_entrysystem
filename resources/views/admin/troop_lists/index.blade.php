@@ -34,8 +34,8 @@
                 <tbody>
                     @foreach ($troops as $troop)
                         <tr>
-                            <td><a href="{{ route('members.show', [$troop->id]) }}">{{ $troop->id }}</a></td>
-                            <td>@if(isset($troop->troopinfo->district)){{ $troop->troopinfo->district }}@endif</td>
+                            <td><a href="{{ url("/admin/members/?troop_id=$troop->id") }}">{{ $troop->id }}</a></td>
+                            <td>@if (isset($troop->troopinfo->district)){{ $troop->troopinfo->district }}@endif</td>
                             <td>{{ $troop->name }}</td>
                             <td width="120">
                                 {!! Form::open(['route' => ['members.destroy', $troop->id], 'method' => 'delete']) !!}

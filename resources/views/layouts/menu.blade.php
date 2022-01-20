@@ -31,8 +31,8 @@
         </a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('_trooplists.index') }}"
-            class="nav-link {{ Request::is('admin/_trooplists*') ? 'active' : '' }}">
+        <a href="{{ route('trooplists.index') }}"
+            class="nav-link {{ Request::is('admin/trooplists*') ? 'active' : '' }}">
             <p>参加隊一覧</p>
         </a>
     </li>
