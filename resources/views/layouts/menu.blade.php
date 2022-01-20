@@ -25,15 +25,15 @@
 
 @if (Auth::user()->is_admin)
     <li class="nav-item">
-        <a href="{{ route('districtExecs.index') }}"
-            class="nav-link {{ Request::is('admin/districtExecs*') ? 'active' : '' }}">
-            <p>地区役員DB</p>
-        </a>
-    </li>
-    <li class="nav-item">
         <a href="{{ route('trooplists.index') }}"
             class="nav-link {{ Request::is('admin/trooplists*') ? 'active' : '' }}">
             <p>参加隊一覧</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('districtExecs.index') }}"
+            class="nav-link {{ Request::is('admin/districtExecs*') ? 'active' : '' }}">
+            <p>地区役員DB</p>
         </a>
     </li>
 @endif
