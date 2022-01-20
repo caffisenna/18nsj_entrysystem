@@ -24,7 +24,7 @@ class adminTroopInfoController extends AppBaseController
     public function index(Request $request)
     {
         /** @var TroopInfo $troopInfos */
-        $troops = User::where('is_troopstaff', '1')->with('troopinfo')->get();
+        $troops = User::where('is_troopstaff', '1')->with('troopinfo')->with('member')->get();
 
         return view('admin.troop_lists.index')
             ->with('troops', $troops);
