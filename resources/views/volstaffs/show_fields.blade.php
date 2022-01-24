@@ -179,6 +179,15 @@
                 <h4>{{ number_format($volstaff->total_fee) }} 円</h4>
             </td>
         </tr>
+        <tr>
+            <td>振込口座</td>
+            <td>ほげ田銀行 もげ田支店 普通口座 1111111111<br>
+                ボーイスカウト東京連盟 18NSJ参加費口座</td>
+        </tr>
+        <tr>
+            <td>事務局確認</td>
+            <td></td>
+        </tr>
     </table>
 
 </div>
