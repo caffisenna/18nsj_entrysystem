@@ -52,7 +52,7 @@ class adminMemberController extends AppBaseController
             }
         }
 
-        return view('members.index')
+        return view('admin.troop_members.index')
             ->with('members', $members);
     }
 
@@ -61,9 +61,12 @@ class adminMemberController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $member = new Member();
+        // 隊番号取得
+        $member->troop_id = $request->troop_id;
+
         // 班名取得
         $member->p1 = TroopInfo::where('id', auth()->id())->value('patrol1');
         $member->p2 = TroopInfo::where('id', auth()->id())->value('patrol2');
@@ -72,7 +75,7 @@ class adminMemberController extends AppBaseController
         $member->p5 = TroopInfo::where('id', auth()->id())->value('patrol5');
         $member->p6 = TroopInfo::where('id', auth()->id())->value('patrol6');
 
-        return view('members.create')->with('member',$member);
+        return view('admin.troop_members.create')->with('member',$member);
     }
 
     /**
@@ -89,9 +92,11 @@ class adminMemberController extends AppBaseController
         /** @var Member $member */
         $member = Member::create($input);
 
-        Flash::success('Member saved successfully.');
+        Flash::success('メンバーを追加しました');
 
-        return redirect(route('members.index'));
+        $troop_id = $_REQUEST['user_id'];
+
+        return redirect(route('trooplists.index'));
     }
 
     /**
@@ -114,10 +119,10 @@ class adminMemberController extends AppBaseController
         if (empty($member)) {
             Flash::error('Member not found');
 
-            return redirect(route('members.index'));
+            return redirect(route('troop_members.index'));
         }
 
-        return view('members.show')->with('member', $member);
+        return view('admin.troop_members.show')->with('member', $member);
     }
 
     /**
@@ -144,10 +149,10 @@ class adminMemberController extends AppBaseController
         if (empty($member)) {
             Flash::error('Member not found');
 
-            return redirect(route('members.index'));
+            return redirect(route('admin.troop_members.index'));
         }
 
-        return view('members.edit')->with('member', $member);
+        return view('admin.troop_members.edit')->with('member', $member);
     }
 
     /**
@@ -166,7 +171,7 @@ class adminMemberController extends AppBaseController
         if (empty($member)) {
             Flash::error('Member not found');
 
-            return redirect(route('members.index'));
+            return redirect(route('troop_members.index'));
         }
 
         $member->fill($request->all());
@@ -174,7 +179,9 @@ class adminMemberController extends AppBaseController
 
         Flash::success("$request->name の情報を更新しました");
 
-        return redirect(route('members.index'));
+        // return redirect(route('trooplists.index'));
+        // 隊のメンバー一覧にリダイレクト
+        return redirect(url('admin/troop_members?troop_id=').$member->user_id);
     }
 
     /**
@@ -194,13 +201,15 @@ class adminMemberController extends AppBaseController
         if (empty($member)) {
             Flash::error('Member not found');
 
-            return redirect(route('members.index'));
+            return redirect(route('troop_members.index'));
         }
 
         $member->delete();
 
-        Flash::success('Member deleted successfully.');
+        Flash::success("$member->name を削除しました");
 
-        return redirect(route('members.index'));
+        // return redirect(route('members.index'));
+        // 隊のメンバー一覧にリダイレクト
+        return redirect(url('admin/troop_members?troop_id=').$member->user_id);
     }
 }
