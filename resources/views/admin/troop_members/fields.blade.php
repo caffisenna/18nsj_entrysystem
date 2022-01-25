@@ -1,3 +1,8 @@
+{{-- 隊番号をuser_idに格納 --}}
+@if(isset($_REQUEST['troop_id']))
+<input type="hidden" name="user_id" value="{{ $_REQUEST['troop_id'] }}">
+@endif
+
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">基本情報</h3>
     <!-- Name Field -->
@@ -190,3 +195,4 @@
         {!! Form::select('grade', ['' => '', '初級' => '初級', '2級' => '2級', '1級' => '1級', '菊' => '菊', '隼' => '隼', '富士' => '富士'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 </div>
+

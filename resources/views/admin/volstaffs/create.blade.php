@@ -5,26 +5,31 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>メンバー編集</h1>
+                    <h1>奉仕スタッフ情報入力</h1>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="content px-3">
+
+        @include('adminlte-templates::common.errors')
+
         <div class="card">
 
-            {!! Form::model($member, ['route' => ['members.update', $member->id], 'method' => 'patch']) !!}
+            {!! Form::open(['route' => 'volstaffs.store']) !!}
 
             <div class="card-body">
+
                 <div class="row">
-                    @include('members.fields')
+                    @include('volstaffs.fields')
                 </div>
+
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('保存', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('members.index') }}" class="btn btn-default">キャンセル</a>
+                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('volstaffs.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}

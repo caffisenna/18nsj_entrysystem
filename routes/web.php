@@ -46,7 +46,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('admin')->middleware('can:admin')->group(function () {
         Route::resource('districtExecs', App\Http\Controllers\DistrictExecController::class);
         Route::resource('trooplists', App\Http\Controllers\adminTroopInfoController::class,['only' => ['index']]);
-        Route::resource('members', App\Http\Controllers\adminMemberController::class);
+        Route::resource('troop_members', App\Http\Controllers\adminMemberController::class);
+        Route::resource('vol_staffs', App\Http\Controllers\adminVolstaffController::class);
         // Route::get('/', 'Admin\HomeController@index');
         // Route::resource('adminConfigs', App\Http\Controllers\AdminConfigController::class);
         // Route::resource('adminentries', App\Http\Controllers\adminentryFormController::class, ['except' => 'create']);

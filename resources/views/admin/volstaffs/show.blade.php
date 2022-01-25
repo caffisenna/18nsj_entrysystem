@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>隊メンバー一覧</h1>
+                    <h1>{{ $volstaff->user->name }}さんの情報admin</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right" href="{{ route('members.create') }}">
-                        新規追加
+                    <a href="{{ route('vol_staffs.edit', [$volstaff->id]) }}" class='btn btn-default float-right'>
+                        <i class="far fa-edit"></i>編集
                     </a>
                 </div>
             </div>
@@ -17,18 +17,15 @@
     </section>
 
     <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
         <div class="card">
-            <div class="card-body p-0">
-                @include('members.table')
+            @include('flash::message')
 
+            <div class="card-body">
+                <div class="row">
+                    @include('admin.volstaffs.show_fields')
+                </div>
             </div>
 
         </div>
     </div>
-
 @endsection

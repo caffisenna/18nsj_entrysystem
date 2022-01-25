@@ -16,7 +16,8 @@
 
 @if (!Auth::user()->is_troopstaff && !Auth::user()->is_admin)
     <li class="nav-item">
-        <a href="{{ route('volstaffs.index') }}"
+        {{-- <a href="{{ route('volstaffs.index') }}" --}}
+        <a href="user/volstaffs"
             class="nav-link {{ Request::is('user/volstaffs*') ? 'active' : '' }}">
             <p>奉仕者</p>
         </a>
@@ -28,6 +29,12 @@
         <a href="{{ route('trooplists.index') }}"
             class="nav-link {{ Request::is('admin/trooplists*') ? 'active' : '' }}">
             <p>参加隊一覧</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('volstaffs.index') }}"
+            class="nav-link {{ Request::is('admin/volstaffs*') ? 'active' : '' }}">
+            <p>奉仕者一覧</p>
         </a>
     </li>
     <li class="nav-item">
