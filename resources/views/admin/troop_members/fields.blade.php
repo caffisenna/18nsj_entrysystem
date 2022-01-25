@@ -3,128 +3,132 @@
 <input type="hidden" name="user_id" value="{{ $_REQUEST['troop_id'] }}">
 @endif
 
-<!-- Role Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('role', '参加隊役務:') !!}
-    {!! Form::select('role', ['' => '', '隊長' => '隊長', '副長' => '副長', '副長補' => '副長補', 'インストラクター' => 'インストラクター', '介助者' => '介助者', '上班' => '上班', '隊付き' => '隊付き', 'スカウト' => 'スカウト'], null, ['class' => 'form-control custom-select']) !!}
-</div>
-@error('role')
-    <div class="error text-danger">{{ $message }}</div>
-@enderror
+<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    <h3 class="uk-card-title">基本情報</h3>
+    <!-- Name Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('name', '氏名:') !!}
+        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+        @error('name')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
 
-<!-- How_To_Join Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('how_to_join', '参加形態(指導者のみ入力):') !!}
-    {!! Form::select('how_to_join', ['' => '', '全期間' => '全期間', '前半' => '前半', '後半' => '後半'], null, ['class' => 'form-control custom-select']) !!}
-    @error('how_to_join')
-        <div class="error text-danger">{{ $message }}</div>
-    @enderror
-</div>
+    <!-- Furigana Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('furigana', 'ふりがな:') !!}
+        {!! Form::text('furigana', null, ['class' => 'form-control']) !!}
+        @error('furigana')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
 
-<!-- Patrol Code Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('patrol_code', '班コード:') !!}
-    {{-- {!! Form::text('patrol_code', null, ['class' => 'form-control']) !!} --}}
-    <select name="patrol_code" id="" class="form-control">
-        <option value=""></option>
-        <option value=1 @if ($member->patrol_code == 1) selected @endif> {{ $member->p1 }} </option>
-        <option value=2 @if ($member->patrol_code == 2) selected @endif> {{ $member->p2 }} </option>
-        <option value=3 @if ($member->patrol_code == 3) selected @endif> {{ $member->p3 }} </option>
-        <option value=4 @if ($member->patrol_code == 4) selected @endif> {{ $member->p4 }} </option>
-        <option value=5 @if ($member->patrol_code == 5) selected @endif> {{ $member->p5 }} </option>
-        <option value=6 @if ($member->patrol_code == 6) selected @endif> {{ $member->p6 }} </option>
-    </select>
+    <!-- Gender Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('gender', '性別:') !!}
+        {!! Form::select('gender', ['' => '', '男' => '男', '女' => '女'], null, ['class' => 'form-control custom-select']) !!}
+        @error('gender')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
 
-</div>
+    <!-- Birthday Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('birthday', '生年月日:') !!}
+        @if (isset($member->birthday))
+            <input type="text" name="birthday" value="{{ old('birthday') ?? $member->birthday->format('Y-m-d') }}"
+                class="form-control">
+        @else
+            <input type="text" name="birthday" value="{{ old('birthday') }}" class="form-control">
+        @endif
+        @error('birthday')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
 
-<!-- Patrol Role Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('patrol_role', '班役務:') !!}
-    {!! Form::select('patrol_role', ['' => '', '班長' => '班長', '次長' => '次長', '班員' => '班員', '上班' => '上班', '隊付き' => '隊付き', '指導者' => '指導者'], null, ['class' => 'form-control custom-select']) !!}
-</div>
+    <!-- Email Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('email', 'Email:') !!}
+        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+    </div>
 
-<!-- Bs Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('bs_id', '登録番号:') !!}
-    {!! Form::text('bs_id', null, ['class' => 'form-control']) !!}
-    @error('bs_id')
-        <div class="error text-danger">{{ $message }}</div>
-    @enderror
-</div>
+    <!-- Phone Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('phone', '自宅電話:') !!}
+        {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+    </div>
 
-<!-- Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('name', '氏名:') !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
-    @error('name')
-        <div class="error text-danger">{{ $message }}</div>
-    @enderror
-</div>
+    <!-- Cell Phone Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('cell_phone', 'ケータイ電話:') !!}
+        {!! Form::text('cell_phone', null, ['class' => 'form-control']) !!}
+    </div>
 
-<!-- Furigana Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('furigana', 'ふりがな:') !!}
-    {!! Form::text('furigana', null, ['class' => 'form-control']) !!}
-    @error('furigana')
-        <div class="error text-danger">{{ $message }}</div>
-    @enderror
-</div>
+    <!-- Bs Id Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('bs_id', '登録番号:') !!}
+        {!! Form::text('bs_id', null, ['class' => 'form-control']) !!}
+        @error('bs_id')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
 
-<!-- Grade Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('grade', '進級:') !!}
-    {!! Form::select('grade', ['' => '', '初級' => '初級', '2級' => '2級', '1級' => '1級', '菊' => '菊', '隼' => '隼', '富士' => '富士'], null, ['class' => 'form-control custom-select']) !!}
-</div>
-
-<!-- Gender Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('gender', '性別:') !!}
-    {!! Form::select('gender', ['' => '', '男' => '男', '女' => '女'], null, ['class' => 'form-control custom-select']) !!}
-    @error('gender')
-        <div class="error text-danger">{{ $message }}</div>
-    @enderror
+    <!-- Training Record Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('training_record', '研修歴:') !!}
+        {!! Form::select('training_record', ['' => '', 'BS講習会' => 'BS講習会', 'BVS研修所' => 'BVS研修所', 'BVS実修所' => 'BVS実修所', 'CS研修所' => 'CS研修所', 'CS実修所' => 'CS実修所', 'BS研修所' => 'BS研修所', 'BS実修所' => 'BS実修所', 'VS研修所' => 'VS研修所', 'VS実修所' => 'VS実修所', 'RS研修所' => 'RS研修所', '団研修所' => '団研修所', '団実修所' => '団実修所', '他' => '他'], null, ['class' => 'form-control custom-select']) !!}
+        @error('training_record')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
 </div>
 
-<!-- Birthday Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('birthday', '生年月日:') !!}
-    @if (isset($member->birthday))
-        <input type="text" name="birthday" value="{{ old('birthday') ?? $member->birthday->format('Y-m-d') }}"
-            class="form-control">
-    @else
-        <input type="text" name="birthday" value="{{ old('birthday') }}" class="form-control">
-    @endif
-    @error('birthday')
-        <div class="error text-danger">{{ $message }}</div>
-    @enderror
+<div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    <h3 class="uk-card-title">参加隊情報</h3>
+    <!-- Role Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('role', '参加隊役務:') !!}
+        {!! Form::select('role', ['' => '', '隊長' => '隊長', '副長' => '副長', '副長補' => '副長補', 'インストラクター' => 'インストラクター', '介助者' => '介助者', '上班' => '上班', '隊付き' => '隊付き', 'スカウト' => 'スカウト'], null, ['class' => 'form-control custom-select']) !!}
+        @error('role')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <!-- How_To_Join Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('how_to_join', '参加期間(指導者のみ入力):') !!}
+        {!! Form::select('how_to_join', ['' => '', '全期間' => '全期間', '前半' => '前半', '後半' => '後半'], null, ['class' => 'form-control custom-select']) !!}
+        @error('how_to_join')
+            <div class="error text-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <!-- Patrol Code Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('patrol_code', '班コード(指導者の場合は担当する班):') !!}
+        {{-- {!! Form::text('patrol_code', null, ['class' => 'form-control']) !!} --}}
+        <select name="patrol_code" id="" class="form-control">
+            <option value=""></option>
+            <option value=1 @if ($member->patrol_code == 1) selected @endif> {{ $member->p1 }} </option>
+            <option value=2 @if ($member->patrol_code == 2) selected @endif> {{ $member->p2 }} </option>
+            <option value=3 @if ($member->patrol_code == 3) selected @endif> {{ $member->p3 }} </option>
+            <option value=4 @if ($member->patrol_code == 4) selected @endif> {{ $member->p4 }} </option>
+            <option value=5 @if ($member->patrol_code == 5) selected @endif> {{ $member->p5 }} </option>
+            <option value=6 @if ($member->patrol_code == 6) selected @endif> {{ $member->p6 }} </option>
+        </select>
+
+    </div>
+
+    <!-- Patrol Role Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('patrol_role', '班役務(指導者の場合も選択):') !!}
+        {!! Form::select('patrol_role', ['' => '', '班長' => '班長', '次長' => '次長', '班員' => '班員', '上班' => '上班', '隊付き' => '隊付き', '指導者' => '指導者'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
 </div>
 
-<!-- Email Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('email', 'Email:') !!}
-    {!! Form::text('email', null, ['class' => 'form-control']) !!}
-</div>
 
-<!-- Phone Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('phone', '自宅電話:') !!}
-    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
-</div>
 
-<!-- Cell Phone Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('cell_phone', 'ケータイ電話:') !!}
-    {!! Form::text('cell_phone', null, ['class' => 'form-control']) !!}
-</div>
 
-<!-- Training Record Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('training_record', '研修歴:') !!}
-    {!! Form::select('training_record', ['' => '', 'BS講習会' => 'BS講習会', 'BVS研修所' => 'BVS研修所', 'BVS実修所' => 'BVS実修所', 'CS研修所' => 'CS研修所', 'CS実修所' => 'CS実修所', 'BS研修所' => 'BS研修所', 'BS実修所' => 'BS実修所', 'VS研修所' => 'VS研修所', 'VS実修所' => 'VS実修所', 'RS研修所' => 'RS研修所', '団研修所' => '団研修所', '団実修所' => '団実修所', '他' => '他'], null, ['class' => 'form-control custom-select']) !!}
-    @error('training_record')
-        <div class="error text-danger">{{ $message }}</div>
-    @enderror
-</div>
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">宗教</h3>
@@ -184,4 +188,11 @@
             <div class="error text-danger">{{ $message }}</div>
         @enderror
     </div>
+
+    <!-- Grade Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('grade', '進級:') !!}
+        {!! Form::select('grade', ['' => '', '初級' => '初級', '2級' => '2級', '1級' => '1級', '菊' => '菊', '隼' => '隼', '富士' => '富士'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
 </div>
+
