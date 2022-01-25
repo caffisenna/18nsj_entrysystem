@@ -27,4 +27,9 @@ class CreateMemberRequest extends FormRequest
     {
         return Member::$rules;
     }
+
+    public function messages()
+    {
+        return Member::$messages;
+    }
 }
