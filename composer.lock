@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f17c0242c827c1323c085a0e0f828ef",
+    "content-hash": "b589bdff99dfa625cedd1bff560a8657",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7073,6 +7073,62 @@
             "time": "2020-11-10T18:47:58+00:00"
         },
         {
+            "name": "erlangparasu/laravel-debugbar-vscode",
+            "version": "3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erlangp/laravel-debugbar-vscode.git",
+                "reference": "564c2a88d504a3c3fac084efe0680144ec93eedb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erlangp/laravel-debugbar-vscode/zipball/564c2a88d504a3c3fac084efe0680144ec93eedb",
+                "reference": "564c2a88d504a3c3fac084efe0680144ec93eedb",
+                "shasum": ""
+            },
+            "require": {
+                "barryvdh/laravel-debugbar": "~3.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "laravel/framework": "5.5.x"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ErlangParasu\\DebugbarVscode\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ErlangParasu\\DebugbarVscode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erlang Parasu",
+                    "email": "erlangparasu@gmail.com"
+                }
+            ],
+            "description": "laravel-debugbar plugin that provide buttons to open vscode",
+            "keywords": [
+                "debugbar",
+                "laravel",
+                "vscode"
+            ],
+            "support": {
+                "issues": "https://github.com/erlangp/laravel-debugbar-vscode/issues",
+                "source": "https://github.com/erlangp/laravel-debugbar-vscode/tree/master"
+            },
+            "time": "2020-04-29T04:31:21+00:00"
+        },
+        {
             "name": "facade/flare-client-php",
             "version": "1.9.1",
             "source": {
@@ -9936,7 +9992,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "infyomlabs/laravel-generator": 20
+        "infyomlabs/laravel-generator": 20,
+        "erlangparasu/laravel-debugbar-vscode": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -9944,5 +10001,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
