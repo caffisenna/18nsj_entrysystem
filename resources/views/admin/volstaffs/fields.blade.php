@@ -1,5 +1,5 @@
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
-    <h3 class="uk-card-title">基本情報</h3>
+    <h3 class="uk-card-title">基本情報admin</h3>
     <div class="form-group col-sm-6">
         {!! Form::label('name', '氏名:') !!}
         {{ Auth::user()->name }}
