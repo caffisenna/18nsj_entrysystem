@@ -32,8 +32,8 @@
         </a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('volstaffs.index') }}"
-            class="nav-link {{ Request::is('admin/volstaffs*') ? 'active' : '' }}">
+        <a href="{{ route('vol_staffs.index') }}"
+            class="nav-link {{ Request::is('admin/vol_staffs*') ? 'active' : '' }}">
             <p>奉仕者一覧</p>
         </a>
     </li>
