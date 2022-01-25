@@ -37,7 +37,7 @@
                         <tr>
                             <td>{{ $troop->id }}</td>
                             <td>@if (isset($troop->troopinfo->district)){{ $troop->troopinfo->district }}@endif</td>
-                            <td><a href="{{ url("/admin/members/?troop_id=$troop->id") }}">メンバー</a></td>
+                            <td><a href="{{ url("/admin/troop_members/?troop_id=$troop->id") }}">メンバー</a></td>
                             <td>{{ $troop->name }}</td>
                             <td width="120">
                                 {!! Form::open(['route' => ['members.destroy', $troop->id], 'method' => 'delete']) !!}
