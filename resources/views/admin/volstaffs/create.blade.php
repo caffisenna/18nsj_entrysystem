@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>奉仕スタッフ情報入力</h1>
+                    <h1>奉仕スタッフ情報入力admin</h1>
                 </div>
             </div>
         </div>
@@ -17,19 +17,19 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'volstaffs.store']) !!}
+            {!! Form::open(['route' => 'vol_staffs.store']) !!}
 
             <div class="card-body">
 
                 <div class="row">
-                    @include('volstaffs.fields')
+                    @include('admin.volstaffs.fields')
                 </div>
 
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('volstaffs.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('vol_staffs.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}

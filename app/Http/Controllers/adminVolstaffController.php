@@ -41,7 +41,7 @@ class adminVolstaffController extends AppBaseController
      */
     public function create()
     {
-        return view('vol_staffs.create');
+        return view('admin.volstaffs.create');
     }
 
     /**
