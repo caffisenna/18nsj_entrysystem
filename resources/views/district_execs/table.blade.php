@@ -25,7 +25,8 @@
                             $(api.column(colIdx).header()).index()
                         );
                         var title = $(cell).text();
-                        $(cell).html('<input type="text" placeholder="' + title + '" style="width:60px" />');
+                        $(cell).html('<input type="text" placeholder="' + title +
+                            '" style="width:60px" />');
 
                         // On every keypress in this input
                         $(
@@ -77,21 +78,19 @@
         <tbody>
             @foreach ($districtExecs as $districtExec)
                 <tr>
-                    <td>{{ $districtExec->district_name }}</td>
+                    <td><a
+                            href="{{ route('districtExecs.show', [$districtExec->id]) }}">{{ $districtExec->district_name }}</a>
+                    </td>
                     <td>{{ $districtExec->chairman_name }}</td>
                     <td>{{ $districtExec->commi_name }}</td>
                     <td width="120">
                         {!! Form::open(['route' => ['districtExecs.destroy', $districtExec->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('districtExecs.show', [$districtExec->id]) }}"
-                                class='btn btn-default btn-xs'>
-                                <i class="far fa-eye"></i>
-                            </a>
                             <a href="{{ route('districtExecs.edit', [$districtExec->id]) }}"
                                 class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>
@@ -105,4 +104,3 @@
         $('#districtExecs-table').DataTable();
     });
 </script>
-

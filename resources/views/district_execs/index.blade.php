@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('districtExecs.create') }}">
-                        Add New
+                        新規追加
                     </a>
                 </div>
             </div>
