@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>District Exec Details</h1>
+                    <h1>{{ $districtExec->district_name }}地区 役員詳細</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
