@@ -8,10 +8,12 @@
                     <h1>隊メンバー一覧admin</h1>
                 </div>
                 <div class="col-sm-6">
-                    {{-- <a class="btn btn-primary float-right" href="{{ route('troop_members.create', $_REQUEST['troop_id']) }}"> --}}
-                        <a class="btn btn-primary float-right" href="{{ url('/admin/troop_members/create?troop_id=').$_REQUEST['troop_id'] }}">
-                        新規追加
-                    </a>
+                    @if (isset($_REQUEST['troop_id']))
+                        <a class="btn btn-primary float-right"
+                            href="{{ url('/admin/troop_members/create?troop_id=') . $_REQUEST['troop_id'] }}">
+                            新規追加
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
