@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
     public function troopinfo() {
-        return $this->hasOne(troopinfo::class);
+        return $this->hasOne(TroopInfo::class);
     }
 
     public function member() {
