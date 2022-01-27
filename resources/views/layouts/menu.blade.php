@@ -12,6 +12,12 @@
             <p>メンバー一覧</p>
         </a>
     </li>
+
+    <li class="nav-item">
+        <a href="{{ route('sfh.index') }}" class="nav-link {{ Request::is('user/sfh*') ? 'active' : '' }}">
+            <p>SFH管理</p>
+        </a>
+    </li>
 @endif
 
 @if (!Auth::user()->is_troopstaff && !Auth::user()->is_admin)
