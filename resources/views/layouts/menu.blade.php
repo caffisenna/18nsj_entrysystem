@@ -43,4 +43,13 @@
             <p>地区役員DB</p>
         </a>
     </li>
+
+    <h4><span class="uk-text-danger">Danger</span></h4>
+
+    <li class="nav-item">
+        <a href="{{ route('gen_uuid') }}"
+            class="nav-link {{ Request::is('admin/gen_uuid*') ? 'active' : '' }}">
+            <p>UUID生成</p>
+        </a>
+    </li>
 @endif

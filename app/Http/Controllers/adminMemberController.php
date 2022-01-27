@@ -10,6 +10,7 @@ use App\Models\TroopInfo;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Ramsey\Uuid\Uuid;
 
 class adminMemberController extends AppBaseController
 {
@@ -75,7 +76,7 @@ class adminMemberController extends AppBaseController
         $member->p5 = TroopInfo::where('id', auth()->id())->value('patrol5');
         $member->p6 = TroopInfo::where('id', auth()->id())->value('patrol6');
 
-        return view('admin.troop_members.create')->with('member',$member);
+        return view('admin.troop_members.create')->with('member', $member);
     }
 
     /**
@@ -181,7 +182,7 @@ class adminMemberController extends AppBaseController
 
         // return redirect(route('trooplists.index'));
         // 隊のメンバー一覧にリダイレクト
-        return redirect(url('admin/troop_members?troop_id=').$member->user_id);
+        return redirect(url('admin/troop_members?troop_id=') . $member->user_id);
     }
 
     /**
@@ -210,6 +211,25 @@ class adminMemberController extends AppBaseController
 
         // return redirect(route('members.index'));
         // 隊のメンバー一覧にリダイレクト
-        return redirect(url('admin/troop_members?troop_id=').$member->user_id);
+        return redirect(url('admin/troop_members?troop_id=') . $member->user_id);
+    }
+
+    public function uuid(Request $request)
+    {
+        if ($request['gen'] == 'true') {
+            // ここにUUID生成処理
+            $members = Member::where('uuid', null)->get();
+            foreach ($members as $member) {
+                $member->uuid = Uuid::uuid4();
+                $member->save();
+            }
+            Flash::success('uuidを発行しました');
+            return redirect('/home');
+        }
+        /** @var Member $members */
+        $members = Member::where('uuid', null)->select('name')->get();
+
+        return view('admin.troop_members.uuid')
+            ->with('members', $members);
     }
 }
