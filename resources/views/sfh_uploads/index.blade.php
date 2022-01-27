@@ -12,15 +12,7 @@
     </section>
 
     <div class="content px-3">
-
-        {{-- <div>
-            <div class="uk-card uk-card-default uk-card-body">
-                <h3 class="uk-card-title">SFH修了証のアップロード</h3>
-            </div>
-        </div> --}}
-
         @include('flash::message')
-
         <div class="clearfix"></div>
 
         <div class="card">
