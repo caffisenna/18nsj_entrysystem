@@ -46,10 +46,10 @@ class User extends Authenticatable
     }
 
     public function member() {
-        return $this->hasMany(member::class);
+        return $this->hasMany(Member::class);
     }
 
     public function volstaff() {
-        return $this->hasOne(volstaff::class);
+        return $this->hasOne(Volstaff::class);
     }
 }
