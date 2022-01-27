@@ -51,12 +51,12 @@ class Sfh extends Model
      */
     public static $rules = [
         'member_id' => 'required',
-        'file' => 'required|mimes:pdf,docx,xlsx,jpg',
+        'file' => 'required|mimes:pdf,jpg',
     ];
 
     public static $messages = [
-        'file.required'=>'計画書のファイルを指定してください',
-        'file.mimes'=>'計画書はPDF、エクセル、ワード、またはjpg形式のみアップロード可能です',
+        'file.required'=>'SFH修了証のファイルを指定してください',
+        'file.mimes'=>'SFH修了証はPDFまたはjpg形式のみアップロード可能です',
     ];
 
     public function user() {
