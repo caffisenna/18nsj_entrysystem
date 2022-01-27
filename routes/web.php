@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/pp', function () {
+    return view('pp');
+});
+
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
