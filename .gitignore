@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/sfh
+/public/health_check
 /storage/*.key
 /vendor
 /.idea
