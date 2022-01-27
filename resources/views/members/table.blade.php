@@ -76,8 +76,6 @@
                 <th>所属団</th>
                 <th>役務</th>
                 <th>研修歴</th>
-                <th>SFH</th>
-                <th>健康調査</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -93,8 +91,6 @@
                         </td>
                         <td>{{ $member->org_role }}</td>
                         <td>{{ $member->training_record }}</td>
-                        <td>{{ $member->sfh }}</td>
-                        <td>{{ $member->health_check }}</td>
                         <td width="120">
                             {!! Form::open(['route' => ['members.destroy', $member->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>
@@ -124,8 +120,6 @@
                 <th>所属団</th>
                 <th>班</th>
                 <th>役務</th>
-                <th>SFH</th>
-                <th>健康調査</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -141,8 +135,6 @@
                         </td>
                         <td>{{ $member->org_patrol }}</td>
                         <td>{{ $member->org_role }}</td>
-                        <td>{{ $member->sfh }}</td>
-                        <td>{{ $member->health_check }}</td>
                         <td width="120">
                             {!! Form::open(['route' => ['members.destroy', $member->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>
@@ -173,8 +165,6 @@
                 <th>性別</th>
                 <th>所属団</th>
                 <th>原隊の班</th>
-                <th>SFH</th>
-                <th>健康調査</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -190,8 +180,6 @@
                         <td>{{ $member->gender }}</td>
                         <td>{{ $member->org_dan_name }}{{ $member->org_dan_number }}団 {{ $member->org_group }}隊</td>
                         <td>{{ $member->org_patrol }}</td>
-                        <td>{{ $member->sfh }}</td>
-                        <td>{{ $member->health_check }}</td>
                         <td>
                             {!! Form::open(['route' => ['members.destroy', $member->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>
