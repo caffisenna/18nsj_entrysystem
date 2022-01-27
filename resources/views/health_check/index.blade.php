@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>SFH修了証管理</h1>
+                    <h1>健康調査票管理</h1>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
 
         <div class="card">
             <div class="card-body p-0">
-                @include('sfh_uploads.table')
+                @include('health_check.table')
 
                 <div class="card-footer clearfix float-right">
                     <div class="float-right">

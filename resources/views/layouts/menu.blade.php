@@ -13,9 +13,17 @@
         </a>
     </li>
 
+    <h4 class="uk-text-primary">アップロード管理</h4>
+
     <li class="nav-item">
         <a href="{{ route('sfh.index') }}" class="nav-link {{ Request::is('user/sfh*') ? 'active' : '' }}">
-            <p>SFH管理</p>
+            <p>SFH</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('health_check.index') }}" class="nav-link {{ Request::is('user/health_check*') ? 'active' : '' }}">
+            <p>健康調査票</p>
         </a>
     </li>
 @endif
