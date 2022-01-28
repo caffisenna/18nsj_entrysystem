@@ -51,12 +51,12 @@ class Health_check extends Model
      */
     public static $rules = [
         'member_id' => 'required',
-        'file' => 'required|mimes:pdf,docx,xlsx,jpg',
+        'file' => 'required|mimes:pdf,jpg',
     ];
 
     public static $messages = [
-        'file.required'=>'計画書のファイルを指定してください',
-        'file.mimes'=>'計画書はPDF、エクセル、ワード、またはjpg形式のみアップロード可能です',
+        'file.required'=>'健康調査票のファイルを指定してください',
+        'file.mimes'=>'健康調査票はPDFまたはjpg形式のみアップロード可能です',
     ];
 
     public function user() {

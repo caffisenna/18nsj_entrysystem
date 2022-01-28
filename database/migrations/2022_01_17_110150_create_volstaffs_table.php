@@ -42,6 +42,7 @@ class CreateVolstaffsTable extends Migration
             $table->text('memo')->nullable();
             $table->date('commi_ok')->nullable();
             $table->string('event_0807')->nullable();
+            $table->date('fee_checked_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

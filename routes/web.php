@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('troop_members', App\Http\Controllers\adminMemberController::class);
         Route::resource('vol_staffs', App\Http\Controllers\adminVolstaffController::class);
         Route::get('gen_uuid', [App\Http\Controllers\adminMemberController::class, 'uuid'])->name('gen_uuid');
+        Route::get('fee_check', [App\Http\Controllers\adminVolstaffController::class, 'fee_check'])->name('fee_check');
         // Route::get('/', 'Admin\HomeController@index');
         // Route::resource('adminConfigs', App\Http\Controllers\AdminConfigController::class);
         // Route::resource('adminentries', App\Http\Controllers\adminentryFormController::class, ['except' => 'create']);

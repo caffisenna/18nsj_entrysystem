@@ -53,9 +53,8 @@ class health_checkController extends AppBaseController
     {
         $input = $request->all();
 
-        // アップロードされたファイル名を取得
-        // ユーザーID + unixtime
-        $fileName = Auth::user()->id . '_' . time() . '.' . $request->file->extension();
+        // ファイル名をhash化する
+        $fileName = $request->file->hashName();
 
         // 画像をpublicに移動
         $request->file->move(public_path('health_check'), $fileName);

@@ -66,4 +66,11 @@
             <p>UUID生成</p>
         </a>
     </li>
+
+    <li class="nav-item">
+        <a href="{{ route('fee_check') }}"
+            class="nav-link {{ Request::is('admin/fee_check*') ? 'active' : '' }}">
+            <p>入金チェック</p>
+        </a>
+    </li>
 @endif

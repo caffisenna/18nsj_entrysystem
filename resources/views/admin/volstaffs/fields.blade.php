@@ -2,12 +2,12 @@
     <h3 class="uk-card-title">基本情報admin</h3>
     <div class="form-group col-sm-6">
         {!! Form::label('name', '氏名:') !!}
-        {{ Auth::user()->name }}
+        {{ $volstaff->user->name }}
     </div>
 
     <div class="form-group col-sm-6">
         {!! Form::label('email', 'Email:') !!}
-        {{ Auth::user()->email }}
+        {{ $volstaff->user->email }}
     </div>
 
     <!-- Bs Id Field -->
