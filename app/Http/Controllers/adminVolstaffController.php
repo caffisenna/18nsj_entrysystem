@@ -11,6 +11,7 @@ use Auth;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 use Flash;
+use Laracasts\Flash\Flash as FlashFlash;
 use Response;
 
 class adminVolstaffController extends AppBaseController
@@ -98,7 +99,7 @@ class adminVolstaffController extends AppBaseController
             $fee = 30000;
         } else {
             // 部分参加の場合
-            $days = substr_count($volstaff->join_days, ',') + 1;
+            $days = substr_count($volstaff->join_days, "月") + 1;
             $fee = 4000 * $days;
             $cost = 5000; // 日連+東連分担金
             $fee = $fee + $cost;
@@ -135,7 +136,7 @@ class adminVolstaffController extends AppBaseController
             return redirect(route('vol_staffs.index'));
         }
 
-        if (isset($volstaff->join_days)) {
+        if (isset($volstaff->join_days) && !empty($volstaff->join_days)) {
             $volstaff->join_days = implode(",", unserialize($volstaff->join_days));
         }
 
@@ -164,8 +165,8 @@ class adminVolstaffController extends AppBaseController
         $volstaff->fill($request->all());
         // 参加日程をシリアライズ
         if ($volstaff->how_to_join <> "全期間") {
-        $volstaff['join_days'] = serialize($request['join_days']);
-        }else{
+            $volstaff['join_days'] = serialize($request['join_days']);
+        } else {
             $volstaff['join_days'] = null;
         }
         $volstaff->save();
@@ -200,5 +201,50 @@ class adminVolstaffController extends AppBaseController
         Flash::success('Volstaff deleted successfully.');
 
         return redirect(route('vol_staffs.index'));
+    }
+
+    public function fee_check(Request $request)
+    {
+        /** @var Volstaff $volstaffs */
+
+        // 入金ボタン処理
+        if($request['id']){
+            $volstaff = Volstaff::with('user')->where('id',$request['id'])->first();
+            $volstaff->fee_checked_at = now();
+            $volstaff->save();
+            Flash::success($volstaff->user->name." の入金確認を行いました");
+            return back();
+        }
+
+        // ここでwith('user')することでeager loadすることが可能
+        // データが増えたときにN+1問題を回避できる
+        $volstaffs = Volstaff::with('user')->get();
+
+        // 参加費計算
+        foreach ($volstaffs as $volstaff) {
+            // 全期間の場合
+            if ($volstaff->how_to_join == "全期間") {
+                $fee = 30000;
+            } else {
+                // 部分参加の場合
+                $days = substr_count($volstaff->join_days, '月') + 1;
+                $fee = 4000 * $days;
+                $cost = 5000; // 日連+東連分担金
+                $fee = $fee + $cost;
+            }
+
+            // 大集会参加費
+            if ($volstaff->event_0807 == "あり") {
+                $event_fee = 2000;
+            } else {
+                $event_fee = 0;
+            }
+
+            // 合計
+            $volstaff->total_fee = $fee + $event_fee;
+        }
+
+        return view('admin.volstaffs.fee_check')
+            ->with('volstaffs', $volstaffs);
     }
 }
