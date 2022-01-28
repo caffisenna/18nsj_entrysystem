@@ -28,8 +28,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('volstaffs.index') }}" class="btn btn-default">Cancel</a>
+                {!! Form::submit('登録', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('volstaffs.index') }}" class="btn btn-default">キャンセル</a>
             </div>
 
             {!! Form::close() !!}

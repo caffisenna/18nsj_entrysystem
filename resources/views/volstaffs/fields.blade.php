@@ -13,7 +13,7 @@
     <!-- Bs Id Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('bs_id', '登録番号:') !!}
-        {!! Form::text('bs_id', null, ['class' => 'form-control']) !!}
+        {!! Form::text('bs_id', null, ['class' => 'form-control', 'maxlength'=>'10']) !!}
         @error('bs_id')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -22,7 +22,7 @@
     <!-- Furigana Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('furigana', 'ふりがな:') !!}
-        {!! Form::text('furigana', null, ['class' => 'form-control']) !!}
+        {!! Form::text('furigana', null, ['class' => 'form-control', 'placeholder'=>'ひらがな or カタカナ']) !!}
         @error('furigana')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -97,7 +97,7 @@
     <!-- Org Dan Number Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_number', '団番号:') !!}
-        {!! Form::text('org_dan_number', null, ['class' => 'form-control']) !!}
+        {!! Form::text('org_dan_number', null, ['class' => 'form-control', 'maxlength'=>'2']) !!}
         @error('org_dan_number')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -189,9 +189,10 @@
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">車両情報</h3>
+    <p class="uk-text-warning uk-text-small">業務車両など登録車両の参考情報として任意記入してください</p>
     <!-- Car Number Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('car_number', 'カーナンバー:') !!}
+        {!! Form::label('car_number', 'ナンバー:') !!}
         {!! Form::text('car_number', null, ['class' => 'form-control']) !!}
     </div>
 
