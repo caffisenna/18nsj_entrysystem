@@ -10,6 +10,8 @@ use App\Models\TroopInfo;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Exports\TroopMembersExport;
+use Excel;
 
 class MemberController extends AppBaseController
 {
@@ -202,5 +204,9 @@ class MemberController extends AppBaseController
         Flash::success('Member deleted successfully.');
 
         return redirect(route('members.index'));
+    }
+
+    public function export(){
+        return Excel::download(new TroopMembersExport, 'member_lists.xlsx');
     }
 }
