@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
         // Route::get('/', 'User\HomeController@index');
         Route::resource('troopInfos', App\Http\Controllers\TroopInfoController::class);
         Route::resource('members', App\Http\Controllers\MemberController::class);
+        Route::get('export', [App\Http\Controllers\MemberController::class, 'export'])->name('export');
         Route::resource('volstaffs', App\Http\Controllers\VolstaffController::class);
         Route::resource('sfh', App\Http\Controllers\sfhController::class, ['except' => ['edit','show','update']]);
         Route::resource('health_check', App\Http\Controllers\health_checkController::class, ['except' => ['edit','show','update']]);
