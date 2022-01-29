@@ -11,7 +11,7 @@
                     <a class="btn btn-primary float-right" href="{{ route('members.create') }}">
                         新規追加
                     </a>
-                    <a class="btn btn-primary float-right" href="{{ route('export') }}">
+                    <a class="btn btn-default float-right" href="{{ route('export') }}">
                         <span uk-icon="download"></span>Excel
                     </a>
                 </div>
