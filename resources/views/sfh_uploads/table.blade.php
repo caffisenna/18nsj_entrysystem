@@ -20,7 +20,7 @@
                                 href="{{ url('/') }}/sfh/{{ $member->sfh }}">UP済み</a>
                         </td>
                     @else
-                        <td><a href="{{ url('/user/sfh/create?id=').$member->id }}" class="uk-button uk-button-primary">upload</a></td>
+                        <td><a href="{{ url('/user/sfh/create?id=').$member->id }}" class="uk-button uk-button-primary"><span uk-icon="cloud-upload"></span>up</a></td>
                     @endif
                     <td width="120">
                         {!! Form::open(['route' => ['sfh.destroy', $member->id], 'method' => 'delete']) !!}
