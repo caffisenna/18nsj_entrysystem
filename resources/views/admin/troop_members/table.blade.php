@@ -97,7 +97,7 @@
                                 <a href="{{ route('troop_members.edit', [$member->id]) }}" class='btn btn-default btn-xs'>
                                     <span uk-icon="file-edit"></span>
                                 </a>
-                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
+                                {!! Form::button('<span uk-icon="trash"></span>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                             </div>
                             {!! Form::close() !!}
                         </td>
@@ -141,7 +141,7 @@
                                 <a href="{{ route('troop_members.edit', [$member->id]) }}" class='btn btn-default btn-xs'>
                                     <span uk-icon="file-edit"></span>
                                 </a>
-                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
+                                {!! Form::button('<span uk-icon="trash"></span>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                             </div>
                             {!! Form::close() !!}
                         </td>
@@ -186,7 +186,7 @@
                                 <a href="{{ route('troop_members.edit', [$member->id]) }}" class='btn btn-default btn-xs'>
                                     <span uk-icon="file-edit"></span>
                                 </a>
-                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
+                                {!! Form::button('<span uk-icon="trash"></span>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                             </div>
                             {!! Form::close() !!}
                         </td>
