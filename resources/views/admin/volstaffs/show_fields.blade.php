@@ -50,7 +50,7 @@
     <!-- Email Field -->
     <div class="col-sm-12">
         {!! Form::label('email', 'Email:') !!}
-        {{ Auth::user()->email }}
+        {{ $volstaff->user->email }}
     </div>
 
     <!-- Phone Field -->
