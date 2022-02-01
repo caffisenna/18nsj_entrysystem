@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <a href="{{ route('volstaffs.edit', [$volstaff->id]) }}" class='btn btn-default float-right'>
-                        <i class="far fa-edit"></i>編集
+                        <span uk-icon="file-edit"></span>編集
                     </a>
                 </div>
             </div>
