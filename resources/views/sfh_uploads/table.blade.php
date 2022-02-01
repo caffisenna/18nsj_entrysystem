@@ -25,7 +25,7 @@
                     <td width="120">
                         {!! Form::open(['route' => ['sfh.destroy', $member->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
+                            {!! Form::button('<span uk-icon="trash"></span>', ['type' => 'submit', 'class' => 'btn btn-danger', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>
