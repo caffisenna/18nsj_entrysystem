@@ -17,7 +17,7 @@
     <div class="content px-3">
         <div class='btn-group'>
             <a href="{{ route('troop_members.edit', [$member->id]) }}" class='btn btn-warning float-right'>
-                <i class="far fa-edit"></i>編集
+                <span uk-icon="file-edit"></span>編集
             </a>
             {{-- <a class="btn btn-default float-right" href="{{ route('troop_members.index') }}">
                 戻る

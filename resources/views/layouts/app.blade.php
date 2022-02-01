@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ url('css/bootstrap-datetimepicker.min.css') }}" />
 
     {{-- datatablesを有効にするにはこの位置でないとjqueryを呼んでくれない --}}
-    <script src="{{ url('jq/jquery.min.js') }}"></script>
+    <script src="{{ url('js/jquery.min.js') }}"></script>
 
     @yield('third_party_stylesheets')
     <!-- UIkit CSS -->
@@ -42,8 +42,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><span uk-icon="menu"></span></a>
                 </li>
             </ul>
 

@@ -95,7 +95,7 @@
                             {!! Form::open(['route' => ['troop_members.destroy', $member->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>
                                 <a href="{{ route('troop_members.edit', [$member->id]) }}" class='btn btn-default btn-xs'>
-                                    <i class="far fa-edit"></i>
+                                    <span uk-icon="file-edit"></span>
                                 </a>
                                 {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                             </div>
@@ -139,7 +139,7 @@
                             {!! Form::open(['route' => ['troop_members.destroy', $member->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>
                                 <a href="{{ route('troop_members.edit', [$member->id]) }}" class='btn btn-default btn-xs'>
-                                    <i class="far fa-edit"></i>
+                                    <span uk-icon="file-edit"></span>
                                 </a>
                                 {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                             </div>
@@ -184,7 +184,7 @@
                             {!! Form::open(['route' => ['troop_members.destroy', $member->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>
                                 <a href="{{ route('troop_members.edit', [$member->id]) }}" class='btn btn-default btn-xs'>
-                                    <i class="far fa-edit"></i>
+                                    <span uk-icon="file-edit"></span>
                                 </a>
                                 {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                             </div>

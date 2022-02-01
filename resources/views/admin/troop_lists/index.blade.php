@@ -8,9 +8,6 @@
                     <h1>隊リスト</h1>
                 </div>
                 <div class="col-sm-6">
-                    {{-- <a href="{{ route('troopInfos.edit', [$troops->id]) }}" class='btn btn-primary float-right'>
-                        <i class="far fa-edit"></i>編集
-                    </a> --}}
                 </div>
             </div>
         </div>
@@ -43,7 +40,7 @@
                                 {!! Form::open(['route' => ['members.destroy', $troop->id], 'method' => 'delete']) !!}
                                 <div class='btn-group'>
                                     <a href="{{ route('members.edit', [$troop->id]) }}" class='btn btn-default btn-xs'>
-                                        <i class="far fa-edit"></i>
+                                        <span uk-icon="file-edit"></span>
                                     </a>
                                     {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                                 </div>

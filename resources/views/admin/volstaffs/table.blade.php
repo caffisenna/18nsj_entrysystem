@@ -89,7 +89,7 @@
                         {!! Form::open(['route' => ['vol_staffs.destroy', $volstaff->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
                             <a href="{{ route('vol_staffs.edit', [$volstaff->id]) }}" class='btn btn-default btn-xs'>
-                                <i class="far fa-edit"></i>
+                                <span uk-icon="file-edit"></span>
                             </a>
                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
                         </div>

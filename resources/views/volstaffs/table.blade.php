@@ -63,7 +63,7 @@
                                 <i class="far fa-eye"></i>
                             </a>
                             <a href="{{ route('volstaffs.edit', [$volstaff->id]) }}" class='btn btn-default btn-xs'>
-                                <i class="far fa-edit"></i>
+                                <span uk-icon="file-edit"></span>
                             </a>
                             {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                         </div>
