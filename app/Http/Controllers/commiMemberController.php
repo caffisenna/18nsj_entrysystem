@@ -25,6 +25,14 @@ class commiMemberController extends AppBaseController
         // $members = Member::all();
         $members = Member::where('user_id', $request->troop_id)->get();
 
+        // 当該地区以外は見せない
+        $troop = TroopInfo::where('user_id', $request->troop_id)->first();
+        if($troop->district <> auth()->user()->is_commi){
+            Flash::error('当該のデータが見つからない、もしくは閲覧権限がありません');
+
+            return redirect(route('district_trooplists.index'));
+        }
+
         // 班名処理
         foreach ($members as $member) {
             if (isset($member->patrol_code)) {

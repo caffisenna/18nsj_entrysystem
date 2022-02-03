@@ -25,7 +25,7 @@ class commiVolstaffController extends AppBaseController
 
         // ここでwith('user')することでeager loadすることが可能
         // データが増えたときにN+1問題を回避できる
-        $volstaffs = Volstaff::where('org_district',auth()->user()->is_commi)->with('user')->get();
+        $volstaffs = Volstaff::where('org_district', auth()->user()->is_commi)->with('user')->get();
 
         return view('commi.volstaffs.index')
             ->with('volstaffs', $volstaffs);
@@ -50,10 +50,11 @@ class commiVolstaffController extends AppBaseController
         /** @var Volstaff $volstaff */
         $volstaff = Volstaff::with('user')->find($id);
 
-        if (empty($volstaff)) {
-            Flash::error('Volstaff not found');
+        // 当該地区以外は見せない
+        if (empty($volstaff) || $volstaff->org_district <> auth()->user()->is_commi) {
+            Flash::error('当該のデータが見つからない、もしくは閲覧権限がありません');
 
-            return redirect(route('district.vol_staffs.index'));
+            return redirect(route('district_vol_staffs.index'));
         }
 
         // 参加費計算
