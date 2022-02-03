@@ -27,7 +27,22 @@
             </div>
         @endif
         @if (auth()->user()->is_commi)
-            {{ auth()->user()->is_commi }}地区コミッショナーさん、ようこそ!
+            <h3>{{ auth()->user()->is_commi }}地区コミッショナーさん、ようこそ!</h3>
+            {{-- <a href="{{ route('district_trooplists.index') }}"
+                class="uk-button uk-button-primary uk-button-large">参加隊一覧</a>
+            <a href="{{ route('district_vol_staffs.index') }}"
+                class="uk-button uk-button-primary uk-button-large">奉仕者一覧</a> --}}
+
+            <div class="uk-card uk-card-body">
+                <h3 class="uk-card-title"><span uk-icon="info"></span>参加隊一覧</h3>
+                <p class=""><a href="{{ route('district_trooplists.index') }}">参加隊一覧</a>は参加隊のスカウト、指導者に関する情報を表示します。</p>
+            </div>
+
+            <div class="uk-card uk-card-body">
+                <h3 class="uk-card-title"><span uk-icon="users"></span>奉仕者一覧</h3>
+                <p class=""><a
+                        href="{{ route('district_vol_staffs.index') }}">奉仕者一覧</a>は中央会場各所で奉仕するスタッフの情報を表示します。参加承認処理を行ってください。</p>
+            </div>
         @endif
         <div class="row">
         </div>
