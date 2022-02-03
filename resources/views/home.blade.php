@@ -26,6 +26,9 @@
                     ファイルの形式はいずれもpdfかjpg形式です。</p>
             </div>
         @endif
+        @if (auth()->user()->is_commi)
+            {{ auth()->user()->is_commi }}地区コミッショナーさん、ようこそ!
+        @endif
         <div class="row">
         </div>
     </div>
