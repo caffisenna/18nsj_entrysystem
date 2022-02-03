@@ -23,7 +23,6 @@
                 <thead>
                     <tr>
                         <th>隊id</th>
-                        <th>地区</th>
                         <th>メンバー構成</th>
                         <th>操作担当者</th>
                     </tr>
@@ -32,7 +31,6 @@
                     @foreach ($troops as $troop)
                         <tr>
                             <td>{{ $troop->id }}</td>
-                            <td>@if (isset($troop->troopinfo->district)){{ $troop->troopinfo->district }}@endif</td>
                             <td><a href="{{ url("/commi/district_troop_members/?troop_id=$troop->id") }}">メンバー</a></td>
                             <td>{{ $troop->name }}</td>
                         </tr>
