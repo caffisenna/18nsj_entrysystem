@@ -76,6 +76,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('district_trooplists', App\Http\Controllers\commiTroopInfoController::class,['only' => ['index']]);
         Route::resource('district_troop_members', App\Http\Controllers\commiMemberController::class,['only' => ['index','show']]);
         Route::resource('district_vol_staffs', App\Http\Controllers\commiVolstaffController::class,['only' => ['index','show']]);
+        Route::get('commi_check', [App\Http\Controllers\commiVolstaffController::class, 'commi_check'])->name('commi_check');
         // Route::resource('entries', App\Http\Controllers\commiEntryFormController::class, ['only' => ['index', 'show']]);
     });
 });
