@@ -89,4 +89,16 @@ class commiVolstaffController extends AppBaseController
      *
      * @return Response
      */
+
+    public function commi_check(Request $request){
+        // 承認ボタン処理
+        if($request['id']){
+            $volstaff = Volstaff::with('user')->where('id',$request['id'])->first();
+            $volstaff->commi_ok = now();
+            $volstaff->save();
+            Flash::success($volstaff->user->name." の承認を行いました");
+            return back();
+        }
+
+    }
 }
