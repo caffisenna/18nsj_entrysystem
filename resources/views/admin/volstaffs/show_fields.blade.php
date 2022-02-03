@@ -23,7 +23,9 @@
     <div class="col-sm-12">
         {!! Form::label('how_to_join', '参加日:') !!}
         @if ($volstaff->how_to_join != '全期間')
-            合計: {{ substr_count($volstaff->join_days, "月") + 1 }}日間 / 内訳: {{ $volstaff->join_days }}
+            @if ($volstaff->join_days)
+                合計: {{ substr_count($volstaff->join_days, '月') + 1 }}日間 / 内訳: {{ $volstaff->join_days }}
+            @endif
         @else
             {{ $volstaff->how_to_join }}
         @endif
