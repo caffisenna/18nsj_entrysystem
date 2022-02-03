@@ -30,7 +30,7 @@
     </li>
 @endif
 
-@if (!Auth::user()->is_troopstaff && !Auth::user()->is_admin)
+@if (!Auth::user()->is_troopstaff && !Auth::user()->is_admin && !Auth::user()->is_commi)
     <li class="nav-item">
         {{-- <a href="{{ route('volstaffs.index') }}" --}}
         <a href="user/volstaffs" class="nav-link {{ Request::is('user/volstaffs*') ? 'active' : '' }}">
@@ -70,6 +70,21 @@
     <li class="nav-item">
         <a href="{{ route('fee_check') }}" class="nav-link {{ Request::is('admin/fee_check*') ? 'active' : '' }}">
             <p>入金チェック</p>
+        </a>
+    </li>
+@endif
+
+@if (Auth::user()->is_commi)
+    <li class="nav-item">
+        <a href="{{ route('district_trooplists.index') }}"
+            class="nav-link {{ Request::is('commi/trooplists*') ? 'active' : '' }}">
+            <p>参加隊一覧</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('district_vol_staffs.index') }}"
+            class="nav-link {{ Request::is('commi/vol_staffs*') ? 'active' : '' }}">
+            <p>奉仕者一覧</p>
         </a>
     </li>
 @endif

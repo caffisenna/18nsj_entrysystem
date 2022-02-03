@@ -73,6 +73,9 @@ Route::middleware('auth')->group(function () {
     });
     // 地区コミ用
     Route::prefix('commi')->middleware('can:commi')->group(function () {
+        Route::resource('district_trooplists', App\Http\Controllers\commiTroopInfoController::class,['only' => ['index']]);
+        Route::resource('district_troop_members', App\Http\Controllers\commiMemberController::class,['only' => ['index','show']]);
+        Route::resource('district_vol_staffs', App\Http\Controllers\commiVolstaffController::class,['only' => ['index','show']]);
         // Route::resource('entries', App\Http\Controllers\commiEntryFormController::class, ['only' => ['index', 'show']]);
     });
 });
