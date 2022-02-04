@@ -24,6 +24,7 @@
                     <tr>
                         <th>隊id</th>
                         <th>メンバー構成</th>
+                        <th>隊長</th>
                         <th>操作担当者</th>
                     </tr>
                 </thead>
@@ -32,6 +33,7 @@
                         <tr>
                             <td>{{ $troop->id }}</td>
                             <td><a href="{{ url("/commi/district_troop_members/?troop_id=$troop->id") }}">メンバー</a></td>
+                            <td>{{ App\Models\Member::where('user_id',$troop->id)->where('role','隊長')->value('name'); }}</td>
                             <td>{{ $troop->name }}</td>
                         </tr>
 
