@@ -88,12 +88,12 @@
 
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
+                            {{-- <div class="icheck-primary">
                                 <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                                 <label for="agreeTerms">
                                     <a href="#">利用規約</a>に同意する
                                 </label>
-                            </div>
+                            </div> --}}
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
