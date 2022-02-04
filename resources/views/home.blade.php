@@ -78,17 +78,21 @@
         @if (auth()->user()->is_admin)
             <div class="row">
                 <h3>ベース別スタッフ数</h3>
-                <table class="uk-table uk-table-striped uk-table-hover uk-table-divider">
-                    <tr>
-                        @foreach ($volstaffs['camp_area'] as $val)
-                            <th>{{ $val->camp_area }}</td>
-                        @endforeach
-                    </tr>
-                    <tr>
-                        @foreach ($volstaffs['camp_area'] as $val)
-                            <td>{{ $val->count }}人</td>
-                        @endforeach
-                    </tr>
+                <table class="uk-table uk-table-striped uk-table-hover">
+                    <thead>
+                        <tr>
+                            @foreach ($volstaffs['camp_area'] as $val)
+                                <th>{{ $val->camp_area }}</td>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @foreach ($volstaffs['camp_area'] as $val)
+                                <td>{{ $val->count }}人</td>
+                            @endforeach
+                        </tr>
+                    </tbody>
                 </table>
 
                 <h3>部署別スタッフ数</h3>
@@ -106,8 +110,8 @@
                 <table class="uk-table uk-table-striped uk-table-hover">
                     @foreach ($volstaffs['district'] as $val)
                         <tr>
-                            <th>{{ $val->org_district }}</th>
-                            <td>{{ $val->count }}</td>
+                            <th class="">{{ $val->org_district }}</th>
+                            <td class="">{{ $val->count }}</td>
                         </tr>
                     @endforeach
                     <tr></tr>
