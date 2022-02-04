@@ -6,6 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>奉仕スタッフ情報入力</h1>
+                    @include('flash::message')
                 </div>
             </div>
         </div>
