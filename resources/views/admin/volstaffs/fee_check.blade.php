@@ -92,7 +92,7 @@
                     });
                 </script>
                 <div class="table-responsive">
-                    <table class="uk-table uk-table-hover uk-table-striped" id="volstaffs-table">
+                    <table class="uk-table uk-table-hover uk-table-striped uk-table-small" id="volstaffs-table">
                         <thead>
                             <tr>
                                 <th>ID</th>

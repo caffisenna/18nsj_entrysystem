@@ -6,6 +6,7 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Models\Volstaff;
 use Illuminate\Support\Facades\DB;
+use Flash;
 
 class HomeController extends Controller
 {
@@ -50,6 +51,14 @@ class HomeController extends Controller
             $members['grade'] = Member::where('user_id', auth()->id())->where('grade', "<>", '')->select('grade', DB::raw("count(grade) as count"))->groupBy('grade')->get();
             $members['religion'] = Member::where('user_id', auth()->id())->where('religion', "<>", '')->select('religion', DB::raw("count(religion) as count"))->groupBy('religion')->get();
             return view('home')->with('members', $members);
+        }
+
+        if (auth()->user()->is_staff) {
+            $volstaff = Volstaff::where('user_id', auth()->id())->first();
+            if(!$volstaff){
+                Flash::warning('情報を登録してください');
+                return view('volstaffs.create');
+            }
         }
         return view('home');
     }

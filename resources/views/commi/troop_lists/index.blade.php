@@ -19,7 +19,7 @@
         <div class="clearfix"></div>
 
         <div class="table-responsive">
-            <table class="table uk-table uk-table-striped uk-table-hover uk-table-small" id="members-table">
+            <table class="table uk-table uk-table-striped uk-table-hover" id="members-table">
                 <thead>
                     <tr>
                         <th>隊id</th>
