@@ -13,7 +13,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /.env
-/_ide_helper.php
+/_ide_helper*
 .phpunit.result.cache
 .env
 .env.backup
@@ -21,7 +21,7 @@ yarn-error.log
 fields_sample.json
 /storage
 
-# Mac$B4XO"(B
+# Mac関連
 .DS_Store
 .AppleDouble
 .LSOverride

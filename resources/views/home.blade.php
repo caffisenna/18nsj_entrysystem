@@ -82,7 +82,7 @@
                     <thead>
                         <tr>
                             @foreach ($volstaffs['camp_area'] as $val)
-                                <th>{{ $val->camp_area }}</td>
+                                <th class="uk-table-shrink">{{ $val->camp_area }}</td>
                             @endforeach
                         </tr>
                     </thead>
@@ -97,26 +97,39 @@
 
                 <h3>部署別スタッフ数</h3>
                 <table class="uk-table uk-table-striped uk-table-hover">
-                    @foreach ($volstaffs['job'] as $val)
+                    <thead>
                         <tr>
-                            <th>{{ $val->job_department }}</th>
-                            <td>{{ $val->count }}</td>
+                            @foreach ($volstaffs['job'] as $val)
+                                <th class="uk-table-shrink">{{ $val->job_department }}</th>
+                            @endforeach
                         </tr>
-                    @endforeach
-                    <tr></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @foreach ($volstaffs['job'] as $val)
+                                <td>{{ $val->count }}</td>
+                            @endforeach
+                        </tr>
+                    </tbody>
                 </table>
 
                 <h3>地区別スタッフ数</h3>
-                <table class="uk-table uk-table-striped uk-table-hover">
-                    @foreach ($volstaffs['district'] as $val)
+                <table class="uk-table uk-table-striped uk-table-hover uk-table-small">
+                    <thead>
                         <tr>
-                            <th class="">{{ $val->org_district }}</th>
-                            <td class="">{{ $val->count }}</td>
+                            @foreach ($volstaffs['district'] as $val)
+                                <th class="uk-table-shrink">{{ $val->org_district }}</th>
+                            @endforeach
                         </tr>
-                    @endforeach
-                    <tr></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @foreach ($volstaffs['district'] as $val)
+                                <td class="">{{ $val->count }}</td>
+                            @endforeach
+                        </tr>
+                    </tbody>
                 </table>
-
             </div>
         @endif
     </div>
