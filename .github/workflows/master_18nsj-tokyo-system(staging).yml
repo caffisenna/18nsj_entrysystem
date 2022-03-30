@@ -16,6 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Create cache folders
+        run: mkdir -p storage/framework/sessions && mkdir -p storage/framework/views && mkdir -p storage/framework/cache
+        
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
