@@ -139,20 +139,12 @@
         @enderror
         <h4>参加日程をチェックしてください(部分参加の場合)</h4>
         @if (!empty($volstaff->join_days))
-            @for ($i = 29; $i <= 31; $i++)
-                <label><input type="checkbox" name="join_days[]" value="7月{{ $i }}日"
-                        {{ preg_match('/7月' . $i . '日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
-                    7月{{ $i }}日</label><br>
-            @endfor
-            @for ($i = 1; $i <= 9; $i++)
+            @for ($i = 3; $i <= 11; $i++)
                 <label><input type="checkbox" name="join_days[]" value="8月{{ $i }}日"
                         {{ preg_match('/8月' . $i . '日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
                     8月{{ $i }}日</label><br>
             @endfor
         @else
-            @for ($i = 29; $i <= 31; $i++)
-                <label><input type="checkbox" name="join_days[]" value="7月{{ $i }}日"> 7月{{ $i }}日</label><br>
-            @endfor
             @for ($i = 1; $i <= 9; $i++)
                 <label><input type="checkbox" name="join_days[]" value="8月{{ $i }}日"> 8月{{ $i }}日</label><br>
             @endfor
