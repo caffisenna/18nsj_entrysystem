@@ -461,7 +461,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
                             <div class="flex items-center">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
@@ -471,7 +471,7 @@
                                 </svg>
                                 <div class="ml-4 text-lg leading-7 font-semibold">
                                     <a href="" class="underline text-gray-900 dark:text-white">
-                                        使い方
+                                        {{-- 使い方 --}}
                                     </a>
                                 </div>
                             </div>
@@ -486,12 +486,12 @@
                                     </path>
                                 </svg>
                                 <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
-                                    <a href="" class="underline text-gray-900 dark:text-white">
-                                        コンタクト
+                                    <a href="https://18nsj.tokyo/" class="underline text-gray-900 dark:text-white">
+                                        中央会場公式サイト
                                     </a>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
 
                         {{-- <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
                             <div class="flex items-center">
