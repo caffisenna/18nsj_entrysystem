@@ -75,6 +75,12 @@ class Volstaff extends Model
         'join_days',
         'camp_area',
         'job_department',
+        'choice1_camp_area',
+        'choice1_job_department',
+        'choice2_camp_area',
+        'choice2_job_department',
+        'choice3_camp_area',
+        'choice3_job_department',
         'memo',
         'event_0807',
         'commi_ok'
@@ -111,7 +117,13 @@ class Volstaff extends Model
         'camp_area' => 'string',
         'job_department' => 'string',
         'memo' => 'string',
-        'event_0807' => 'string'
+        'event_0807' => 'string',
+        'choice1_camp_area' => 'string',
+        'choice1_job_department' => 'string',
+        'choice2_camp_area' => 'string',
+        'choice2_job_department' => 'string',
+        'choice3_camp_area' => 'string',
+        'choice3_job_department' => 'string'
     ];
 
     /**
@@ -131,8 +143,8 @@ class Volstaff extends Model
         'org_role' => 'required',
         'how_to_join' => 'required',
         'join_days' => 'required_if:how_to_join,部分参加',
-        'camp_area' => 'required',
-        'job_department' => 'required',
+        'camp_area' => 'required_if:choice1_camp_area,null',
+        'job_department' => 'required_if:choice1_job_department,null',
         'event_0807' => 'required'
     ];
 
@@ -151,8 +163,8 @@ class Volstaff extends Model
         'org_role.required' => '所属隊での役務を選択してください',
         'how_to_join.required' => '参加日程を選択してください',
         'join_days.required_if' => '部分参加の場合は参加日程を選択してください',
-        'camp_area.required' => '奉仕するキャンプ場を選択してください',
-        'job_department.required' => '奉仕部署を選択してください',
+        'camp_area.required_if' => '奉仕するキャンプ場を選択してください',
+        'job_department.required_if' => '奉仕部署を選択してください',
         'event_0807.required' => '大集会の参加希望を選択してください',
     ];
 

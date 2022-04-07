@@ -19,6 +19,43 @@
         {{ $volstaff->job_department }}
     </div>
 
+    <h3>希望部署</h3>
+    <!-- Camp Area Field -->
+    <div class="col-sm-12">
+        {!! Form::label('camp_area', 'キャンプ場(第一希望):') !!}
+        {{ $volstaff->choice1_camp_area }}
+    </div>
+
+    <!-- Job Department Field -->
+    <div class="col-sm-12">
+        {!! Form::label('job_department', '奉仕部署(第一希望):') !!}
+        {{ $volstaff->choice1_job_department }}
+    </div>
+
+    <!-- Camp Area Field -->
+    <div class="col-sm-12">
+        {!! Form::label('camp_area', 'キャンプ場(第二希望):') !!}
+        {{ $volstaff->choice2_camp_area }}
+    </div>
+
+    <!-- Job Department Field -->
+    <div class="col-sm-12">
+        {!! Form::label('job_department', '奉仕部署(第二希望):') !!}
+        {{ $volstaff->choice2_job_department }}
+    </div>
+
+    <!-- Camp Area Field -->
+    <div class="col-sm-12">
+        {!! Form::label('camp_area', 'キャンプ場(第三希望):') !!}
+        {{ $volstaff->choice3_camp_area }}
+    </div>
+
+    <!-- Job Department Field -->
+    <div class="col-sm-12">
+        {!! Form::label('job_department', '奉仕部署(第三希望):') !!}
+        {{ $volstaff->choice3_job_department }}
+    </div>
+
     <!-- How To Join Field -->
     <div class="col-sm-12">
         {!! Form::label('how_to_join', '参加日:') !!}
@@ -139,6 +176,7 @@
     </div>
 </div>
 
+<p class="uk-text-danger uk-text-large">参加費振込は別途ご案内しますのでお待ちください。</p>
 <div class="uk-card uk-card-primary uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">参加費見積</h3>
     <ul>
