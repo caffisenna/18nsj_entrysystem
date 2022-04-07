@@ -3,6 +3,14 @@
 @section('content')
     @include('flash::message')
     <div class="container">
+        <h1>18NSJ東京連盟中央会場受付システム</h1>
+        <h2>奉仕スタッフ</h2>
+        <a href="{{ url('/user/volstaffs') }}" class="uk-button uk-button-primary">奉仕スタッフの登録はこちら</a>
+
+        <h2>参加隊の受付</h2>
+        <ul>
+            <li>現在情報はありません</li>
+        </ul>
         {{-- 隊スタッフのメニュー --}}
         @if (auth()->user()->is_troopstaff)
             <div class="uk-card uk-card-body">
@@ -56,7 +64,6 @@
                     </tr>
                 @endforeach
             </table>
-
         @endif
         @if (auth()->user()->is_commi)
             <h3>{{ auth()->user()->is_commi }}地区コミッショナーさん、ようこそ!</h3>
