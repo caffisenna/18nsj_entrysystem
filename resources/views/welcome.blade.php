@@ -398,6 +398,8 @@
         }
 
     </style>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="{{ url('css/uikit.min.css') }}" />
 </head>
 
 <body class="antialiased">
@@ -524,6 +526,30 @@
                                 </div>
                             </div>
                         </div> --}}
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-primary uk-card-body">
+                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>NEWS</h5>
+                        <ul class="uk-list">
+                            <li>2022/4/8 奉仕スタッフの申込を開始しました</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="uk-card uk-card-primary uk-card-body">
+                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>使い方(奉仕スタッフ)</h5>
+                        <ol>
+                            <li>ユーザー登録をする</li>
+                            <li>スタッフの情報を入力する</li>
+                        </ol>
+                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>使い方(参加隊データ編集者)</h5>
+                        <ul>
+                            <li>地区コミッショナー経由で配布しているエクセルシートに入力する</li>
+                            <li>2022年4月28日までに地区コミッショナーへ提出する</li>
+                            <li>ログイン用のアカウントでログインする(アカウントは後日発行します)</li>
+                        </ul>
                     </div>
                 </div>
 
