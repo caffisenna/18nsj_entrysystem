@@ -37,7 +37,7 @@ class CreateVolstaffsTable extends Migration
             $table->string('car_type')->nullable();
             $table->string('how_to_join')->nullable();
             $table->string('join_days')->nullable();
-            $table->string('camp_area');
+            $table->string('camp_area')->nullable();
             $table->string('job_department')->nullable();
             $table->text('memo')->nullable();
             $table->date('commi_ok')->nullable();
@@ -45,6 +45,12 @@ class CreateVolstaffsTable extends Migration
             $table->date('fee_checked_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->string('choice1_camp_area')->nullable(); // 奉仕場所未定の方
+            $table->string('choice1_job_department')->nullable(); // 奉仕場所未定の方
+            $table->string('choice2_camp_area')->nullable(); // 奉仕場所未定の方
+            $table->string('choice2_job_department')->nullable(); // 奉仕場所未定の方
+            $table->string('choice3_camp_area')->nullable(); // 奉仕場所未定の方
+            $table->string('choice3_job_department')->nullable(); // 奉仕場所未定の方
         });
     }
 
