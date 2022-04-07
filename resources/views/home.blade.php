@@ -5,7 +5,9 @@
     <div class="container">
         <h1>18NSJ東京連盟中央会場受付システム</h1>
         <h2>奉仕スタッフ</h2>
-        <a href="{{ url('/user/volstaffs') }}" class="uk-button uk-button-primary">奉仕スタッフの登録はこちら</a>
+        @unless(auth()->user()->is_admin || auth()->user()->is_troopstaff)
+            <a href="{{ url('/user/volstaffs') }}" class="uk-button uk-button-primary">奉仕スタッフの登録はこちら</a>
+        @endunless
 
         <h2>参加隊の受付</h2>
         <ul>
