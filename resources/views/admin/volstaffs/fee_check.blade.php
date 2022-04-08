@@ -119,7 +119,7 @@
                                     @if ($volstaff->how_to_join == '全期間')
                                         <td>{{ $volstaff->how_to_join }}</td>
                                     @elseif(isset($volstaff->how_to_join))
-                                        <td>{{ substr_count($volstaff->join_days, '月') + 1 }}日間</td>
+                                        <td>{{ substr_count($volstaff->join_days, '月')}}日間</td>
                                     @else
                                         <td></td>
                                     @endif
