@@ -134,6 +134,9 @@ class VolstaffController extends AppBaseController
             $fee = 4000 * $days;
             $cost = 5000; // 日連+東連分担金
             $fee = $fee + $cost;
+
+            // 参加日程のunserialize
+            $volstaff->join_days = implode(',',unserialize($volstaff->join_days));
         }
 
         // 大集会参加費
