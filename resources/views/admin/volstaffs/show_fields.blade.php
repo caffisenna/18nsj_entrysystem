@@ -24,7 +24,7 @@
         {!! Form::label('how_to_join', '参加日:') !!}
         @if ($volstaff->how_to_join != '全期間')
             @if ($volstaff->join_days)
-                合計: {{ substr_count($volstaff->join_days, '月') + 1 }}日間 / 内訳: {{ $volstaff->join_days }}
+                合計: {{ substr_count($volstaff->join_days, '月') }}日間 / 内訳: {{ $volstaff->join_days }}
             @endif
         @else
             {{ $volstaff->how_to_join }}
@@ -154,8 +154,8 @@
             @if ($volstaff->how_to_join == '全期間')
                 <td>27,000円</td>
             @else
-                <td>{{ number_format(4000 * (substr_count($volstaff->join_days, '月') + 1)) }}円
-                    (4,000円 x {{ substr_count($volstaff->join_days, '月') + 1 }}日間)</td>
+                <td>{{ number_format(4000 * (substr_count($volstaff->join_days, '月'))) }}円
+                    (4,000円 x {{ substr_count($volstaff->join_days, '月')}}日間)</td>
             @endif
         </tr>
         <tr>

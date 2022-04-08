@@ -99,7 +99,7 @@ class adminVolstaffController extends AppBaseController
             $fee = 32000;
         } else {
             // 部分参加の場合
-            $days = substr_count($volstaff->join_days, "月") + 1;
+            $days = substr_count($volstaff->join_days, "月");
             $fee = 4000 * $days;
             $cost = 5000; // 日連+東連分担金
             $fee = $fee + $cost;
@@ -230,7 +230,7 @@ class adminVolstaffController extends AppBaseController
                 $fee = 32000;
             } else {
                 // 部分参加の場合
-                $days = substr_count($volstaff->join_days, '月') + 1;
+                $days = substr_count($volstaff->join_days, '月');
                 $fee = 4000 * $days;
                 $cost = 5000; // 日連+東連分担金
                 $fee = $fee + $cost;
