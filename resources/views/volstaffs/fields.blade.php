@@ -88,7 +88,7 @@
     <!-- Org District Name Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_name', '団名:') !!}
-        {!! Form::text('org_dan_name', null, ['class' => 'form-control']) !!}
+        {!! Form::text('org_dan_name', null, ['class' => 'form-control', 'placeholder'=> '(例)渋谷']) !!}
         @error('org_dan_name')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -97,7 +97,7 @@
     <!-- Org Dan Number Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_number', '団番号:') !!}
-        {!! Form::text('org_dan_number', null, ['class' => 'form-control', 'maxlength'=>'2']) !!}
+        {!! Form::text('org_dan_number', null, ['class' => 'form-control', 'maxlength'=>'2', 'placeholder'=>'(例)14']) !!}
         @error('org_dan_number')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
