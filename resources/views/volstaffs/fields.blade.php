@@ -183,7 +183,7 @@
     </div>
 
     <h3>奉仕部署がまだ決まっていない方</h3>
-    <p class="uk-text-primary">第1〜第3希望を選択してください。実行委員会で決定後お知らせ致します。</p>
+    <p class="uk-text-primary">第1〜第3希望を選択してください。実行委員会で決定後お知らせ致します。(5月中旬予定)</p>
     <h4>第1希望</h4>
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
@@ -242,6 +242,7 @@
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">特記事項</h3>
+    <p class="uk-text-warning uk-text-small">実行委員会に伝えておきたいことなどを確認入力してください。(チームで参加する、等)</p>
     <!-- Memo Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('memo', '特記事項:') !!}
