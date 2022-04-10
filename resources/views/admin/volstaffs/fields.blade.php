@@ -139,23 +139,25 @@
         @enderror
         <h4>参加日程をチェックしてください(部分参加の場合)</h4>
         @if (!empty($volstaff->join_days))
-            @for ($i = 29; $i <= 31; $i++)
-                <label><input type="checkbox" name="join_days[]" value="7月{{ $i }}日"
-                        {{ preg_match('/7月' . $i . '日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
-                    7月{{ $i }}日</label><br>
-            @endfor
-            @for ($i = 1; $i <= 9; $i++)
-                <label><input type="checkbox" name="join_days[]" value="8月{{ $i }}日"
-                        {{ preg_match('/8月' . $i . '日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
-                    8月{{ $i }}日</label><br>
-            @endfor
+            <label><input type="checkbox" name="join_days[]" value="8月3日" {{ preg_match('/8月3日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月3日(水)(事前準備)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月4日" {{ preg_match('/8月4日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月4日(木)(事前準備)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月5日" {{ preg_match('/8月5日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月5日(金)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月6日" {{ preg_match('/8月6日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月6日(土)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月7日" {{ preg_match('/8月7日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月7日(日)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月8日" {{ preg_match('/8月8日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月8日(月)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月9日" {{ preg_match('/8月9日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月9日(火)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月10日" {{ preg_match('/8月10日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月10日(水)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月11日" {{ preg_match('/8月11日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月11日(木)(後片付け)</label><br>
         @else
-            @for ($i = 29; $i <= 31; $i++)
-                <label><input type="checkbox" name="join_days[]" value="7月{{ $i }}日"> 7月{{ $i }}日</label><br>
-            @endfor
-            @for ($i = 1; $i <= 9; $i++)
-                <label><input type="checkbox" name="join_days[]" value="8月{{ $i }}日"> 8月{{ $i }}日</label><br>
-            @endfor
+            <label><input type="checkbox" name="join_days[]" value="8月3日"> 8月3日(水)(事前準備)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月4日"> 8月4日(木)(事前準備)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月5日"> 8月5日(金)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月6日"> 8月6日(土)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月7日"> 8月7日(日)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月8日"> 8月8日(月)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月9日"> 8月9日(火)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月10日"> 8月10日(水)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月11日"> 8月11日(木)(後片付け)</label><br>
         @endif
         @error('join_days')
             <div class="error text-danger">{{ $message }}</div>
