@@ -32,9 +32,9 @@
 
 @if (!Auth::user()->is_troopstaff && !Auth::user()->is_admin && !Auth::user()->is_commi)
     <li class="nav-item">
-        {{-- <a href="{{ route('volstaffs.index') }}" --}}
-        <a href="user/volstaffs" class="nav-link {{ Request::is('user/volstaffs*') ? 'active' : '' }}">
-            <p>奉仕者</p>
+        <a href="{{ route('volstaffs.index') }}"
+        class="nav-link {{ Request::is('user/volstaffs*') ? 'active' : '' }}">
+            <p>登録情報確認</p>
         </a>
     </li>
 @endif
