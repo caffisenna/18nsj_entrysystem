@@ -6,13 +6,15 @@
         <h1>18NSJ東京連盟中央会場受付システム</h1>
         <h2>奉仕スタッフ</h2>
         @unless(auth()->user()->is_admin || auth()->user()->is_troopstaff)
-            <a href="{{ url('/user/volstaffs') }}" class="uk-button uk-button-primary">奉仕スタッフの登録はこちら</a>
+            <a href="{{ url('/user/volstaffs') }}" class="uk-button uk-button-primary">奉仕スタッフの登録・確認はこちら</a>
         @endunless
 
+        @unless(auth()->user()->is_admin || auth()->user()->is_staff)
         <h2>参加隊の受付</h2>
         <ul>
             <li>現在情報はありません</li>
         </ul>
+        @endunless
         {{-- 隊スタッフのメニュー --}}
         @if (auth()->user()->is_troopstaff)
             <div class="uk-card uk-card-body">
