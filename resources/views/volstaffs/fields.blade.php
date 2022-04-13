@@ -13,7 +13,7 @@
     <!-- Bs Id Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('bs_id', '登録番号:') !!}
-        {!! Form::text('bs_id', null, ['class' => 'form-control', 'maxlength'=>'10']) !!}
+        {!! Form::text('bs_id', null, ['class' => 'form-control', 'maxlength' => '10']) !!}
         @error('bs_id')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -22,7 +22,7 @@
     <!-- Furigana Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('furigana', 'ふりがな:') !!}
-        {!! Form::text('furigana', null, ['class' => 'form-control', 'placeholder'=>'ひらがな or カタカナ']) !!}
+        {!! Form::text('furigana', null, ['class' => 'form-control', 'placeholder' => 'ひらがな or カタカナ']) !!}
         @error('furigana')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -88,7 +88,7 @@
     <!-- Org District Name Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_name', '団名:') !!}
-        {!! Form::text('org_dan_name', null, ['class' => 'form-control', 'placeholder'=> '(例)渋谷']) !!}
+        {!! Form::text('org_dan_name', null, ['class' => 'form-control', 'placeholder' => '(例)渋谷']) !!}
         @error('org_dan_name')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -97,7 +97,7 @@
     <!-- Org Dan Number Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('org_dan_number', '団番号:') !!}
-        {!! Form::text('org_dan_number', null, ['class' => 'form-control', 'maxlength'=>'2', 'placeholder'=>'(例)14']) !!}
+        {!! Form::text('org_dan_number', null, ['class' => 'form-control', 'maxlength' => '2', 'placeholder' => '(例)14']) !!}
         @error('org_dan_number')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -139,15 +139,28 @@
         @enderror
         <h4>参加日程をチェックしてください(部分参加の場合)</h4>
         @if (!empty($volstaff->join_days))
-            <label><input type="checkbox" name="join_days[]" value="8月3日" {{ preg_match('/8月3日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月3日(水)(事前準備)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月4日" {{ preg_match('/8月4日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月4日(木)(事前準備)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月5日" {{ preg_match('/8月5日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月5日(金)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月6日" {{ preg_match('/8月6日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月6日(土)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月7日" {{ preg_match('/8月7日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月7日(日)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月8日" {{ preg_match('/8月8日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月8日(月)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月9日" {{ preg_match('/8月9日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月9日(火)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月10日" {{ preg_match('/8月10日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月10日(水)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月11日" {{ preg_match('/8月11日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月11日(木)(後片付け)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月3日"
+                    {{ preg_match('/8月3日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                8月3日(水)(事前準備)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月4日"
+                    {{ preg_match('/8月4日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                8月4日(木)(事前準備)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月5日"
+                    {{ preg_match('/8月5日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月5日(金)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月6日"
+                    {{ preg_match('/8月6日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月6日(土)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月7日"
+                    {{ preg_match('/8月7日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月7日(日)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月8日"
+                    {{ preg_match('/8月8日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月8日(月)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月9日"
+                    {{ preg_match('/8月9日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月9日(火)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月10日"
+                    {{ preg_match('/8月10日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                8月10日(水)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月11日"
+                    {{ preg_match('/8月11日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                8月11日(木)(後片付け)</label><br>
         @else
             <label><input type="checkbox" name="join_days[]" value="8月3日"> 8月3日(水)(事前準備)</label><br>
             <label><input type="checkbox" name="join_days[]" value="8月4日"> 8月4日(木)(事前準備)</label><br>
@@ -168,7 +181,7 @@
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('camp_area', 'キャンプ場(実行委員会で決定している方):') !!}
-        {!! Form::select('camp_area', ['' => '', '日向野営場' => '日向野営場', 'ひよどり山' => 'ひよどり山', '平和島' => '平和島'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
         @error('camp_area')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -198,7 +211,7 @@
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice1_camp_area', 'キャンプ場(第1希望):') !!}
-        {!! Form::select('choice1_camp_area', ['' => '', '日向野営場' => '日向野営場', 'ひよどり山' => 'ひよどり山', '平和島' => '平和島'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice1_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <!-- Job Department Field -->
@@ -211,7 +224,7 @@
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice2_camp_area', 'キャンプ場(第2希望):') !!}
-        {!! Form::select('choice2_camp_area', ['' => '', '日向野営場' => '日向野営場', 'ひよどり山' => 'ひよどり山', '平和島' => '平和島'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice2_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <!-- Job Department Field -->
@@ -224,7 +237,7 @@
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice3_camp_area', 'キャンプ場(第3希望):') !!}
-        {!! Form::select('choice3_camp_area', ['' => '', '日向野営場' => '日向野営場', 'ひよどり山' => 'ひよどり山', '平和島' => '平和島'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice3_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <!-- Job Department Field -->
