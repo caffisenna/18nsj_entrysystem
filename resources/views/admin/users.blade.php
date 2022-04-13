@@ -97,6 +97,7 @@
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
+                            @if(!$user->is_admin && !$user->is_troopstaff)
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
@@ -106,6 +107,7 @@
                                         @endif
                                     </td>
                                 </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
