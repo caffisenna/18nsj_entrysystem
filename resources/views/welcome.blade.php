@@ -439,8 +439,9 @@
                                 @auth
                                     <a href="{{ url('/home') }}" class="text-gray-900 dark:text-white underline">Home</a>
                                 @else
-                                    <a href="{{ route('login') }}" class="text-gray-900 dark:text-white underline">ログイン</a>
-                                @endif
+                                    <a href="{{ route('login') }}"
+                                        class="text-gray-900 dark:text-white underline">ログイン</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -455,8 +456,7 @@
                                     <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                                 <div class="ml-4 text-lg leading-7 font-semibold">
-                                    <a href="{{ route('register') }}"
-                                        class="underline text-gray-900 dark:text-white">
+                                    <a href="{{ route('register') }}" class="underline text-gray-900 dark:text-white">
                                         ユーザー登録
                                     </a>
                                 </div>
@@ -530,6 +530,13 @@
                 </div>
                 <div>
                     <div class="uk-card uk-card-primary uk-card-body">
+                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>ABOUT</h5>
+                        18NSJ中央会場(平和島ベース、八王子ベース、日向ベース)の奉仕スタッフ、参加隊の申込受付サイトです。
+                    </div>
+                </div>
+
+                <div>
+                    <div class="uk-card uk-card-primary uk-card-body">
                         <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>NEWS</h5>
                         <ul class="uk-list">
                             <li>2022/4/8 奉仕スタッフの申込を開始しました</li>
@@ -539,12 +546,13 @@
 
                 <div>
                     <div class="uk-card uk-card-primary uk-card-body">
-                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>使い方(奉仕スタッフ)</h5>
+                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>奉仕スタッフの方</h5>
+                        中央会場の各ベースで奉仕をされる方は下記の手順で登録を行ってください。
                         <ol>
                             <li>ユーザー登録をする</li>
-                            <li>スタッフの情報を入力する</li>
+                            <li>ご自身の情報を入力する(※この情報を登録しないとスタッフ登録になりません)</li>
                         </ol>
-                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>使い方(参加隊データ編集者)</h5>
+                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>参加隊データ編集者</h5>
                         <ul>
                             <li>地区コミッショナー経由で配布しているエクセルシートに入力する</li>
                             <li>2022年4月28日までに地区コミッショナーへ提出する</li>
