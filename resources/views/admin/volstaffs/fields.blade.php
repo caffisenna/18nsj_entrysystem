@@ -167,7 +167,7 @@
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('camp_area', 'キャンプ場:') !!}
-        {!! Form::select('camp_area', ['' => '', '日向野営場' => '日向野営場', 'ひよどり山' => 'ひよどり山', '平和島' => '平和島'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
         @error('camp_area')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -186,6 +186,47 @@
         @error('event_0807')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
+    </div>
+
+    <h3>奉仕部署がまだ決まっていない方</h3>
+    <p class="uk-text-primary">第1〜第3希望を選択してください。実行委員会で決定後お知らせ致します。(5月中旬予定)</p>
+    <h4>第1希望</h4>
+    <!-- Camp Area Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('choice1_camp_area', 'キャンプ場(第1希望):') !!}
+        {!! Form::select('choice1_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
+
+    <!-- Job Department Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('choice1_job_department', '奉仕部署(第1希望):') !!}
+        {!! Form::select('choice1_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
+
+    <h4>第2希望</h4>
+    <!-- Camp Area Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('choice2_camp_area', 'キャンプ場(第2希望):') !!}
+        {!! Form::select('choice2_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
+
+    <!-- Job Department Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('choice2_job_department', '奉仕部署(第2希望):') !!}
+        {!! Form::select('choice2_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
+
+    <h4>第3希望</h4>
+    <!-- Camp Area Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('choice3_camp_area', 'キャンプ場(第3希望):') !!}
+        {!! Form::select('choice3_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+    </div>
+
+    <!-- Job Department Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('choice3_job_department', '奉仕部署(第3希望):') !!}
+        {!! Form::select('choice3_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 </div>
 
