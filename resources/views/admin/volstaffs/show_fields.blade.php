@@ -73,7 +73,7 @@
         </tr>
         <tr>
             <th>Email</th>
-            <td>{{ Auth::user()->email }}</td>
+            <td>{{ $volstaff->user->email }}</td>
         </tr>
         <tr>
             <th>自宅電話</th>
