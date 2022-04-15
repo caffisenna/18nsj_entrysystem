@@ -103,7 +103,9 @@
                                     <td>{{ $user->email }}</td>
                                     <td>
                                         @if (empty($user->volstaff))
-                                            未完了
+                                            <span class="uk-text-danger">未登録</span>
+                                        @else
+                                            <span class="uk-text-success">登録済み</span
                                         @endif
                                     </td>
                                 </tr>
