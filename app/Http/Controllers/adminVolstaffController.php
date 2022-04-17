@@ -105,7 +105,7 @@ class adminVolstaffController extends AppBaseController
             $fee = $fee + $cost;
 
             // 参加日程のunserialize
-            $volstaff->join_days = implode(',',unserialize($volstaff->join_days));
+            // $volstaff->join_days = implode(',',unserialize($volstaff->join_days));
         }
 
         // 大集会参加費
