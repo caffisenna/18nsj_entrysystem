@@ -7,7 +7,7 @@
         </tr>
         <tr>
             <th>所属団</th>
-            <td>{{ $volstaff->org_district }}地区 {{ $volstaff->org_dan_name }}{{ $volstaff->org_dan_number }}団 {{ $volstaff->org_group }}@unless ($volstaff->org_group == "団")隊@endunless</td>
+            <td>{{ $volstaff->org_district }}地区 {{ $volstaff->org_dan_name }}{{ $volstaff->org_dan_number }}団 {{ $volstaff->org_group }}@unless ($volstaff->org_group == "団")隊@endunless {{ $volstaff->org_role }}</td>
         </tr>
         <tr>
             <th>地区役務</th>

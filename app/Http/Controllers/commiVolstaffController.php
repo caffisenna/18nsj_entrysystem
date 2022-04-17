@@ -60,7 +60,7 @@ class commiVolstaffController extends AppBaseController
         // 参加費計算
         // 全期間の場合
         if ($volstaff->how_to_join == "全期間") {
-            $fee = 30000;
+            $fee = 32000;
         } else {
             // 部分参加の場合
             $days = substr_count($volstaff->join_days, "月") + 1;
