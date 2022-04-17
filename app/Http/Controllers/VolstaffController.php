@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 use Flash;
 use Response;
+use App\Http\Util\SlackPost;
 
 class VolstaffController extends AppBaseController
 {
@@ -27,7 +28,7 @@ class VolstaffController extends AppBaseController
         /** @var Volstaff $volstaffs */
 
         // 隊スタッフが見ようとしたらHOMEにへリダイレクト
-        if(Auth::user()->is_troopstaff){
+        if (Auth::user()->is_troopstaff) {
             return view('home');
         }
         $volstaff = Volstaff::where('user_id', auth()->id())->first();
@@ -95,13 +96,18 @@ class VolstaffController extends AppBaseController
         }
 
         /** @var Volstaff $volstaff */
-        $volstaff = Volstaff::create($input);
+        // $volstaff = Volstaff::create($input);
 
         // Userテーブルにフラグ付与
         Auth()->user()->is_staff = 1;
-        Auth()->user()->save();
+        // Auth()->user()->save();
 
         Flash::success('スタッフ情報を登録しました');
+
+        //slack通知
+        $name = User::where('id', $input['user_id'])->value('name'); // 氏名をUserから取得
+        $slackpost = new SlackPost();
+        $slackpost->send(":new: " . $name . ' (' . $input['org_district'] . ')' . ' がスタッフ情報を登録しました');
 
         return redirect(route('volstaffs.index'));
     }
@@ -136,7 +142,7 @@ class VolstaffController extends AppBaseController
             $fee = $fee + $cost;
 
             // 参加日程のunserialize
-            $volstaff->join_days = implode(',',unserialize($volstaff->join_days));
+            $volstaff->join_days = implode(',', unserialize($volstaff->join_days));
         }
 
         // 大集会参加費
@@ -199,8 +205,8 @@ class VolstaffController extends AppBaseController
         $volstaff->fill($request->all());
         // 参加日程をシリアライズ
         if ($volstaff->how_to_join <> "全期間") {
-        $volstaff['join_days'] = serialize($request['join_days']);
-        }else{
+            $volstaff['join_days'] = serialize($request['join_days']);
+        } else {
             $volstaff['join_days'] = null;
         }
         $volstaff->save();
