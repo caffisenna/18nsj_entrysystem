@@ -74,7 +74,7 @@
                 <th>部署</th>
                 <th>氏名</th>
                 <th>参加期間</th>
-                <th>承認</th>
+                <th>地区コミ確認</th>
             </tr>
         </thead>
         <tbody>
@@ -88,11 +88,11 @@
                     </td>
                     <td>{{ $volstaff->how_to_join }}</td>
                     @if ($volstaff->commi_ok)
-                        <td><span class="uk-text-success">承認済み</span></td>
+                        <td><span class="uk-text-success">確認済み</span></td>
                     @else
                         <td><a href="{{ url('/commi/commi_check?id=') . $volstaff->id }}"
                             class="uk-button uk-button-danger uk-button-small"
-                            onclick="return confirm('承認OK?')">未承認</a></td>
+                            onclick="return confirm('{{ $volstaff->user->name }}の地区コミ確認処理をしますか?')">未確認</a></td>
                     @endif
                 </tr>
             @endforeach
