@@ -4,16 +4,16 @@
     @include('flash::message')
     <div class="container">
         <h1>18NSJ東京連盟中央会場受付システム</h1>
-        <h2>奉仕スタッフ</h2>
-        @unless(auth()->user()->is_admin || auth()->user()->is_troopstaff)
+        @unless(auth()->user()->is_admin || auth()->user()->is_troopstaff || auth()->user()->is_commi)
+            <h2>奉仕スタッフ</h2>
             <a href="{{ url('/user/volstaffs') }}" class="uk-button uk-button-primary">奉仕スタッフの登録・確認はこちら</a>
         @endunless
 
-        @unless(auth()->user()->is_admin || auth()->user()->is_staff)
-        <h2>参加隊の受付</h2>
-        <ul>
-            <li>現在情報はありません</li>
-        </ul>
+        @unless(auth()->user()->is_admin || auth()->user()->is_staff || auth()->user()->is_commi)
+            <h2>参加隊の受付</h2>
+            <ul>
+                <li>現在情報はありません</li>
+            </ul>
         @endunless
         {{-- 隊スタッフのメニュー --}}
         @if (auth()->user()->is_troopstaff)
@@ -81,7 +81,7 @@
             <div class="uk-card uk-card-body">
                 <h3 class="uk-card-title"><span uk-icon="users"></span>奉仕者一覧</h3>
                 <p class=""><a
-                        href="{{ route('district_vol_staffs.index') }}">奉仕者一覧</a>は中央会場各所で奉仕するスタッフの情報を表示します。参加承認処理を行ってください。
+                        href="{{ route('district_vol_staffs.index') }}">奉仕者一覧</a>は中央会場各所で奉仕するスタッフの情報を表示します。参加確認処理を行ってください。
                 </p>
             </div>
         @endif
