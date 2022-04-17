@@ -3,7 +3,7 @@
     <table class="uk-table uk-table-striped">
         <tr>
             <th>氏名</th>
-            <td>{{ Auth::user()->name }} ({{ $volstaff->furigana }})</td>
+            <td>{{ $volstaff->user->name }} ({{ $volstaff->furigana }})</td>
         </tr>
         <tr>
             <th>所属団</th>
