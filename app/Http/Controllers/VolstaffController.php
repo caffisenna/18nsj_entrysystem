@@ -96,11 +96,11 @@ class VolstaffController extends AppBaseController
         }
 
         /** @var Volstaff $volstaff */
-        // $volstaff = Volstaff::create($input);
+        $volstaff = Volstaff::create($input);
 
         // Userテーブルにフラグ付与
         Auth()->user()->is_staff = 1;
-        // Auth()->user()->save();
+        Auth()->user()->save();
 
         Flash::success('スタッフ情報を登録しました');
 
