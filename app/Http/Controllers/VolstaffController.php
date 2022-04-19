@@ -13,6 +13,7 @@ use Ramsey\Uuid\Uuid;
 use Flash;
 use Response;
 use App\Http\Util\SlackPost;
+use Log;
 
 class VolstaffController extends AppBaseController
 {
@@ -108,6 +109,9 @@ class VolstaffController extends AppBaseController
         $name = User::where('id', $input['user_id'])->value('name'); // 氏名をUserから取得
         $slackpost = new SlackPost();
         $slackpost->send(":new: " . $name . ' (' . $input['org_district'] . ')' . ' がスタッフ情報を登録しました');
+
+        // logger
+        Log::info('[新規スタッフ登録] name:'.$name . ' district:'.$input['org_district']);
 
         return redirect(route('volstaffs.index'));
     }
