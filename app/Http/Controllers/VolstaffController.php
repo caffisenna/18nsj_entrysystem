@@ -14,6 +14,8 @@ use Flash;
 use Response;
 use App\Http\Util\SlackPost;
 use Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\StaffRegisterd;
 
 class VolstaffController extends AppBaseController
 {
@@ -112,6 +114,10 @@ class VolstaffController extends AppBaseController
 
         // logger
         Log::info('[新規スタッフ登録] name:'.$name . ' district:'.$input['org_district']);
+
+        // 確認メール送信
+        $sendto = User::where('id', $input['user_id'])->value('email');
+        Mail::to($sendto)->send(new StaffRegisterd($name));
 
         return redirect(route('volstaffs.index'));
     }
