@@ -105,7 +105,7 @@ class VolstaffController extends AppBaseController
         Auth()->user()->is_staff = 1;
         Auth()->user()->save();
 
-        Flash::success('スタッフ情報を登録しました');
+        Flash::success('スタッフ情報を登録しました。登録完了メールを送信しました。');
 
         //slack通知
         $name = User::where('id', $input['user_id'])->value('name'); // 氏名をUserから取得
