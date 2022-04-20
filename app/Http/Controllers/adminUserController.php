@@ -18,9 +18,7 @@ class adminUserController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $users = User::with('volstaff')->get();
-        // dd($users);
-        // $members = Member::where('user_id', $request->troop_id)->get();
+        $users = User::where('name','NOT LIKE',"%地区")->with('volstaff')->get();
 
         return view('admin.users')
             ->with('users', $users);
