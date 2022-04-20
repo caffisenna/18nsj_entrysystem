@@ -9,6 +9,10 @@ use Auth;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CommiChecked;
+use App\Http\Util\SlackPost;
 
 class commiVolstaffController extends AppBaseController
 {
@@ -69,7 +73,7 @@ class commiVolstaffController extends AppBaseController
             $fee = $fee + $cost;
 
             // 参加日程のunserialize
-            @$volstaff->join_days = implode(',',unserialize($volstaff->join_days));
+            @$volstaff->join_days = implode(',', unserialize($volstaff->join_days));
         }
 
         // 大集会参加費
@@ -93,15 +97,27 @@ class commiVolstaffController extends AppBaseController
      * @return Response
      */
 
-    public function commi_check(Request $request){
+    public function commi_check(Request $request)
+    {
         // 承認ボタン処理
-        if($request['id']){
-            $volstaff = Volstaff::with('user')->where('id',$request['id'])->first();
+        if ($request['id']) {
+            $volstaff = Volstaff::with('user')->where('id', $request['id'])->first();
             $volstaff->commi_ok = now();
             $volstaff->save();
-            Flash::success($volstaff->user->name." の承認を行いました");
+
+            //slack通知
+            $name = $volstaff->user->name;
+            $slackpost = new SlackPost();
+            $slackpost->send(":white_check_mark: " . $name . ' (' . $volstaff['org_district'] . ')' . ' の地区コミ確認が完了しました');
+
+            // logger
+            Log::info('[地区コミ確認] name:' . $name . ' district:' . $volstaff['org_district']);
+
+            // 確認メール送信
+            $sendto = User::where('id', $volstaff['user_id'])->value('email');
+            Mail::to($sendto)->send(new CommiChecked($volstaff->user->name));
+            Flash::success($volstaff->user->name . " の承認を行いました");
             return back();
         }
-
     }
 }
