@@ -93,14 +93,18 @@
                     <thead>
                         <tr>
                             @foreach ($volstaffs['camp_area'] as $val)
-                                <th class="uk-table-shrink">{{ $val->camp_area }}</td>
+                                @unless(empty($val->camp_area))
+                                    <th class="uk-table-shrink">{{ $val->camp_area }}</td>
+                                    @endunless
                             @endforeach
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             @foreach ($volstaffs['camp_area'] as $val)
-                                <td>{{ $val->count }}人</td>
+                                @unless(empty($val->camp_area))
+                                    <td>{{ $val->count }}人</td>
+                                @endunless
                             @endforeach
                         </tr>
                     </tbody>
@@ -111,14 +115,18 @@
                     <thead>
                         <tr>
                             @foreach ($volstaffs['job'] as $val)
-                                <th class="uk-table-shrink">{{ $val->job_department }}</th>
+                                @unless(empty($val->job_department))
+                                    <th class="uk-table-shrink">{{ $val->job_department }}</th>
+                                @endunless
                             @endforeach
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             @foreach ($volstaffs['job'] as $val)
-                                <td>{{ $val->count }}</td>
+                                @unless(empty($val->job_department))
+                                    <td>{{ $val->count }}</td>
+                                @endunless
                             @endforeach
                         </tr>
                     </tbody>
