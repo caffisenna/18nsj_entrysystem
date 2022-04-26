@@ -117,7 +117,7 @@ class VolstaffController extends AppBaseController
 
         // 確認メール送信
         $sendto = User::where('id', $input['user_id'])->value('email');
-        Mail::to($sendto)->send(new StaffRegisterd($name));
+        Mail::to($sendto)->queue(new StaffRegisterd($name)); // メールをqueueで送信
 
         return redirect(route('volstaffs.index'));
     }

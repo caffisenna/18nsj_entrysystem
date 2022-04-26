@@ -10,6 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class StaffRegisterd extends Mailable
 {
     use Queueable, SerializesModels;
+    protected $name;
 
     /**
      * Create a new message instance.
