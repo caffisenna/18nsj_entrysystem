@@ -10,6 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class CommiChecked extends Mailable
 {
     use Queueable, SerializesModels;
+    protected $name;
 
     /**
      * Create a new message instance.

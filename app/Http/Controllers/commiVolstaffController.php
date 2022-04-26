@@ -115,8 +115,8 @@ class commiVolstaffController extends AppBaseController
 
             // 確認メール送信
             $sendto = User::where('id', $volstaff['user_id'])->value('email');
-            Mail::to($sendto)->send(new CommiChecked($volstaff->user->name));
-            Flash::success($volstaff->user->name . " の承認を行いました");
+            Mail::to($sendto)->queue(new CommiChecked($volstaff->user->name));
+            Flash::success($volstaff->user->name . " の承認を行い、承認通知メールを送信しました。");
             return back();
         }
     }
