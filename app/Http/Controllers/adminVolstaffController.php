@@ -29,7 +29,15 @@ class adminVolstaffController extends AppBaseController
 
         // ここでwith('user')することでeager loadすることが可能
         // データが増えたときにN+1問題を回避できる
-        $volstaffs = Volstaff::with('user')->get();
+        if (isset($_REQUEST['district'])) { // 地区
+            $volstaffs = Volstaff::where('org_district',$_REQUEST['district'])->with('user')->get();
+        }elseif(isset($_REQUEST['job_department'])){ // 部署
+            $volstaffs = Volstaff::where('job_department',$_REQUEST['job_department'])->with('user')->get();
+        }elseif(isset($_REQUEST['camp_area'])){
+            $volstaffs = Volstaff::where('camp_area',$_REQUEST['camp_area'])->with('user')->get();
+        } else {
+            $volstaffs = Volstaff::with('user')->get();
+        }
 
         return view('admin.volstaffs.index')
             ->with('volstaffs', $volstaffs);
@@ -105,7 +113,7 @@ class adminVolstaffController extends AppBaseController
             $fee = $fee + $cost;
 
             // 参加日程のunserialize
-            $volstaff->join_days = implode(',',unserialize($volstaff->join_days));
+            $volstaff->join_days = implode(',', unserialize($volstaff->join_days));
         }
 
         // 大集会参加費
@@ -211,11 +219,11 @@ class adminVolstaffController extends AppBaseController
         /** @var Volstaff $volstaffs */
 
         // 入金ボタン処理
-        if($request['id']){
-            $volstaff = Volstaff::with('user')->where('id',$request['id'])->first();
+        if ($request['id']) {
+            $volstaff = Volstaff::with('user')->where('id', $request['id'])->first();
             $volstaff->fee_checked_at = now();
             $volstaff->save();
-            Flash::success($volstaff->user->name." の入金確認を行いました");
+            Flash::success($volstaff->user->name . " の入金確認を行いました");
             return back();
         }
 

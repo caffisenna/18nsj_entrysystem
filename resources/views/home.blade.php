@@ -94,7 +94,7 @@
                         <tr>
                             @foreach ($volstaffs['camp_area'] as $val)
                                 @unless(empty($val->camp_area))
-                                    <th class="uk-table-shrink">{{ $val->camp_area }}</td>
+                                    <th class="uk-table-shrink"><a href="{{ url("/admin/vol_staffs/?camp_area=$val->camp_area") }}">{{ $val->camp_area }}</a></td>
                                     @endunless
                             @endforeach
                         </tr>
@@ -116,7 +116,7 @@
                         <tr>
                             @foreach ($volstaffs['job'] as $val)
                                 @unless(empty($val->job_department))
-                                    <th class="uk-table-shrink">{{ $val->job_department }}</th>
+                                    <th class="uk-table-shrink"><a href="{{ url("/admin/vol_staffs/?job_department=$val->job_department") }}">{{ $val->job_department }}</a></th>
                                 @endunless
                             @endforeach
                         </tr>
@@ -137,7 +137,7 @@
                     <thead>
                         <tr>
                             @foreach ($volstaffs['district'] as $val)
-                                <th class="uk-table-shrink">{{ $val->org_district }}</th>
+                                <th class="uk-table-shrink"><a href="{{ url("/admin/vol_staffs/?district=$val->org_district") }}">{{ $val->org_district }}</a></th>
                             @endforeach
                         </tr>
                     </thead>
