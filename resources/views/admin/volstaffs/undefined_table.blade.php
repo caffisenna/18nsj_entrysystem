@@ -73,7 +73,7 @@
                 <th>地区</th>
                 <th>氏名</th>
                 <th>参加期間</th>
-                <th>希望</th>
+                <th>希望部署</th>
                 <th>メモ</th>
             </tr>
         </thead>
