@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
         Route::get('gen_uuid', [App\Http\Controllers\adminMemberController::class, 'uuid'])->name('gen_uuid');
         Route::get('fee_check', [App\Http\Controllers\adminVolstaffController::class, 'fee_check'])->name('fee_check');
         Route::get('users', [App\Http\Controllers\adminUserController::class, 'index'])->name('user_list');
+        Route::get('undefined', [App\Http\Controllers\adminVolstaffController::class,'undefined'])->name('undefined');
         // Route::get('/', 'Admin\HomeController@index');
         // Route::resource('adminConfigs', App\Http\Controllers\AdminConfigController::class);
         // Route::resource('adminentries', App\Http\Controllers\adminentryFormController::class, ['except' => 'create']);

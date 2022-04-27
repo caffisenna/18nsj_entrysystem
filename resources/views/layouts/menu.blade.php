@@ -53,6 +53,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a href="{{ route('undefined') }}"
+            class="nav-link {{ Request::is('admin/undefined*') ? 'active' : '' }}">
+            <p>部署未定一覧</p>
+        </a>
+    </li>
+    <li class="nav-item">
         <a href="{{ route('user_list') }}"
             class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">
             <p>ユーザー一覧</p>

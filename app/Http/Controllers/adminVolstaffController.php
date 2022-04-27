@@ -30,11 +30,11 @@ class adminVolstaffController extends AppBaseController
         // ここでwith('user')することでeager loadすることが可能
         // データが増えたときにN+1問題を回避できる
         if (isset($_REQUEST['district'])) { // 地区
-            $volstaffs = Volstaff::where('org_district',$_REQUEST['district'])->with('user')->get();
-        }elseif(isset($_REQUEST['job_department'])){ // 部署
-            $volstaffs = Volstaff::where('job_department',$_REQUEST['job_department'])->with('user')->get();
-        }elseif(isset($_REQUEST['camp_area'])){
-            $volstaffs = Volstaff::where('camp_area',$_REQUEST['camp_area'])->with('user')->get();
+            $volstaffs = Volstaff::where('org_district', $_REQUEST['district'])->with('user')->get();
+        } elseif (isset($_REQUEST['job_department'])) { // 部署
+            $volstaffs = Volstaff::where('job_department', $_REQUEST['job_department'])->with('user')->get();
+        } elseif (isset($_REQUEST['camp_area'])) {
+            $volstaffs = Volstaff::where('camp_area', $_REQUEST['camp_area'])->with('user')->get();
         } else {
             $volstaffs = Volstaff::with('user')->get();
         }
@@ -256,6 +256,16 @@ class adminVolstaffController extends AppBaseController
         }
 
         return view('admin.volstaffs.fee_check')
+            ->with('volstaffs', $volstaffs);
+    }
+
+    public function undefined(Request $request)
+    {
+        /** @var Volstaff $volstaffs */
+
+        $volstaffs = Volstaff::whereNull('camp_area')->with('user')->get();
+
+        return view('admin.volstaffs.undefined')
             ->with('volstaffs', $volstaffs);
     }
 }
