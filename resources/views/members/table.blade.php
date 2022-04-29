@@ -87,7 +87,7 @@
                         <td>{{ $member->how_to_join }}</td>
                         <td><a href="{{ route('members.show', [$member->id]) }}">{{ $member->name }}</a></td>
                         <td>{{ $member->gender }}</td>
-                        <td>{{ $member->org_dan_name }}{{ $member->org_dan_number }}団 {{ $member->org_group }}隊
+                        <td>{{ $member->org_dan_name }}{{ $member->org_dan_number }}団 @unless($member->org_group == "団"){{ $member->org_group }}隊@endunless
                         </td>
                         <td>{{ $member->org_role }}</td>
                         <td>{{ $member->training_record }}</td>
