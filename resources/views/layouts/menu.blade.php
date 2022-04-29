@@ -16,18 +16,18 @@
 
     <h4 class="uk-text-primary">アップロード管理</h4>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a href="{{ route('sfh.index') }}" class="nav-link {{ Request::is('user/sfh*') ? 'active' : '' }}">
             <p><span uk-icon="upload"></span>SFH</p>
         </a>
-    </li>
+    </li> --}}
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a href="{{ route('health_check.index') }}"
             class="nav-link {{ Request::is('user/health_check*') ? 'active' : '' }}">
             <p><span uk-icon="upload"></span>健康調査票</p>
         </a>
-    </li>
+    </li> --}}
 @endif
 
 @if (!Auth::user()->is_troopstaff && !Auth::user()->is_admin && !Auth::user()->is_commi)
