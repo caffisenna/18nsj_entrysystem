@@ -539,6 +539,7 @@
                     <div class="uk-card uk-card-primary uk-card-body">
                         <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>NEWS</h5>
                         <ul class="uk-list">
+                            <li>2022/4/29 参加隊のデータ登録を開始しました</li>
                             <li>2022/4/8 奉仕スタッフの申込を開始しました</li>
                         </ul>
                     </div>
@@ -552,6 +553,7 @@
                             <li>ユーザー登録をする</li>
                             <li>ご自身の情報を入力する(※この情報を登録しないとスタッフ登録になりません)</li>
                         </ol>
+                        <p class="uk-text-default">※参加辞退をされる奉仕スタッフの方は <a href="mailto:18nsj.system@scout.tokyo">総務部システム班</a> までご連絡ください。</p>
                         <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>参加隊データ編集者</h5>
                         <ul>
                             <li>地区コミッショナー経由で配布しているエクセルシートに入力する</li>
