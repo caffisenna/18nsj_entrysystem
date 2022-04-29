@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>隊メンバー一覧admin</h1>
+                    <h1>隊メンバー一覧</h1>
                 </div>
                 <div class="col-sm-6">
                     @if (isset($_REQUEST['troop_id']))
