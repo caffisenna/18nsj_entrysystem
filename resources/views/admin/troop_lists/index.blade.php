@@ -26,32 +26,23 @@
                         <th>地区</th>
                         <th>メンバー構成</th>
                         <th>操作担当者</th>
-                        <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($troops as $troop)
                         <tr>
                             <td>{{ $troop->id }}</td>
-                            <td>@if (isset($troop->troopinfo->district)){{ $troop->troopinfo->district }}@endif</td>
+                            <td>
+                                @if (isset($troop->troopinfo->district))
+                                    {{ $troop->troopinfo->district }}
+                                @endif
+                            </td>
                             <td><a href="{{ url("/admin/troop_members/?troop_id=$troop->id") }}">メンバー</a></td>
                             <td>{{ $troop->name }}</td>
-                            <td width="120">
-                                {!! Form::open(['route' => ['members.destroy', $troop->id], 'method' => 'delete']) !!}
-                                <div class='btn-group'>
-                                    <a href="{{ route('members.edit', [$troop->id]) }}" class='btn btn-default btn-xs'>
-                                        <span uk-icon="file-edit"></span>
-                                    </a>
-                                    {!! Form::button('<span uk-icon="trash"></span>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('本当に削除しますか?')"]) !!}
-                                </div>
-                                {!! Form::close() !!}
-                            </td>
                         </tr>
-
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-
 @endsection
