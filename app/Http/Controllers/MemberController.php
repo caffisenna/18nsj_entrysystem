@@ -12,6 +12,7 @@ use Flash;
 use Response;
 use App\Exports\TroopMembersExport;
 use Excel;
+use Auth;
 
 class MemberController extends AppBaseController
 {
@@ -87,11 +88,12 @@ class MemberController extends AppBaseController
     public function store(CreateMemberRequest $request)
     {
         $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
 
         /** @var Member $member */
         $member = Member::create($input);
 
-        Flash::success('Member saved successfully.');
+        Flash::success('メンバーを登録しました。');
 
         return redirect(route('members.index'));
     }
