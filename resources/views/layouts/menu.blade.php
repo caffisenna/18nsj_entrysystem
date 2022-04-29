@@ -33,7 +33,7 @@
 @if (!Auth::user()->is_troopstaff && !Auth::user()->is_admin && !Auth::user()->is_commi)
     <li class="nav-item">
         <a href="{{ route('volstaffs.index') }}"
-        class="nav-link {{ Request::is('user/volstaffs*') ? 'active' : '' }}">
+            class="nav-link {{ Request::is('user/volstaffs*') ? 'active' : '' }}">
             <p>登録情報確認</p>
         </a>
     </li>
@@ -53,14 +53,12 @@
         </a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('undefined') }}"
-            class="nav-link {{ Request::is('admin/undefined*') ? 'active' : '' }}">
+        <a href="{{ route('undefined') }}" class="nav-link {{ Request::is('admin/undefined*') ? 'active' : '' }}">
             <p>部署未定一覧</p>
         </a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('user_list') }}"
-            class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">
+        <a href="{{ route('user_list') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">
             <p>ユーザー一覧</p>
         </a>
     </li>
@@ -86,7 +84,7 @@
     </li>
 @endif
 
-@if (Auth::user()->is_commi)
+@if (Auth::user()->is_commi && Auth::user()->is_troopstaff == 0)
     <li class="nav-item">
         <a href="{{ route('district_trooplists.index') }}"
             class="nav-link {{ Request::is('commi/trooplists*') ? 'active' : '' }}">
