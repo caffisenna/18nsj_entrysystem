@@ -28,7 +28,7 @@ class CreateMembersTable extends Migration
             $table->date('birthday');
             $table->string('religion')->nullable();
             $table->string('religion_sect')->nullable();
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('cell_phone')->nullable();
             $table->string('org_dan_name');
