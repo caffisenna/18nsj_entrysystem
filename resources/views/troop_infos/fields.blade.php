@@ -4,7 +4,7 @@
     <!-- Pref Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('pref', '県連盟:') !!}
-        {!! Form::text('pref', null, ['class' => 'form-control']) !!}
+        {!! Form::text('pref', '東京', ['class' => 'form-control']) !!}
     </div>
 
     <!-- District Field -->
@@ -14,16 +14,17 @@
     </div>
 
     <!-- Troop Number Field -->
-    <div class="form-group col-sm-6">
+    {{-- <div class="form-group col-sm-6">
         {!! Form::label('troop_number', '隊番号:') !!}
         {!! Form::text('troop_number', null, ['class' => 'form-control']) !!}
-    </div>
+    </div> --}}
 
 </div>
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">地区責任者情報</h3>
-
+    <p class="uk-text-warning">地区実行委員会や18NSJに関する責任者の情報を入力してください。<br>
+        特に定まっていない場合は地区委員長や地区コミッショナー、担当コミッショナーの情報を入力してください。</p>
     <!-- Person In Charge Name Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('person_in_charge_name', '氏名:') !!}

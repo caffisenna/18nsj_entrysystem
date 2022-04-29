@@ -45,7 +45,7 @@
 </div>
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
-    <h3 class="uk-card-title">地区役員情報</h3>
+    {{-- <h3 class="uk-card-title">地区役員情報</h3>
     <table class="table uk-table-striped uk-table-hover uk-table-small" id="troopInfos-table">
         <tr>
             <th>役務</th>
@@ -65,7 +65,7 @@
             <td>{{ $troopInfo->district_exec->commi_phone }}</td>
             <td>{{ $troopInfo->district_exec->commi_email }}</td>
         </tr>
-    </table>
+    </table> --}}
 </div>
 
 <h3>班情報</h3>

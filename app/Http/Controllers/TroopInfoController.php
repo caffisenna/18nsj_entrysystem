@@ -24,7 +24,7 @@ class TroopInfoController extends AppBaseController
     {
         /** @var TroopInfo $troopInfos */
         // $troopInfos = TroopInfo::all();
-        $troopInfo = TroopInfo::where('id', Auth()->id())->first();
+        $troopInfo = TroopInfo::where('user_id', Auth()->id())->first();
         if (!$troopInfo) {
             Flash::warning('隊の基本情報を登録してください');
             return view('troop_infos.create');
@@ -63,7 +63,7 @@ class TroopInfoController extends AppBaseController
         /** @var TroopInfo $troopInfo */
         $troopInfo = TroopInfo::create($input);
 
-        Flash::success('Troop Info saved successfully.');
+        Flash::success('隊基本情報を登録しました。');
 
         return redirect(route('troopInfos.index'));
     }

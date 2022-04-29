@@ -87,7 +87,7 @@ class TroopInfo extends Model
     public static $rules = [
         'person_in_charge_name' => 'required',
         'person_in_charge_position' => 'required',
-        'person_in_charge_bsid' => 'required',
+        // 'person_in_charge_bsid' => 'required',
         'person_in_charge_phone' => 'required',
         'person_in_charge_cellphone' => 'required',
         'person_in_charge_email' => 'required|email:strict'
@@ -96,7 +96,7 @@ class TroopInfo extends Model
     public static $messages = [
         'person_in_charge_name.required' => '氏名は必須です',
         'person_in_charge_position.required' => '役務は必須です',
-        'person_in_charge_bsid.required' => '登録番号は必須です',
+        // 'person_in_charge_bsid.required' => '登録番号は必須です',
         'person_in_charge_phone.required' => '電話番号は必須です',
         'person_in_charge_cellphone.required' => 'ケータイは必須です',
         'person_in_charge_email.required' => 'emailは必須です',
