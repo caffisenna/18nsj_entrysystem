@@ -27,10 +27,10 @@ class CreateMembersTable extends Migration
             $table->string('gender');
             $table->date('birthday');
             $table->string('religion');
-            $table->string('religion_sect');
+            $table->string('religion_sect')->nullable();
             $table->string('email');
-            $table->string('phone');
-            $table->string('cell_phone');
+            $table->string('phone')->nullable();
+            $table->string('cell_phone')->nullable();
             $table->string('org_dan_name');
             $table->integer('org_dan_number');
             $table->string('org_group');
