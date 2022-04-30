@@ -147,11 +147,11 @@
                 <h4>{{ number_format($volstaff->total_fee) }} 円</h4>
             </td>
         </tr>
-        <tr>
+        {{-- <tr>
             <td>振込口座</td>
             <td>GMOあおぞらネット銀行 法人営業部 普通 1331429<br>
                 シヤ）ニホンボーイスカウトトウキヨウレンメイ</td>
-        </tr>
+        </tr> --}}
         <tr>
             <td>事務局確認</td>
             <td></td>
