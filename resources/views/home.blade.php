@@ -34,8 +34,7 @@
             </div>
             <div class="uk-card uk-card-body">
                 <h3 class="uk-card-title"><span uk-icon="upload"></span>アップロード管理</h3>
-                <p class="">アップロード管理はSFH修了証と健康調査票のアップロードを管理します。各メンバーの修了証と健康調査票をこちらからアップロードしてください。<br>
-                    ファイルの形式はいずれもpdfかjpg形式です。</p>
+                <p class="">現在準備中</p>
             </div>
 
             <h3>統計情報</h3>
