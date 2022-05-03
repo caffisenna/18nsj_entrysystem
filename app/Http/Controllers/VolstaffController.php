@@ -113,7 +113,7 @@ class VolstaffController extends AppBaseController
         $slackpost->send(":new: " . $name . ' (' . $input['org_district'] . ')' . ' がスタッフ情報を登録しました');
 
         // logger
-        Log::info('[新規スタッフ登録] name:'.$name . ' district:'.$input['org_district']);
+        Log::info('[新規スタッフ登録] name:' . $name . ' district:' . $input['org_district']);
 
         // 確認メール送信
         $sendto = User::where('id', $input['user_id'])->value('email');
@@ -220,6 +220,13 @@ class VolstaffController extends AppBaseController
             $volstaff['join_days'] = null;
         }
         $volstaff->save();
+
+        $name = User::where('id', $request['user_id'])->value('name'); // 氏名をUserから取得
+        $slackpost = new SlackPost();
+        $slackpost->send(":pencil: " . $name . ' (' . $request['org_district'] . ')' . ' がスタッフ情報を更新しました');
+
+        // logger
+        Log::info('[スタッフ情報更新] name:' . $name . ' district:' . $request['org_district']);
 
         Flash::success('スタッフ情報を更新しました');
 
