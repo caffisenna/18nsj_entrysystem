@@ -25,7 +25,8 @@
                             $(api.column(colIdx).header()).index()
                         );
                         var title = $(cell).text();
-                        $(cell).html('<input type="text" placeholder="' + title + '" style="width:60px" />');
+                        $(cell).html('<input type="text" placeholder="' + title +
+                            '" style="width:60px" />');
 
                         // On every keypress in this input
                         $(
@@ -73,6 +74,8 @@
                 <th>部署</th>
                 <th>氏名</th>
                 <th>参加期間</th>
+                <th>地区</th>
+                <th>コミ確認</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -85,6 +88,14 @@
                     <td><a href="{{ route('vol_staffs.show', [$volstaff->id]) }}">{{ $volstaff->user->name }}</a>
                     </td>
                     <td>{{ $volstaff->how_to_join }}</td>
+                    <td>{{ $volstaff->org_district }}</td>
+                    <td>
+                        @if (isset($volstaff->commi_ok))
+                            <span class="uk-text-success">済</span>
+                        @else
+                            <span class="uk-text-warning">未確認</span>
+                        @endif
+                    </td>
                     <td width="120">
                         {!! Form::open(['route' => ['vol_staffs.destroy', $volstaff->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
