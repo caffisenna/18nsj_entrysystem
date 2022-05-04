@@ -13,6 +13,8 @@ use Ramsey\Uuid\Uuid;
 use Flash;
 use Laracasts\Flash\Flash as FlashFlash;
 use Response;
+use App\Http\Util\SlackPost;
+use Log;
 
 class adminVolstaffController extends AppBaseController
 {
@@ -222,6 +224,16 @@ class adminVolstaffController extends AppBaseController
         if ($request['id']) {
             $volstaff = Volstaff::with('user')->where('id', $request['id'])->first();
             $volstaff->fee_checked_at = now();
+
+            $name = User::where('id', $volstaff->user_id)->value('name') . "(" . $volstaff->org_district . ")";
+
+            // slack
+            $slackpost = new SlackPost();
+            $slackpost->send(":dollar: " . $name . ' の入金チェック');
+
+            // logger
+            Log::info('[入金チェック] ' . $name);
+
             $volstaff->save();
             Flash::success($volstaff->user->name . " の入金確認を行いました");
             return back();

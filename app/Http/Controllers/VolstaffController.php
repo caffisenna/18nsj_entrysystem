@@ -221,12 +221,13 @@ class VolstaffController extends AppBaseController
         }
         $volstaff->save();
 
-        $name = User::where('id', $request['user_id'])->value('name'); // 氏名をUserから取得
+        $name = Auth()->user()->name . "(" . $request['org_district'] . ")";
+
         $slackpost = new SlackPost();
-        $slackpost->send(":pencil: " . $name . ' (' . $request['org_district'] . ')' . ' がスタッフ情報を更新しました');
+        $slackpost->send(":pencil: " . $name . ' がスタッフ情報を更新しました');
 
         // logger
-        Log::info('[スタッフ情報更新] name:' . $name . ' district:' . $request['org_district']);
+        Log::info('[スタッフ情報更新] name:' . $name);
 
         Flash::success('スタッフ情報を更新しました');
 

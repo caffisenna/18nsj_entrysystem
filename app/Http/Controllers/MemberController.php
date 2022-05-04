@@ -13,6 +13,8 @@ use Response;
 use App\Exports\TroopMembersExport;
 use Excel;
 use Auth;
+use App\Http\Util\SlackPost;
+use Log;
 
 class MemberController extends AppBaseController
 {
@@ -75,7 +77,7 @@ class MemberController extends AppBaseController
         $member->p5 = TroopInfo::where('id', auth()->id())->value('patrol5');
         $member->p6 = TroopInfo::where('id', auth()->id())->value('patrol6');
 
-        return view('members.create')->with('member',$member);
+        return view('members.create')->with('member', $member);
     }
 
     /**
@@ -88,10 +90,18 @@ class MemberController extends AppBaseController
     public function store(CreateMemberRequest $request)
     {
         $input = $request->all();
+        $name = ($input['name'] . ' (' . $input['org_dan_name'] . $input['org_dan_number'] . ')');
+
         $input['user_id'] = Auth::user()->id;
 
         /** @var Member $member */
         $member = Member::create($input);
+
+        $slackpost = new SlackPost();
+        $slackpost->send(":new: " . $name . ' の参加者登録がされました。');
+
+        // logger
+        Log::info('[新規参加者登録] name:' . $name);
 
         Flash::success('メンバーを登録しました。');
 
@@ -110,7 +120,7 @@ class MemberController extends AppBaseController
         /** @var Member $member */
         $member = Member::findorfail($id);
 
-        if($member->user_id <> auth()->id()){
+        if ($member->user_id <> auth()->id()) {
             Flash::error('閲覧権限がありません');
             return redirect(route('members.index'));
         }
@@ -174,9 +184,17 @@ class MemberController extends AppBaseController
         }
 
         $member->fill($request->all());
+        $name = ($request['name'] . ' (' . $request['org_dan_name'] . $request['org_dan_number'] . ')');
+
         $member->save();
 
-        Flash::success("$request->name の情報を更新しました");
+        $slackpost = new SlackPost();
+        $slackpost->send(":memo: " . $name . ' の参加者情報が更新されました。');
+
+        // logger
+        Log::info('[参加者更新] name:' . $name);
+
+        Flash::success("$name の情報を更新しました");
 
         return redirect(route('members.index'));
     }
@@ -201,14 +219,25 @@ class MemberController extends AppBaseController
             return redirect(route('members.index'));
         }
 
+        // 氏名設定
+        $name = $member->name . "(" . $member->org_dan_name . $member->org_dan_number . ")";
+
         $member->delete();
 
-        Flash::success('Member deleted successfully.');
+        // slack
+        $slackpost = new SlackPost();
+        $slackpost->send(":put_litter_in_its_place: " . $name . ' の参加者情報が削除されました。');
+
+        // logger
+        Log::info('[参加者削除] name:' . $name);
+
+        Flash::success($name . 'を削除しました。');
 
         return redirect(route('members.index'));
     }
 
-    public function export(){
+    public function export()
+    {
         return Excel::download(new TroopMembersExport, 'member_lists.xlsx');
     }
 }

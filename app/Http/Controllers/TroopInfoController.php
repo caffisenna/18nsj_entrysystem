@@ -10,6 +10,8 @@ use App\Models\DistrictExec;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Http\Util\SlackPost;
+use Log;
 
 class TroopInfoController extends AppBaseController
 {
@@ -60,8 +62,17 @@ class TroopInfoController extends AppBaseController
         // relation用にuser_idを認証idから取得
         $input['user_id'] = auth()->id();
 
+        $name = $input['district'];
+
         /** @var TroopInfo $troopInfo */
         $troopInfo = TroopInfo::create($input);
+
+        // slack
+        $slackpost = new SlackPost();
+        $slackpost->send(":new: " . $name . ' 隊の情報が登録されました。');
+
+        // logger
+        Log::info('[参加隊情報登録] ' . $name);
 
         Flash::success('隊基本情報を登録しました。');
 
@@ -130,7 +141,17 @@ class TroopInfoController extends AppBaseController
         }
 
         $troopInfo->fill($request->all());
+
+        $name = $troopInfo->district;
+
         $troopInfo->save();
+
+        // slack
+        $slackpost = new SlackPost();
+        $slackpost->send(":memo: " . $name . ' 隊の情報が更新されました。');
+
+        // logger
+        Log::info('[参加隊情報更新] ' . $name);
 
         Flash::success('更新しました');
 

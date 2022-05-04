@@ -22,7 +22,7 @@ class CreateTroopInfosTable extends Migration
             $table->string('troop_number')->nullable();
             $table->string('person_in_charge_name');
             $table->string('person_in_charge_position');
-            $table->string('person_in_charge_bsid');
+            $table->string('person_in_charge_bsid')->nullable();
             $table->string('person_in_charge_phone')->nullable();
             $table->string('person_in_charge_cellphone')->nullable();
             $table->string('person_in_charge_email')->nullable();
