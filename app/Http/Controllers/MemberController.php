@@ -29,7 +29,9 @@ class MemberController extends AppBaseController
     {
         /** @var Member $members */
         // $members = Member::all();
-        $members = Member::where('user_id', auth()->id())->get();
+        // $members = Member::where('user_id', auth()->id())->get();
+        $members = Member::where('user_id', Auth()->user()->is_troopstaff)->get();
+        // dd($members);
 
         // 班名処理
         foreach ($members as $member) {
@@ -92,7 +94,8 @@ class MemberController extends AppBaseController
         $input = $request->all();
         $name = ($input['name'] . ' (' . $input['org_dan_name'] . $input['org_dan_number'] . ')');
 
-        $input['user_id'] = Auth::user()->id;
+        // $input['user_id'] = Auth::user()->id;
+        $input['user_id'] = Auth::user()->is_troopstaff;
 
         /** @var Member $member */
         $member = Member::create($input);
@@ -120,7 +123,7 @@ class MemberController extends AppBaseController
         /** @var Member $member */
         $member = Member::findorfail($id);
 
-        if ($member->user_id <> auth()->id()) {
+        if ($member->user_id <> Auth()->user()->is_troopstaff) {
             Flash::error('閲覧権限がありません');
             return redirect(route('members.index'));
         }
@@ -143,7 +146,14 @@ class MemberController extends AppBaseController
      */
     public function edit($id)
     {
+        $user_id = Member::where('id', $id)->value('user_id');
+
         /** @var Member $member */
+        if ($user_id <> Auth::user()->is_troopstaff) {
+            Flash::error('権限がありません');
+            return redirect(route('members.index'));
+        }
+
         $member = Member::find($id);
 
         // 班名取得
