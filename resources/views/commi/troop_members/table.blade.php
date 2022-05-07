@@ -80,7 +80,7 @@
         </thead>
         <tbody>
             @foreach ($members as $member)
-                @if ($member->role == '隊長' || $member->role == '副長')
+                @if ($member->role == '隊長' || $member->role == '副長' || $member->role == '副長補')
                     <tr>
                         <td>{{ $member->role }}</td>
                         <td>{{ $member->how_to_join }}</td>
