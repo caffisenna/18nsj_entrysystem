@@ -29,8 +29,8 @@ class MemberController extends AppBaseController
     {
         /** @var Member $members */
         // $members = Member::all();
-        // $members = Member::where('user_id', auth()->id())->get();
-        $members = Member::where('user_id', Auth()->user()->is_troopstaff)->get();
+        $members = Member::where('user_id', auth()->id())->get();
+        // $members = Member::where('user_id', Auth()->user()->is_troopstaff)->get();
         // dd($members);
 
         // 班名処理
@@ -94,8 +94,8 @@ class MemberController extends AppBaseController
         $input = $request->all();
         $name = ($input['name'] . ' (' . $input['org_dan_name'] . $input['org_dan_number'] . ')');
 
-        // $input['user_id'] = Auth::user()->id;
-        $input['user_id'] = Auth::user()->is_troopstaff;
+        $input['user_id'] = Auth::user()->id;
+        // $input['user_id'] = Auth::user()->is_troopstaff;
 
         /** @var Member $member */
         $member = Member::create($input);
