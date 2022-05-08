@@ -55,7 +55,7 @@ class HomeController extends Controller
 
         if (auth()->user()->is_staff) {
             $volstaff = Volstaff::where('user_id', auth()->id())->first();
-            if(!$volstaff){
+            if(!$volstaff && !env('STAFF_LOCK')){
                 Flash::warning('情報を登録してください');
                 return view('volstaffs.create');
             }

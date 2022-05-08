@@ -34,7 +34,13 @@ class VolstaffController extends AppBaseController
         if (Auth::user()->is_troopstaff) {
             return view('home');
         }
+
         $volstaff = Volstaff::where('user_id', auth()->id())->first();
+        // 登録期間外
+        if(empty($volstaff) && env('STAFF_LOCK')){
+            Flash::error('期間外のため新規登録と情報の編集ができません');
+            return view('home');
+        }
         if (empty($volstaff)) {
             $user = User::where('id', auth()->id())->first();
             return view('volstaffs.create')->with('user', $user);
@@ -184,6 +190,12 @@ class VolstaffController extends AppBaseController
             Flash::error('Volstaff not found');
 
             return redirect(route('volstaffs.index'));
+        }
+
+        // 登録期間外
+        if(env('STAFF_LOCK')){
+            Flash::error('期間外のため新規登録と情報の編集ができません');
+            return view('home');
         }
 
         if (isset($volstaff->join_days)) {
