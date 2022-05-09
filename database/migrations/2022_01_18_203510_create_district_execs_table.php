@@ -16,13 +16,13 @@ class CreateDistrictExecsTable extends Migration
     {
         Schema::create('district_execs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('district_name');
-            $table->string('chairman_name');
-            $table->string('chairman_phone');
-            $table->string('chairman_email');
-            $table->string('commi_name');
-            $table->string('commi_phone');
-            $table->string('commi_email');
+            $table->string('district_name')->nullable();
+            $table->string('chairman_name')->nullable();
+            $table->string('chairman_phone')->nullable();
+            $table->string('chairman_email')->nullable();
+            $table->string('commi_name')->nullable();
+            $table->string('commi_phone')->nullable();
+            $table->string('commi_email')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
