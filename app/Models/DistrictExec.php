@@ -26,7 +26,7 @@ class DistrictExec extends Model
     use HasFactory;
 
     public $table = 'district_execs';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -64,14 +64,14 @@ class DistrictExec extends Model
      * @var array
      */
     public static $rules = [
-        'district_name' => 'required',
-        'chairman_name' => 'required',
-        'chairman_phone' => 'required',
-        'chairman_email' => 'required',
-        'commi_name' => 'required',
-        'commi_phone' => 'required',
-        'commi_email' => 'required'
+        // 'district_name' => 'required',
+        // 'chairman_name' => 'required',
+        // 'chairman_phone' => 'required',
+        // 'chairman_email' => 'required',
+        // 'commi_name' => 'required',
+        // 'commi_phone' => 'required',
+        // 'commi_email' => 'required'
     ];
 
-    
+
 }
