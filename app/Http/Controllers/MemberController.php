@@ -151,7 +151,7 @@ class MemberController extends AppBaseController
 
         /** @var Member $member */
         // if ($user_id <> Auth::user()->is_troopstaff) {
-        if ($member->user_id <> auth()->id()) {
+        if ($user_id <> auth()->id()) {
             Flash::error('権限がありません');
             return redirect(route('members.index'));
         }
