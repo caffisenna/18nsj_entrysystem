@@ -123,7 +123,8 @@ class MemberController extends AppBaseController
         /** @var Member $member */
         $member = Member::findorfail($id);
 
-        if ($member->user_id <> Auth()->user()->is_troopstaff) {
+        // if ($member->user_id <> Auth()->user()->is_troopstaff) {
+        if ($member->user_id <> auth()->id()) {
             Flash::error('閲覧権限がありません');
             return redirect(route('members.index'));
         }
@@ -149,7 +150,8 @@ class MemberController extends AppBaseController
         $user_id = Member::where('id', $id)->value('user_id');
 
         /** @var Member $member */
-        if ($user_id <> Auth::user()->is_troopstaff) {
+        // if ($user_id <> Auth::user()->is_troopstaff) {
+        if ($member->user_id <> auth()->id()) {
             Flash::error('権限がありません');
             return redirect(route('members.index'));
         }
