@@ -98,3 +98,6 @@
         </a>
     </li>
 @endif
+
+<h4 class="uk-text-primary">webサイト</h4>
+<a href="https://18nsj.tokyo" class="nav-link">中央会場HP</a>
