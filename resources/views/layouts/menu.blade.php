@@ -73,7 +73,7 @@
 
     <li class="nav-item">
         <a href="{{ route('gen_uuid') }}" class="nav-link {{ Request::is('admin/gen_uuid*') ? 'active' : '' }}">
-            <p>UUID生成</p>
+            <p>UUID生成1</p>
         </a>
     </li>
 
