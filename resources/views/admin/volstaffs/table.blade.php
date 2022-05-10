@@ -76,6 +76,7 @@
                 <th>参加期間</th>
                 <th>地区</th>
                 <th>コミ確認</th>
+                <th>RS</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -94,6 +95,11 @@
                             <span class="uk-text-success">済</span>
                         @else
                             <span class="uk-text-warning">未確認</span>
+                        @endif
+                    </td>
+                    <td>
+                        @if($volstaff->org_group == 'ローバー' && $volstaff->org_role == 'スカウト')
+                        RS
                         @endif
                     </td>
                     <td width="120">
