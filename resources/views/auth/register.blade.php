@@ -24,6 +24,9 @@
         integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
         crossorigin="anonymous" />
 
+    {{-- UIKit --}}
+    <link rel="stylesheet" href="{{ url('/css/uikit.min.css') }}">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,13 +44,15 @@
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">新規にユーザー登録</p>
+                <p class="uk-text-warning">docomoやsoftbank、auなどのキャリアメールの場合は @scout.tokyoからのメールを必ず受信できる設定にしてから登録をしてください。
+                </p>
 
                 <form method="post" action="{{ route('register') }}">
                     @csrf
 
                     <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                            value="{{ old('name') }}" placeholder="フルネーム">
+                            value="{{ old('name') }}" placeholder="漢字表記のフルネーム">
                         <div class="input-group-append">
                             <div class="input-group-text"><span class="fas fa-user"></span></div>
                         </div>
@@ -88,12 +93,6 @@
 
                     <div class="row">
                         <div class="col-8">
-                            {{-- <div class="icheck-primary">
-                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                                <label for="agreeTerms">
-                                    <a href="#">利用規約</a>に同意する
-                                </label>
-                            </div> --}}
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
@@ -103,7 +102,8 @@
                     </div>
                 </form>
 
-                アカウントを持っている方は<a href="{{ route('login') }}" class="text-center">ログイン</a>
+                <p class="">アカウントを持っている方は<a href="{{ route('login') }}" class="text-center">ログイン</a>
+                </p>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
