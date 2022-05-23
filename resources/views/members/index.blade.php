@@ -8,9 +8,11 @@
                     <h1>隊メンバー一覧</h1>
                 </div>
                 <div class="col-sm-6">
+                    @unless(ENV('TROOP_NEW_LOCK'))
                     <a class="btn btn-primary float-right" href="{{ route('members.create') }}">
                         新規追加
                     </a>
+                    @endunless
                     <a class="btn btn-default float-right" href="{{ route('export') }}">
                         <span uk-icon="download"></span>Excel
                     </a>
