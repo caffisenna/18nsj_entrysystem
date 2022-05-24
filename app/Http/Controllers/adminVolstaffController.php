@@ -211,7 +211,7 @@ class adminVolstaffController extends AppBaseController
 
         $volstaff->delete();
 
-        Flash::success('Volstaff deleted successfully.');
+        Flash::success('削除しました。');
 
         return redirect(route('vol_staffs.index'));
     }
