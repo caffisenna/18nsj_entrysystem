@@ -539,6 +539,9 @@
                     <div class="uk-card uk-card-primary uk-card-body">
                         <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>NEWS</h5>
                         <ul class="uk-list">
+                            <li>2022/06/1 奉仕スタッフの二次申込を開始しました</li>
+                            <li>2022/06/1 日向野営場の募集を終了しました</li>
+                            <li>2022/06/1 配属部署の決定通知を送信しました</li>
                             <li>2022/05/11 奉仕スタッフの一次申込を終了しました</li>
                             <li>2022/4/29 参加隊のデータ登録を開始しました</li>
                             <li>2022/4/8 奉仕スタッフの申込を開始しました</li>
