@@ -198,6 +198,12 @@ class VolstaffController extends AppBaseController
             return view('home');
         }
 
+        // 確定後の編集ロック
+        if(isset($volstaff->edit_lock)){
+            Flash::error('申込確定後の編集はできません。');
+            return view('home');
+        }
+
         if (isset($volstaff->join_days)) {
             $volstaff->join_days = implode(",", unserialize($volstaff->join_days));
         }
