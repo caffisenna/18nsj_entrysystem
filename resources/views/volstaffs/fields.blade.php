@@ -1,5 +1,15 @@
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">基本情報</h3>
+    <!-- NDA Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('nda', '秘匿条項への同意:スタッフの申込を行うことにより、以下の秘匿条項に同意したことになります。') !!}
+        <ul class="uk-text-danger">
+            <li>善良なる奉仕スタッフとしての注意義務をもって厳重に情報を管理すること</li>
+            <li>立場上知り得た情報(ファイル等を含む)を本業務以外の目的で情報を使用しないこと(スタッフ外への口外、提供を禁じます)</li>
+        </ul>
+    </div>
+
+
     <div class="form-group col-sm-6">
         {!! Form::label('name', '氏名:') !!}
         {{ Auth::user()->name }}
