@@ -164,6 +164,10 @@
             <td>18NSJ{{ $volstaff->furigana }} (18NSJ＋あなたのフルネーム）<br>
                 </td>
         </tr>
+        <tr>
+            <td>振込期日</td>
+            <td>2022年6月24日(金)まで</td>
+        </tr>
         @endif
         <tr>
             <td>事務局確認</td>
