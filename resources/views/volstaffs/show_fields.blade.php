@@ -7,7 +7,10 @@
         </tr>
         <tr>
             <th>所属団</th>
-            <td>{{ $volstaff->org_district }}地区 {{ $volstaff->org_dan_name }}{{ $volstaff->org_dan_number }}団 @unless ($volstaff->org_group == "団"){{ $volstaff->org_group }}隊@endunless {{ $volstaff->org_role }}</td>
+            <td>{{ $volstaff->org_district }}地区 {{ $volstaff->org_dan_name }}{{ $volstaff->org_dan_number }}団
+                @unless($volstaff->org_group == '団')
+                    {{ $volstaff->org_group }}隊
+                @endunless {{ $volstaff->org_role }}</td>
         </tr>
         <tr>
             <th>地区役務</th>
@@ -105,8 +108,11 @@
         </tr>
     </table>
 </div>
-
-<p class="uk-text-danger uk-text-large">参加費振込は別途ご案内しますのでお待ちください。</p>
+@if ($volstaff->created_at < '2022-06-01')
+    <p class="uk-text-danger uk-text-large">参加費振込は別途ご案内しますのでお待ちください。</p>
+@else
+    <p class="uk-text-danger uk-text-large">参加費は下記を参照のうえ、個人ごとにお振り込みください</p>
+@endif
 <div class="uk-card uk-card-primary uk-card-body uk-width-1-1@m">
     <h3 class="uk-card-title">参加費見積</h3>
     <ul>
@@ -147,11 +153,18 @@
                 <h4>{{ number_format($volstaff->total_fee) }} 円</h4>
             </td>
         </tr>
-        {{-- <tr>
+        @if ($volstaff->created_at > '2022-06-01')
+        <tr>
             <td>振込口座</td>
             <td>GMOあおぞらネット銀行 法人営業部 普通 1331429<br>
                 シヤ）ニホンボーイスカウトトウキヨウレンメイ</td>
-        </tr> --}}
+        </tr>
+        <tr>
+            <td>振込名義</td>
+            <td>18NSJ{{ $volstaff->furigana }} (18NSJ＋あなたのフルネーム）<br>
+                </td>
+        </tr>
+        @endif
         <tr>
             <td>事務局確認</td>
             <td></td>
@@ -160,8 +173,7 @@
 
 </div>
 
-{{--
-<!-- User Id Field -->
+{{-- <!-- User Id Field -->
 <div class="col-sm-12">
     {!! Form::label('user_id', 'ユーザーID:') !!}
     {{ $volstaff->user_id }}
