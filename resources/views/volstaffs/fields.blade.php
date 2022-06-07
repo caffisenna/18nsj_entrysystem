@@ -1,4 +1,5 @@
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    各部の業務内容は<a href="https://18nsj.tokyo/%e5%90%84%e9%83%a8%e4%bc%9a%e3%81%ae%e6%a5%ad%e5%8b%99%e5%86%85%e5%ae%b9%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">各部会の業務内容について</a>を参照してください。
     <h3 class="uk-card-title">基本情報</h3>
     <!-- NDA Field -->
     <div class="form-group col-sm-6">
