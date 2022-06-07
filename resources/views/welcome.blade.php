@@ -472,8 +472,8 @@
                                     </path>
                                 </svg>
                                 <div class="ml-4 text-lg leading-7 font-semibold">
-                                    <a href="" class="underline text-gray-900 dark:text-white">
-                                        {{-- 使い方 --}}
+                                    <a href="https://18nsj.tokyo/%e5%90%84%e9%83%a8%e4%bc%9a%e3%81%ae%e6%a5%ad%e5%8b%99%e5%86%85%e5%ae%b9%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/" class="underline text-gray-900 dark:text-white">
+                                        各部の業務内容
                                     </a>
                                 </div>
                             </div>
