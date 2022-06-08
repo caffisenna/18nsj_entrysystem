@@ -1,5 +1,6 @@
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
-    各部の業務内容は<a href="https://18nsj.tokyo/%e5%90%84%e9%83%a8%e4%bc%9a%e3%81%ae%e6%a5%ad%e5%8b%99%e5%86%85%e5%ae%b9%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">各部会の業務内容について</a>を参照してください。
+    各部の業務内容は<a
+        href="https://18nsj.tokyo/%e5%90%84%e9%83%a8%e4%bc%9a%e3%81%ae%e6%a5%ad%e5%8b%99%e5%86%85%e5%ae%b9%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/">各部会の業務内容について</a>を参照してください。
     <h3 class="uk-card-title">基本情報</h3>
     <!-- NDA Field -->
     <div class="form-group col-sm-6">
@@ -206,7 +207,7 @@
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('job_department', '奉仕部署(実行委員会で決定している方):') !!}
-        {!! Form::select('job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
         @error('job_department')
             <div class="error text-danger">{{ $message }}</div>
         @enderror
@@ -238,7 +239,7 @@
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice1_job_department', '奉仕部署(第1希望):') !!}
-        {!! Form::select('choice1_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice1_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <h4>第2希望</h4>
@@ -256,7 +257,7 @@
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice2_job_department', '奉仕部署(第2希望):') !!}
-        {!! Form::select('choice2_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice2_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <h4>第3希望</h4>
@@ -274,7 +275,7 @@
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice3_job_department', '奉仕部署(第3希望):') !!}
-        {!! Form::select('choice3_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice3_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 </div>
 
