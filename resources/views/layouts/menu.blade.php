@@ -43,7 +43,7 @@
     <li class="nav-item">
         <a href="{{ route('trooplists.index') }}"
             class="nav-link {{ Request::is('admin/trooplists*') ? 'active' : '' }}">
-            <p>参加隊一覧</p>
+            <p>派遣隊一覧</p>
         </a>
     </li>
     <li class="nav-item">
@@ -88,7 +88,7 @@
     <li class="nav-item">
         <a href="{{ route('district_trooplists.index') }}"
             class="nav-link {{ Request::is('commi/trooplists*') ? 'active' : '' }}">
-            <p>参加隊一覧</p>
+            <p>派遣隊一覧</p>
         </a>
     </li>
     <li class="nav-item">

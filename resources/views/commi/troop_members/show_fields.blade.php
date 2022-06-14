@@ -10,11 +10,11 @@
             <td>{{ $member->gender }}</td>
         </tr>
         <tr>
-            <td>参加隊役務</td>
+            <td>派遣隊役務</td>
             <td>{{ $member->role }}</td>
         </tr>
         <tr>
-            <td>参加隊形態</td>
+            <td>派遣隊形態</td>
             <td>{{ $member->how_to_join }}</td>
         </tr>
 

@@ -8,7 +8,7 @@
                     <a class="btn btn-primary float-right" href="{{ url('/admin/gen_uuid?gen=true') }}">
                         UUID生成
                     </a>
-                    <h1>UUID未作成(参加隊メンバー)</h1>
+                    <h1>UUID未作成(派遣隊メンバー)</h1>
                 </div>
             </div>
         </div>

@@ -72,7 +72,7 @@ class TroopInfoController extends AppBaseController
         $slackpost->send(":new: " . $name . ' 隊の情報が登録されました。');
 
         // logger
-        Log::info('[参加隊情報登録] ' . $name);
+        Log::info('[派遣隊情報登録] ' . $name);
 
         Flash::success('隊基本情報を登録しました。');
 
@@ -151,7 +151,7 @@ class TroopInfoController extends AppBaseController
         $slackpost->send(":memo: " . $name . ' 隊の情報が更新されました。');
 
         // logger
-        Log::info('[参加隊情報更新] ' . $name);
+        Log::info('[派遣隊情報更新] ' . $name);
 
         Flash::success('更新しました');
 

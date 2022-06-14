@@ -35,7 +35,7 @@ class HomeController extends Controller
             $volstaffs['howtojoin'] = Volstaff::select('how_to_join', DB::raw("count(how_to_join) as count"))->groupBy('how_to_join')->get();
             $volstaffs['job'] = Volstaff::select('job_department', DB::raw("count(job_department) as count"))->groupBy('job_department')->orderByDesc('count')->get();
 
-            // 参加隊のステータス
+            // 派遣隊のステータス
             $members['gender'] = Member::where('org_role', 'スカウト')->select('gender', DB::raw("count(gender) as count"))->groupBy('gender')->get();
             $members['grade'] = Member::where('grade', "<>", '')->select('grade', DB::raw("count(grade) as count"))->groupBy('grade')->get();
             $members['religion'] = Member::where('religion', "<>", '')->select('religion', DB::raw("count(religion) as count"))->groupBy('religion')->get();
@@ -44,9 +44,9 @@ class HomeController extends Controller
             return view('home')->with('volstaffs', $volstaffs);
         }
 
-        // 参加隊モード
+        // 派遣隊モード
         if (auth()->user()->is_troopstaff) {
-            // 参加隊のステータス
+            // 派遣隊のステータス
             $members['gender'] = Member::where('user_id', auth()->id())->where('org_role', 'スカウト')->select('gender', DB::raw("count(gender) as count"))->groupBy('gender')->get();
             $members['grade'] = Member::where('user_id', auth()->id())->where('grade', "<>", '')->select('grade', DB::raw("count(grade) as count"))->groupBy('grade')->get();
             $members['religion'] = Member::where('user_id', auth()->id())->where('religion', "<>", '')->select('religion', DB::raw("count(religion) as count"))->groupBy('religion')->get();

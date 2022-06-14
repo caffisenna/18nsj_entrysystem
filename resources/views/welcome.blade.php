@@ -531,7 +531,7 @@
                 <div>
                     <div class="uk-card uk-card-primary uk-card-body">
                         <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>ABOUT</h5>
-                        18NSJ中央会場(平和島ベース、八王子ベース、日向ベース)の奉仕スタッフ、参加隊の申込受付サイトです。
+                        18NSJ中央会場(平和島ベース、八王子ベース、日向ベース)の奉仕スタッフ、派遣隊の申込受付サイトです。
                     </div>
                 </div>
 
@@ -543,7 +543,7 @@
                             <li>2022/06/1 日向野営場の募集を終了しました</li>
                             <li>2022/06/1 配属部署の決定通知を送信しました</li>
                             <li>2022/05/11 奉仕スタッフの一次申込を終了しました</li>
-                            <li>2022/4/29 参加隊のデータ登録を開始しました</li>
+                            <li>2022/4/29 派遣隊のデータ登録を開始しました</li>
                             <li>2022/4/8 奉仕スタッフの申込を開始しました</li>
                         </ul>
                     </div>
@@ -558,7 +558,7 @@
                             <li>ご自身の情報を入力する(※この情報を登録しないとスタッフ登録になりません)</li>
                         </ol>
                         <p class="uk-text-default">※参加辞退をされる奉仕スタッフの方は <a href="mailto:18nsj.system@scout.tokyo">総務部システム班</a> までご連絡ください。</p>
-                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>参加隊データ編集者</h5>
+                        <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>派遣隊データ編集者</h5>
                         <ul>
                             <li>地区コミッショナー経由で配布しているエクセルシートに入力する</li>
                             <li>2022年4月28日までに地区コミッショナーへ提出する</li>

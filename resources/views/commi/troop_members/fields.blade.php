@@ -84,10 +84,10 @@
 </div>
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
-    <h3 class="uk-card-title">参加隊情報</h3>
+    <h3 class="uk-card-title">派遣隊情報</h3>
     <!-- Role Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('role', '参加隊役務:') !!}
+        {!! Form::label('role', '派遣隊役務:') !!}
         {!! Form::select('role', ['' => '', '隊長' => '隊長', '副長' => '副長', '副長補' => '副長補', 'インストラクター' => 'インストラクター', '介助者' => '介助者', '上班' => '上班', '隊付き' => '隊付き', 'スカウト' => 'スカウト'], null, ['class' => 'form-control custom-select']) !!}
         @error('role')
             <div class="error text-danger">{{ $message }}</div>

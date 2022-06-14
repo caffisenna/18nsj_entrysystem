@@ -82,8 +82,8 @@
 </div>
 
 <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
-    <h3 class="uk-card-title">参加隊の班情報</h3>
-    <p class="uk-text-warning">参加隊内の班名が決まったら入力します。<br>例: "コブラ班" => "コブラ"と入力</p>
+    <h3 class="uk-card-title">派遣隊の班情報</h3>
+    <p class="uk-text-warning">派遣隊内の班名が決まったら入力します。<br>例: "コブラ班" => "コブラ"と入力</p>
     <!-- 班情報 Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('patrol1', '1班目:') !!}

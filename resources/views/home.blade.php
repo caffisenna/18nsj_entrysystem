@@ -10,7 +10,7 @@
         @endunless
 
         @unless(auth()->user()->is_admin || auth()->user()->is_staff || auth()->user()->is_commi)
-            <h2>参加隊の受付</h2>
+            <h2>派遣隊の受付</h2>
             <ul>
                 <li>現在情報はありません</li>
             </ul>
@@ -23,13 +23,13 @@
                 <ul>
                     <li>地区情報</li>
                     <li>地区責任者情報、同責任者情報</li>
-                    <li>参加隊の班情報(班名)</li>
+                    <li>派遣隊の班情報(班名)</li>
                 </ul>
             </div>
             <div class="uk-card uk-card-body">
                 <h3 class="uk-card-title"><span uk-icon="users"></span>メンバー管理</h3>
                 <p class=""><a
-                        href="{{ route('members.index') }}">メンバー管理</a>は参加隊の構成員の情報を管理します。提出いただいたエクセルシートの情報をインポートしてありますのでメンバーの入れ替えなどがあれば随時修正をしてください。<br>
+                        href="{{ route('members.index') }}">メンバー管理</a>は派遣隊の構成員の情報を管理します。提出いただいたエクセルシートの情報をインポートしてありますのでメンバーの入れ替えなどがあれば随時修正をしてください。<br>
                     一覧をエクセル形式でダウンロード可能です。</p>
             </div>
             <div class="uk-card uk-card-body">
@@ -72,9 +72,9 @@
             <h3>{{ auth()->user()->is_commi }}地区コミッショナーさん、ようこそ!</h3>
 
             <div class="uk-card uk-card-body">
-                <h3 class="uk-card-title"><span uk-icon="info"></span>参加隊一覧</h3>
+                <h3 class="uk-card-title"><span uk-icon="info"></span>派遣隊一覧</h3>
                 <p class=""><a
-                        href="{{ route('district_trooplists.index') }}">参加隊一覧</a>は参加隊のスカウト、指導者に関する情報を表示します。</p>
+                        href="{{ route('district_trooplists.index') }}">派遣隊一覧</a>は派遣隊のスカウト、指導者に関する情報を表示します。</p>
             </div>
 
             <div class="uk-card uk-card-body">

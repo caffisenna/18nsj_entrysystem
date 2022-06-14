@@ -9,7 +9,7 @@
             <td>{{ $troopInfo->pref }}連盟 {{ $troopInfo->district }}地区</td>
         </tr>
         <tr>
-            <th>参加隊コード</th>
+            <th>派遣隊コード</th>
             <td>@if (isset($troopInfo->troop_number)){{ $troopInfo->troop_number }}@else 未定 @endif</td>
         </tr>
     </table>
