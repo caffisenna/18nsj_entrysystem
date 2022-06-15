@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>スタッフ入金チェック</h1>
+                    <h1>スタッフ入金チェック(二次募集以降)</h1>
                 </div>
                 <div class="col-sm-6">
                     {{-- <a class="btn btn-primary float-right" href="{{ route('vol_staffs.create') }}">

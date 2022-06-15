@@ -241,7 +241,7 @@ class adminVolstaffController extends AppBaseController
 
         // ここでwith('user')することでeager loadすることが可能
         // データが増えたときにN+1問題を回避できる
-        $volstaffs = Volstaff::with('user')->get();
+        $volstaffs = Volstaff::with('user')->where('created_at','>','2022-06-01 00:00:00')->get();
 
         // 参加費計算
         foreach ($volstaffs as $volstaff) {
