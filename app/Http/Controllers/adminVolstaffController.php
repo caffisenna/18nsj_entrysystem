@@ -241,7 +241,8 @@ class adminVolstaffController extends AppBaseController
 
         // ここでwith('user')することでeager loadすることが可能
         // データが増えたときにN+1問題を回避できる
-        $volstaffs = Volstaff::with('user')->where('created_at','>','2022-06-01 00:00:00')->get();
+        // 参加費個人振込は6/1以降に登録した人だけなので、フィルターをかける
+        $volstaffs = Volstaff::with('user')->where('created_at', '>', '2022-06-01 00:00:00')->get();
 
         // 参加費計算
         foreach ($volstaffs as $volstaff) {
@@ -278,6 +279,24 @@ class adminVolstaffController extends AppBaseController
         $volstaffs = Volstaff::whereNull('camp_area')->with('user')->get();
 
         return view('admin.volstaffs.undefined')
+            ->with('volstaffs', $volstaffs);
+    }
+
+    public function schedule(Request $request)
+    {
+        /** @var Volstaff $volstaffs */
+
+        if (isset($request->base) && empty(($request->depart))) {
+            $volstaffs = Volstaff::with('user')->where('camp_area', $request->base)->orderby('camp_area')->get();
+        } elseif (isset($request->depart) && empty(($request->base))) {
+            $volstaffs = Volstaff::with('user')->where('job_department', $request->depart)->orderby('camp_area')->get();
+        } elseif (isset($request->base) && isset($request->depart)) {
+            $volstaffs = Volstaff::with('user')->where('camp_area', $request->base)->where('job_department', $request->depart)->orderby('camp_area')->get();
+        } else {
+            $volstaffs = Volstaff::with('user')->orderby('camp_area')->get();
+        }
+
+        return view('admin.volstaffs.schedule')
             ->with('volstaffs', $volstaffs);
     }
 }

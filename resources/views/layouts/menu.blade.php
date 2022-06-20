@@ -53,6 +53,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a href="{{ route('schedule') }}"
+            class="nav-link {{ Request::is('admin/schedule*') ? 'active' : '' }}">
+            <p>参加日程</p>
+        </a>
+    </li>
+    <li class="nav-item">
         <a href="{{ route('undefined') }}" class="nav-link {{ Request::is('admin/undefined*') ? 'active' : '' }}">
             <p>部署未定一覧</p>
         </a>
