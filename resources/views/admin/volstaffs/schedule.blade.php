@@ -56,7 +56,7 @@
                                     </td>
                                     {{-- join_daysでループを回す --}}
                                     @for ($j = 3; $j < 12; $j++)
-                                        @if (strpos($volstaff->join_days, $j . '日'))
+                                        @if (strpos($volstaff->join_days, $j . '日') || $volstaff->how_to_join == '全期間')
                                             <td>〇</td>
                                         @else
                                             <td></td>
