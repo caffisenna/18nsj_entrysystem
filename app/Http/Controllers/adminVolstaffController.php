@@ -29,16 +29,37 @@ class adminVolstaffController extends AppBaseController
     {
         /** @var Volstaff $volstaffs */
 
+        // チーフのデータを取得する
+        if (Auth::user()->is_staff == 1) {
+            $user = User::with('volstaff')->where('id', Auth::user()->id)->first();
+            $user_job = $user->volstaff->job_department;
+        }
+
         // ここでwith('user')することでeager loadすることが可能
         // データが増えたときにN+1問題を回避できる
         if (isset($_REQUEST['district'])) { // 地区
-            $volstaffs = Volstaff::where('org_district', $_REQUEST['district'])->with('user')->get();
+            if (isset($user_job)) {
+                $volstaffs = Volstaff::where('org_district', $_REQUEST['district'])->where('job_department', $user_job)->with('user')->get();
+            } else {
+                $volstaffs = Volstaff::where('org_district', $_REQUEST['district'])->with('user')->get();
+            }
         } elseif (isset($_REQUEST['job_department'])) { // 部署
-            $volstaffs = Volstaff::where('job_department', $_REQUEST['job_department'])->with('user')->get();
+            if (isset($user_job)) {
+                $volstaffs = Volstaff::where('job_department', $_REQUEST['job_department'])->with('user')->where('job_department', $user_job)->get();
+            } else {
+                $volstaffs = Volstaff::where('job_department', $_REQUEST['job_department'])->with('user')->get();
+            }
         } elseif (isset($_REQUEST['camp_area'])) {
-            $volstaffs = Volstaff::where('camp_area', $_REQUEST['camp_area'])->with('user')->get();
+            if (isset($user_job)) {
+                $volstaffs = Volstaff::where('camp_area', $_REQUEST['camp_area'])->where('job_department', $user_job)->with('user')->get();
+            } else
+                $volstaffs = Volstaff::where('camp_area', $_REQUEST['camp_area'])->with('user')->get();
         } else {
-            $volstaffs = Volstaff::with('user')->get();
+            if (isset($user_job)) {
+                $volstaffs = Volstaff::with('user')->where('job_department', $user_job)->get();
+            } else {
+                $volstaffs = Volstaff::with('user')->get();
+            }
         }
 
         return view('admin.volstaffs.index')
