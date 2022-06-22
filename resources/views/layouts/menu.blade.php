@@ -40,54 +40,61 @@
 @endif
 
 @if (Auth::user()->is_admin)
-    <li class="nav-item">
-        <a href="{{ route('trooplists.index') }}"
-            class="nav-link {{ Request::is('admin/trooplists*') ? 'active' : '' }}">
-            <p>派遣隊一覧</p>
-        </a>
-    </li>
+    @if (Auth::user()->is_staff == 0)
+        <li class="nav-item">
+            <a href="{{ route('trooplists.index') }}"
+                class="nav-link {{ Request::is('admin/trooplists*') ? 'active' : '' }}">
+                <p>派遣隊一覧</p>
+            </a>
+        </li>
+    @endif
     <li class="nav-item">
         <a href="{{ route('vol_staffs.index') }}"
             class="nav-link {{ Request::is('admin/vol_staffs*') ? 'active' : '' }}">
             <p>奉仕者一覧</p>
         </a>
     </li>
-    <li class="nav-item">
-        <a href="{{ route('schedule') }}"
-            class="nav-link {{ Request::is('admin/schedule*') ? 'active' : '' }}">
-            <p>参加日程</p>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a href="{{ route('undefined') }}" class="nav-link {{ Request::is('admin/undefined*') ? 'active' : '' }}">
-            <p>部署未定一覧</p>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a href="{{ route('user_list') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">
-            <p>ユーザー一覧</p>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a href="{{ route('districtExecs.index') }}"
-            class="nav-link {{ Request::is('admin/districtExecs*') ? 'active' : '' }}">
-            <p>地区役員DB</p>
-        </a>
-    </li>
+    @if (Auth::user()->is_staff == 0)
+        <li class="nav-item">
+            <a href="{{ route('schedule') }}"
+                class="nav-link {{ Request::is('admin/schedule*') ? 'active' : '' }}">
+                <p>参加日程</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('undefined') }}"
+                class="nav-link {{ Request::is('admin/undefined*') ? 'active' : '' }}">
+                <p>部署未定一覧</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('user_list') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">
+                <p>ユーザー一覧</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('districtExecs.index') }}"
+                class="nav-link {{ Request::is('admin/districtExecs*') ? 'active' : '' }}">
+                <p>地区役員DB</p>
+            </a>
+        </li>
 
-    <h4><span class="uk-text-danger">Danger</span></h4>
+        <h4><span class="uk-text-danger">Danger</span></h4>
 
-    <li class="nav-item">
-        <a href="{{ route('gen_uuid') }}" class="nav-link {{ Request::is('admin/gen_uuid*') ? 'active' : '' }}">
-            <p>UUID生成</p>
-        </a>
-    </li>
+        <li class="nav-item">
+            <a href="{{ route('gen_uuid') }}"
+                class="nav-link {{ Request::is('admin/gen_uuid*') ? 'active' : '' }}">
+                <p>UUID生成</p>
+            </a>
+        </li>
 
-    <li class="nav-item">
-        <a href="{{ route('fee_check') }}" class="nav-link {{ Request::is('admin/fee_check*') ? 'active' : '' }}">
-            <p>入金チェック</p>
-        </a>
-    </li>
+        <li class="nav-item">
+            <a href="{{ route('fee_check') }}"
+                class="nav-link {{ Request::is('admin/fee_check*') ? 'active' : '' }}">
+                <p>入金チェック</p>
+            </a>
+        </li>
+    @endif
 @endif
 
 @if (Auth::user()->is_commi && Auth::user()->is_troopstaff == 0)
