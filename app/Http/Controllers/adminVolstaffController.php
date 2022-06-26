@@ -307,6 +307,13 @@ class adminVolstaffController extends AppBaseController
     {
         /** @var Volstaff $volstaffs */
 
+        // チーフの場合部署を取得
+        if (Auth::user()->is_admin == 1 && Auth::user()->is_staff == 1) {
+            $my_job = Volstaff::where('user_id', auth::user()->id)->value('job_department');
+        } else {
+            $my_job = NULL;
+        }
+
         if (isset($request->base) && empty(($request->depart))) {
             $volstaffs = Volstaff::with('user')->where('camp_area', $request->base)->orderby('camp_area')->get();
         } elseif (isset($request->depart) && empty(($request->base))) {
@@ -314,10 +321,17 @@ class adminVolstaffController extends AppBaseController
         } elseif (isset($request->base) && isset($request->depart)) {
             $volstaffs = Volstaff::with('user')->where('camp_area', $request->base)->where('job_department', $request->depart)->orderby('camp_area')->get();
         } else {
-            $volstaffs = Volstaff::with('user')->orderby('camp_area')->get();
+            if (Auth::user()->is_admin == 1 && Auth::user()->is_staff == 1) {
+                $volstaffs = Volstaff::with('user')
+                    // ->where('camp_area', $request->base)
+                    ->where('job_department', $my_job)
+                    ->orderby('camp_area')->get();
+            } else {
+                $volstaffs = Volstaff::with('user')->orderby('camp_area')->get();
+            }
         }
 
         return view('admin.volstaffs.schedule')
-            ->with('volstaffs', $volstaffs);
+            ->with('volstaffs', $volstaffs)->with('my_job', $my_job);
     }
 }

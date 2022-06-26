@@ -23,7 +23,11 @@
             {!! Form::label('base', 'ベース:') !!}
             {!! Form::select('base', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
             {!! Form::label('depart', '部署:') !!}
+            @if(Auth::user()->is_staff == 1 && Auth::user()->is_admin == 1)
+            {!! Form::select('depart', [$my_job => $my_job], null, ['class' => 'form-control custom-select']) !!}
+            @else
             {!! Form::select('depart', ['' => '', '施設・配給' => '施設・配給','プログラム' => 'プログラム','安全・救護' => '安全・救護','総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+            @endif
             {!! Form::submit('抽出', ['class'=>'uk-button-primary']) !!}
             {!! Form::close() !!}
         </form>
