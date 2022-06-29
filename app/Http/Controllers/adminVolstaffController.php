@@ -334,4 +334,15 @@ class adminVolstaffController extends AppBaseController
         return view('admin.volstaffs.schedule')
             ->with('volstaffs', $volstaffs)->with('my_job', $my_job);
     }
+
+    public function car_info(Request $request)
+    {
+        /** @var Volstaff $volstaffs */
+        $volstaffs = Volstaff::with('user')
+        ->wherenotnull('car_number')
+        ->orderby('camp_area')->get();
+
+        return view('admin.volstaffs.car_info')
+            ->with('volstaffs', $volstaffs);
+    }
 }
