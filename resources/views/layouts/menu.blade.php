@@ -66,6 +66,12 @@
                 <p>車両情報</p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('user_memo') }}"
+                class="nav-link {{ Request::is('admin/user_memo*') ? 'active' : '' }}">
+                <p>備考情報</p>
+            </a>
+        </li>
         @if (Auth::user()->is_staff == 0)
         <li class="nav-item">
             <a href="{{ route('undefined') }}"

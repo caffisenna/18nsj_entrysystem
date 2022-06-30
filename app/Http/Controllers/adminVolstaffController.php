@@ -345,4 +345,14 @@ class adminVolstaffController extends AppBaseController
         return view('admin.volstaffs.car_info')
             ->with('volstaffs', $volstaffs);
     }
+
+    public function user_memo(Request $request)
+    {
+        /** @var Volstaff $volstaffs */
+        $volstaffs = Volstaff::with('user')
+        ->wherenotnull('memo')->get();
+
+        return view('admin.volstaffs.user_memo')
+            ->with('volstaffs', $volstaffs);
+    }
 }

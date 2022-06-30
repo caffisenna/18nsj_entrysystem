@@ -62,6 +62,7 @@ Route::middleware('auth')->group(function () {
         Route::get('schedule', [App\Http\Controllers\adminVolstaffController::class,'schedule'])->name('schedule');
         Route::post('schedule', [App\Http\Controllers\adminVolstaffController::class,'schedule'])->name('schedule');
         Route::get('car_info', [App\Http\Controllers\adminVolstaffController::class,'car_info'])->name('car_info');
+        Route::get('user_memo', [App\Http\Controllers\adminVolstaffController::class,'user_memo'])->name('user_memo');
         // Route::get('/', 'Admin\HomeController@index');
         // Route::resource('adminConfigs', App\Http\Controllers\AdminConfigController::class);
         // Route::resource('adminentries', App\Http\Controllers\adminentryFormController::class, ['except' => 'create']);
