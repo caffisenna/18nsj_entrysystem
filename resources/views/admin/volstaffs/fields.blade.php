@@ -41,8 +41,8 @@
     <div class="form-group col-sm-6">
         {!! Form::label('birthday', '生年月日:') !!}
         @if (isset($volstaff->birthday))
-            <input type="text" name="birthday" value="{{ old('birthday') ?? $volstaff->birthday->format('Y-m-d') }}"
-                class="form-control">
+            <input type="text" name="birthday"
+                value="{{ old('birthday') ?? $volstaff->birthday->format('Y-m-d') }}" class="form-control">
         @else
             <input type="text" name="birthday" value="" class="form-control">
         @endif
@@ -139,15 +139,28 @@
         @enderror
         <h4>参加日程をチェックしてください(部分参加の場合)</h4>
         @if (!empty($volstaff->join_days))
-            <label><input type="checkbox" name="join_days[]" value="8月3日" {{ preg_match('/8月3日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月3日(水)(事前準備)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月4日" {{ preg_match('/8月4日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月4日(木)(事前準備)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月5日" {{ preg_match('/8月5日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月5日(金)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月6日" {{ preg_match('/8月6日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月6日(土)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月7日" {{ preg_match('/8月7日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月7日(日)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月8日" {{ preg_match('/8月8日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月8日(月)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月9日" {{ preg_match('/8月9日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月9日(火)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月10日" {{ preg_match('/8月10日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月10日(水)</label><br>
-            <label><input type="checkbox" name="join_days[]" value="8月11日" {{ preg_match('/8月11日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月11日(木)(後片付け)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月3日"
+                    {{ preg_match('/8月3日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                8月3日(水)(事前準備)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月4日"
+                    {{ preg_match('/8月4日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                8月4日(木)(事前準備)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月5日"
+                    {{ preg_match('/8月5日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月5日(金)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月6日"
+                    {{ preg_match('/8月6日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月6日(土)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月7日"
+                    {{ preg_match('/8月7日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月7日(日)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月8日"
+                    {{ preg_match('/8月8日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月8日(月)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月9日"
+                    {{ preg_match('/8月9日/', $volstaff->join_days) ? 'checked="checked"' : '' }}> 8月9日(火)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月10日"
+                    {{ preg_match('/8月10日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                8月10日(水)</label><br>
+            <label><input type="checkbox" name="join_days[]" value="8月11日"
+                    {{ preg_match('/8月11日/', $volstaff->join_days) ? 'checked="checked"' : '' }}>
+                8月11日(木)(後片付け)</label><br>
         @else
             <label><input type="checkbox" name="join_days[]" value="8月3日"> 8月3日(水)(事前準備)</label><br>
             <label><input type="checkbox" name="join_days[]" value="8月4日"> 8月4日(木)(事前準備)</label><br>
@@ -176,7 +189,7 @@
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('job_department', '奉仕部署:') !!}
-        {!! Form::select('job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <!-- 大集会参加希望 Field -->
@@ -194,39 +207,39 @@
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice1_camp_area', 'キャンプ場(第1希望):') !!}
-        {!! Form::select('choice1_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice1_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice1_job_department', '奉仕部署(第1希望):') !!}
-        {!! Form::select('choice1_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice1_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <h4>第2希望</h4>
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice2_camp_area', 'キャンプ場(第2希望):') !!}
-        {!! Form::select('choice2_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice2_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice2_job_department', '奉仕部署(第2希望):') !!}
-        {!! Form::select('choice2_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice2_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <h4>第3希望</h4>
     <!-- Camp Area Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice3_camp_area', 'キャンプ場(第3希望):') !!}
-        {!! Form::select('choice3_camp_area', ['' => '', '大田ベース' => '大田ベース','八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice3_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('choice3_job_department', '奉仕部署(第3希望):') !!}
-        {!! Form::select('choice3_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('choice3_job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 </div>
 

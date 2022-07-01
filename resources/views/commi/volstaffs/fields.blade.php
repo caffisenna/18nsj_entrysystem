@@ -41,8 +41,8 @@
     <div class="form-group col-sm-6">
         {!! Form::label('birthday', '生年月日:') !!}
         @if (isset($volstaff->birthday))
-            <input type="text" name="birthday" value="{{ old('birthday') ?? $volstaff->birthday->format('Y-m-d') }}"
-                class="form-control">
+            <input type="text" name="birthday"
+                value="{{ old('birthday') ?? $volstaff->birthday->format('Y-m-d') }}" class="form-control">
         @else
             <input type="text" name="birthday" value="" class="form-control">
         @endif
@@ -151,10 +151,12 @@
             @endfor
         @else
             @for ($i = 29; $i <= 31; $i++)
-                <label><input type="checkbox" name="join_days[]" value="7月{{ $i }}日"> 7月{{ $i }}日</label><br>
+                <label><input type="checkbox" name="join_days[]" value="7月{{ $i }}日">
+                    7月{{ $i }}日</label><br>
             @endfor
             @for ($i = 1; $i <= 9; $i++)
-                <label><input type="checkbox" name="join_days[]" value="8月{{ $i }}日"> 8月{{ $i }}日</label><br>
+                <label><input type="checkbox" name="join_days[]" value="8月{{ $i }}日">
+                    8月{{ $i }}日</label><br>
             @endfor
         @endif
         @error('join_days')
@@ -174,7 +176,7 @@
     <!-- Job Department Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('job_department', '奉仕部署:') !!}
-        {!! Form::select('job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '生活' => '生活', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
+        {!! Form::select('job_department', ['' => '', 'プログラム' => 'プログラム', '安全・救護' => '安全・救護', '施設・配給' => '施設・配給', '総務' => '総務'], null, ['class' => 'form-control custom-select']) !!}
     </div>
 
     <!-- 大集会参加希望 Field -->
