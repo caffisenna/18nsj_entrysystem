@@ -195,7 +195,7 @@
         {!! Form::label('camp_area', 'キャンプ場(実行委員会で決定している方):') !!}
         {!! Form::label('camp_area', '日向野営場の募集は終了しました') !!}
         @if (isset($volstaff))
-            {!! Form::select('camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+            {!! Form::select('camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース'], null, ['class' => 'form-control custom-select']) !!}
         @else
             {!! Form::select('camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース'], null, ['class' => 'form-control custom-select']) !!}
         @endif
@@ -230,7 +230,7 @@
         {!! Form::label('choice1_camp_area', 'キャンプ場(第1希望):') !!}
         {!! Form::label('choice1_camp_area', '日向野営場の募集は終了しました') !!}
         @if (isset($volstaff))
-            {!! Form::select('choice1_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+            {!! Form::select('choice1_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース'], null, ['class' => 'form-control custom-select']) !!}
         @else
             {!! Form::select('choice1_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース'], null, ['class' => 'form-control custom-select']) !!}
         @endif
@@ -248,7 +248,7 @@
         {!! Form::label('choice2_camp_area', 'キャンプ場(第2希望):') !!}
         {!! Form::label('choice2_camp_area', '日向野営場の募集は終了しました') !!}
         @if (isset($volstaff))
-            {!! Form::select('choice2_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+            {!! Form::select('choice2_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース'], null, ['class' => 'form-control custom-select']) !!}
         @else
             {!! Form::select('choice2_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース'], null, ['class' => 'form-control custom-select']) !!}
         @endif
@@ -266,7 +266,7 @@
         {!! Form::label('choice3_camp_area', 'キャンプ場(第3希望):') !!}
         {!! Form::label('choice3_camp_area', '日向野営場の募集は終了しました') !!}
         @if (isset($volstaff))
-            {!! Form::select('choice3_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース', '日向野営場' => '日向野営場'], null, ['class' => 'form-control custom-select']) !!}
+            {!! Form::select('choice3_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース'], null, ['class' => 'form-control custom-select']) !!}
         @else
             {!! Form::select('choice3_camp_area', ['' => '', '大田ベース' => '大田ベース', '八王子ベース' => '八王子ベース'], null, ['class' => 'form-control custom-select']) !!}
         @endif
