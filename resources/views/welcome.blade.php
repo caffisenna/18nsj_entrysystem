@@ -539,6 +539,7 @@
                     <div class="uk-card uk-card-primary uk-card-body">
                         <h5 class="uk-card-title"><span uk-icon="icon:info; ratio:1"></span>NEWS</h5>
                         <ul class="uk-list">
+                            <li>2022/07/16 奉仕スタッフの三次申込を終了しました</li>
                             <li>2022/07/04 奉仕スタッフの三次申込を開始しました(7/15(金) 23:59まで)</li>
                             <li>2022/06/21 奉仕スタッフの二次申込を終了しました</li>
                             <li>2022/06/01 奉仕スタッフの二次申込を開始しました(6/20(月) 23:59まで)</li>
